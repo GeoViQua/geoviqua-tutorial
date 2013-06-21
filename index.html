@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>GeoViQua hands-on workshop: INSPIRE conference 2013</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--[if lt IE 9]>
+      <script src="js/html5.js"></script>
+    <![endif]-->
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootswatch.css" rel="stylesheet">
+  </head>
+
+  <body class="preview" id="top" data-spy="scroll" data-target=".subnav" data-offset="80">
+
+  <!-- Navbar
+    ================================================== -->
+ <div class="navbar navbar-fixed-top">
+   <div class="navbar-inner header">
+     <div class="container">
+       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </a>
+       <div class="nav-collapse collapse" id="main-menu">
+        <ul class="nav pull-right" id="main-menu-right">
+          <li><a rel="tooltip" target="_blank" href="http://www.geoviqua.org/" title="QUAlity aware VIsualization for the Global Earth Observation System of systems">Learn more at GeoViQua.org <i class="icon-share-alt"></i></a></li>
+        </ul>
+       </div>
+     </div>
+   </div>
+ </div>
+
+    <div class="container">
+
+
+<!-- Masthead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+  <div class="row">
+    <div class="span12">
+      <h2>GeoViQua Hands-On Workshop: INSPIRE Conference 2013</h2>
+      <p class="lead"><i class="icon-reply icon-2x icon-rotate-270 pull-left"></i>Click to begin transforming your own metadata with richer quality information.</p>
+    </div>
+  </div>
+  <div class="subnav">
+    <ul class="nav nav-pills">
+      <li><a href="#producer">1. The Producer Quality Model</a></li>
+      <li><a href="#user">2. The User Feedback Model</a></li>
+      <li><a href="#label">3. The GEO Label</a></li>
+    </ul>
+  </div>
+  <div class="row">
+    <div class="span4">
+      <img src="img/producer-hero.png" class="img-polaroid">
+    </div>
+    <div class="span4">
+      <img src="img/user-hero.png" class="img-polaroid">
+    </div>
+    <div class="span4">
+      <img src="img/label-hero.png" class="img-polaroid">
+    </div>
+  </div>
+</header>
+
+
+
+
+<!-- The Producer Quality Model
+================================================== -->
+<section id="producer">
+  <div class="page-header">
+    <h3>The Producer Quality Model</h3>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+      
+      <blockquote>
+      <p><i class="icon-quote-left icon-4x pull-left icon-muted"></i> The GeoViQua quality model allows ISO 19115/19139 to be extended with richer quality information, reference to publications and datasets and documentation of discovered issues with a dataset. In this first exercise, we are going to take a typical ISO producer metadata document, and extend it in just this way.</p>
+      </blockquote>
+
+      <br />
+
+      <h4 id="t1s1">Step 1: Find your document</h4>
+      <p>
+        We have supplied an  
+        <a title="Example ISO19139 metadata document" href="http://schemas.geoviqua.org/GVQ/4.0/example_documents/19139/DigitalClimaticAtlas19139.xml" target="_blank">example metadata document <i class="icon-external-link" style="text-decoration: none;"></i></a>
+        but you may have an example of your own which you would like to use. Locate your document and download it.
+      </p>
+
+      <br />
+
+      <h4 id="t1s2">Step 2: Transform your document to the new schema</h4>
+      <p>We have supplied an XSLT stylesheet which will allow you to transform a traditional document into a GeoViQua-compliant one.</p>
+
+      <br />
+
+      <div class="row">
+        <div class="tabbable span12">
+          <ul class="nav nav-tabs">
+            <li id="transform-tab" class="active"><a data-toggle="tab" href="#tabs1-pane1">Transform metadata XML document</a></li>
+            <li id="results-tab" class=""><a data-toggle="tab" href="#tabs1-pane2">View &amp; save result</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="tabs1-pane1" class="tab-pane active">
+              <form id="transform-form" class="form-horizontal" enctype="multipart/form-data" method="post" action="index.php/api/v1/geolabel/demo">
+                <fieldset>
+                  <div class="control-group">
+                    <label for="metadata" class="control-label">Select metadata document:</label>
+                    <div class="controls">
+                      <input type="file" name="metadata" class="input-file" id="metadata">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label"><b>OR</b></label>
+                  </div>
+                  <div class="control-group">
+                    <label for="metadata_url" class="control-label">Enter metadata URL location:</label>
+                    <div class="controls">
+                      <input type="text" name="metadata_url" placeholder="http://" class="input-xlarge" id="metadata_url">
+                    </div>
+                  </div>
+                  <div class="form-actions">
+                    <button class="btn btn-info submit" type="submit">Submit</button>
+                    <button class="btn" type="reset">Cancel</button>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+            <div id="tabs1-pane2" class="tab-pane">
+
+            </div>
+          </div><!-- /.tab-content -->
+        </div><!-- /.tabbable -->
+      </div>
+
+      <h4 id="t1s3">Step 3: Publish the metadata using a catalogue</h4>
+      <p>Metadata documents like this can be published in catalogues such as the GCI and retrieved using catalogue searches and brokering services. For the purposes of this demonstration, we will publish the metadata using the popular open-source Geonetwork software.</p>
+
+      <br />
+      <div class="row">
+        <div class="span8">
+          <p>
+            <i class="icon-info-sign icon-large pull-left"></i>
+            In your browser, go to <a href="http://uncertdata.aston.ac.uk:8080/geonetwork" target="_blank">http://uncertdata.aston.ac.uk:8080/geonetwork <i class="icon-external-link" style="text-decoration: none;"></i></a> and log in with the user name and password that you have been given. Go to the &lsquo;Administration&rsquo; panel and select &lsquo;Metadata insert&rsquo; to import your metadata.
+          </p>
+        </div>
+        <div class="span4">
+          <img src="img/tutorial/p1.png" class="img-polaroid" />
+        </div>
+      </div>
+
+      <br />
+      <div class="row">
+        <div class="span8">
+          <p>
+            <i class="icon-info-sign icon-large pull-left"></i>
+            Browse for the file and add it by clicking &lsquo;Insert&rsquo;.
+          </p>
+          <div class="alert alert-block">
+            <strong>Important:</strong> Make sure to specify that a new UUID should be generated.
+          </div>
+        </div>
+        <div class="span4">
+          <img src="img/tutorial/p2.png" class="img-polaroid" />
+        </div>
+      </div>
+
+      <br />
+      <div class="row">
+        <div class="span8">
+          <p>
+            <i class="icon-info-sign icon-large pull-left"></i>
+            If the insert was successful you will see the ID that your metadata has been published under in the catalogue.
+          </p>
+          <div class="alert alert-block">
+            <strong>Important:</strong> Keep a note of the ID under which your metadata is published, as you will need this later!
+          </div>
+        </div>
+        <div class="span4">
+          <img src="img/tutorial/p3.png" class="img-polaroid" />
+        </div>
+      </div>
+
+      <br />
+      <div class="row">
+        <div class="span8">
+          <p>
+            <i class="icon-info-sign icon-large pull-left"></i>
+            If you now select &lsquo;Metadata&rsquo; you will be able to view the imported document. It contains some detailed data quality information, among other things.
+          </p>
+        </div>
+        <div class="span4">
+          <img src="img/tutorial/p4.png" class="img-polaroid" />
+        </div>
+      </div>
+
+      <br />
+      <h4 id="t1s4">Step 4: Add some information to your document</h4>
+
+      <br />
+      <div class="row">
+        <div class="span8">
+          <p>
+            <i class="icon-info-sign icon-large pull-left"></i>
+            If you click &lsquo;Edit&rsquo; you will be able to add information to the new document. This view also allows you to see how the namespaces and elements have changed from a standard ISO document. For example, new elements such as  reference documents describing usage, evalulation or dataset generation are now possible.
+          </p>
+        </div>
+        <div class="span4">
+          <img src="img/tutorial/p5.png" class="img-polaroid" />
+        </div>
+      </div>
+
+      <br />
+      <div class="row">
+        <div class="span8">
+          <p>
+            <i class="icon-info-sign icon-large pull-left"></i>
+            The data quality reports have all been restructured to comply with the new ISO 19157 standard.
+          </p>
+        </div>
+        <div class="span4">
+          <img src="img/tutorial/p6.png" class="img-polaroid" />
+        </div>
+      </div>
+
+      <br />
+      <div class="row">
+        <div class="span8">
+          <p>
+            <i class="icon-info-sign icon-large pull-left"></i>
+            The identifiers have also been updated to include a code PLUS a codespace, for unique identification, as proposed for the latest version of ISO 19115.
+          </p>
+          <div class="alert alert-info">
+            If time allows, you can experiment with adding more of these elements, and save your changes.
+          </div>
+        </div>
+        <div class="span4">
+          <img src="img/tutorial/p7.png" class="img-polaroid" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+<!-- The User Feedback Model
+================================================== -->
+<section id="user">
+  <div class="page-header">
+    <h3>The User Feedback Model</h3>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+
+      <blockquote>
+      <p><i class="icon-quote-left icon-4x pull-left icon-muted"></i> GeoViQua offers a feedback server where users may record ratings, comments, reports of usage and citations for any datasets which have a unique identifier. In this way, user information about data can be harvested from one or many feedback servers, and combined with the producer metadata to give an up-to-date record of usage and of quality as assessed by other domain experts.</p>
+      </blockquote>
+
+      <br />
+
+      <h4 id="t2s1">Step 1: Generate your dataset identifier</h4>
+      <p>For the purposes of this demo, you can make up your own unique identifier – a combination of a codespace (e.g., &lsquo;<strong>lucy.bastin.org</strong>&rsquo;) and a code (e.g., &lsquo;<strong>dataset1</strong>&rsquo;). When you submit feedback using this combination, it will be submitted to the feedback server, from where it can be retrieved using these two fields.</p>
+      <div class="alert alert-block">
+        <strong>Important:</strong> Make a note of the code and codespace you decide on.
+      </div>
+
+      <br />
+
+      <h4 id="t2s2">Step 2: Submit some feedback</h4>
+
+      <p>
+        Use the form below to visit the feedback server, entering the code and codespace that you decided on in step 1.
+      </p>
+      <form action="" id="feedback-form1" class="well form-search feedback" target="_blank">
+          <input class="input-small" placeholder="Code" type="text" />
+          <input class="input-small" placeholder="Codespace" type="text" />
+          <button type="submit" class="btn">Go</button>
+      </form>
+      <div class="alert alert-info">
+        Alternatively, you can manually edit the URL below, replacing &lsquo;<strong>xx</strong>&rsquo; with the code and &lsquo;<strong>yyy</strong>&rsquo; with the codespace you chose: 
+        <br />
+        <a href="javascript:void(0)">https://geoviqua.stcorp.nl/submit_feedback.html?target_code=<strong>xx</strong>&amp;target_codespace=<strong>yyy</strong></a>
+      </div>
+
+      <br />
+      <div class="row">
+        <div class="span8">
+          <p>
+            <i class="icon-info-sign icon-large pull-left"></i>
+            Now you are creating a new feedback item. You can add ratings, information on why you chose that rating, etc.
+            For &lsquo;domainURN&rsquo; you can choose a meaningful term from a thesaurus such as GEMET (<a href="http://www.eionet.europa.eu/gemet/" target="_blank">http://www.eionet.europa.eu/gemet/ <i class="icon-external-link" style="text-decoration: none;"></i></a>), or in this quick demo, you can just make one up! In the example above, we chose <a href="http://www.eionet.europa.eu/gemet/concept/4118" target="_blank">http://www.eionet.europa.eu/gemet/concept/4118 <i class="icon-external-link" style="text-decoration: none;"></i></a> which maps to the &lsquo;water >hydrology&rsquo; concept. This can help others find feedback which is relevant to their specific field. Tags are also useful for this purpose.
+          </p>
+        </div>
+        <div class="span4">
+          <img src="img/tutorial/f1.png" class="img-polaroid" />
+        </div>
+      </div>
+
+      <br />
+      <div class="row">
+        <div class="span8">
+          <p>
+            <i class="icon-info-sign icon-large pull-left"></i>
+            On the next page, you can specify the type of resource on which you are commenting. In this case, it will be &lsquo;dataset&rsquo;. These choices are based on ISO scope code lists.
+          </p>
+        </div>
+        <div class="span4">
+          <img src="img/tutorial/f2.png" class="img-polaroid" />
+        </div>
+      </div>
+
+      <br />
+      <div class="row">
+        <div class="span8">
+          <p>
+            <i class="icon-info-sign icon-large pull-left"></i>
+            If you wish, you can submit information on ways in which you used the data, and whether you discovered any issues with it.
+          </p>
+        </div>
+        <div class="span4">
+          <img src="img/tutorial/f3.png" class="img-polaroid" />
+        </div>
+      </div>
+
+      <br />
+      <div class="row">
+        <div class="span8">
+          <p>
+            <i class="icon-info-sign icon-large pull-left"></i>
+            When you submit the feedback, you'll be prompted for a username and password. The username is <strong>inspire_user</strong>, and the password is <strong>Insp1357</strong>.
+          </p>
+        </div>
+        <div class="span4">
+          <img src="img/tutorial/f4.png" class="img-polaroid" />
+        </div>
+      </div>
+
+      <br />
+      <div class="row">
+        <div class="span8">
+          <p>
+            <i class="icon-info-sign icon-large pull-left"></i>
+            When the feedback is submitted, you'll see a link which leads to a summary of the feedback you submitted.
+          </p>
+        </div>
+        <div class="span4">
+          <img src="img/tutorial/f5.png" class="img-polaroid" />
+        </div>
+      </div>
+
+      <br />
+      <h4 id="t2s3">Step 3: Search for your feedback to make sure it's there!</h4>
+
+      <p>
+        Use the form below to retrieve a summary of your feedback from the server, entering your code and codespace if it's not already there.
+      </p>
+      <form action="" id="feedback-form2" class="well form-search feedback" target="_blank">
+          <input class="input-small" placeholder="Code" type="text" />
+          <input class="input-small" placeholder="Codespace" type="text" />
+          <button type="submit" class="btn">Go</button>
+      </form>
+      <div class="alert alert-info">
+        Alternatively, you can manually edit the URL below, replacing &lsquo;<strong>xx</strong>&rsquo; with your code and &lsquo;<strong>yyy</strong>&rsquo; with your codespace: 
+        <br />
+        <a href="javascript:void(0)">https://geoviqua.stcorp.nl/api/v1/feedback/items/search?format=xml&amp;target_codespace=<strong>yyy</strong>&amp;target_code=<strong>xx</strong></a>
+      </div>
+
+      <br />
+      <div class="row">
+        <div class="span8">
+          <p>
+            <i class="icon-info-sign icon-large pull-left"></i>
+            This will show an aggregation of your feedback items, with an average rating and a count.
+          </p>
+        </div>
+        <div class="span4">
+          <img src="img/tutorial/f6.png" class="img-polaroid" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+
+<!-- The GEO Label
+================================================== -->
+<section id="label">
+  <div class="page-header">
+    <h3>The GEO Label</h3>
+  </div>
+
+  <div class="row">
+    <div class="span8">
+      <blockquote>
+        <p><i class="icon-quote-left icon-4x pull-left icon-muted"></i> The GEO label is a quick way to assess and interrogate the metadata that's available for a dataset, by pulling together producer documents and user feedback into a simple, clickable symbol.</p>
+        <br />
+        <p>The GEOlabel has 8 facets, and each will be coloured only if that type of information is available. A quick summary of what’s available can be obtained by hovering over the facet.</p>
+      </blockquote>
+    </div>
+      <div class="span4">
+        <img src="img/tutorial/g1.png" class="img-polaroid" />
+      </div>
+  </div>
+
+  <br />
+  <div class="row">
+    <div class="span8">
+      <p>
+        <i class="icon-info-sign icon-large pull-left"></i>
+        Clicking on a coloured facet will show the retrieved information: for example, here, the recorded citations for a dataset are listed.
+      </p>
+    </div>
+    <div class="span4">
+      <img src="img/tutorial/g3.png" class="img-polaroid" />
+    </div>
+  </div>
+
+  <br />
+  <h4 id="t3s1">Step 1: See a GEO label for our example documents</h4>
+
+  <div class="row">
+    <div class="span8">
+      <p>
+        <i class="icon-info-sign icon-large pull-left"></i>
+        In your browser, go to <a href="http://uncertgeo.aston.ac.uk/geolabel/silex/web/geolabel.html" target="_blank">http://uncertgeo.aston.ac.uk/geolabel/silex/web/geolabel.html <i class="icon-external-link" style="text-decoration: none;"></i></a>
+        <br />
+        Select the tab &lsquo;Example metadata documents&rsquo;, select the documents as shown in the image below, and click &lsquo;Submit&rsquo;. There will probably be a short delay: in this time, the GEO label service is retrieving the producer document, but also querying the feedback service, and aggregating all the results.
+      </p>
+      <div class="alert alert-info">
+        When the GEO label is returned, hover over its facets to find out more about the available information, and click on them to find out more.
+      </div>
+    </div>
+    <div class="span4">
+      <img src="img/tutorial/g2.png" class="img-polaroid" />
+    </div>
+  </div>
+
+  <br />
+  <h4 id="t3s2">Step 2: Construct a GEO label from your own documents and feedback</h4>
+
+  <p>You can also specify your own URLs, codes and codespaces, or even upload a local document, using the different tabs. You can now build your own GEO label from the producer document you published in <a class="smooth" href="#producer">tutorial 1</a> and the feedback you generated in <a class="smooth" href="#user">tutorial 2</a>.</p>
+
+  <br />
+  <div class="row">
+    <div class="span8">
+      <p>
+        <i class="icon-info-sign icon-large pull-left"></i>
+        First, generate the URL for your metadata document. This can be the URL of a traditional ISO document, e.g. <a href="" target="_blank">EXAMPLE DOCUMENT MISSING <i class="icon-external-link" style="text-decoration: none;"></i></a>
+        <br /><br />
+        Or it can be a query to retrieve the GeoViQua compliant document from GeoNetwork, e.g. <a href="javascript:void(0)">http://uncertdata.aston.ac.uk:8080/geonetwork/srv/eng/xml_geoviqua?id=<strong>YOURDATSETID</strong>&amp;styleSheet=xml_iso19139.geoviqua.xsl</a> 
+        <div class="alert alert-info">
+          Replace &lsquo;<strong>YOURDATASETID</strong>&rsquo; with the numeric ID that you recorded in <a class="smooth" href="#t1s3">step 3</a> of tutorial 1.
+        </div>
+      </p>
+      <p>
+        <i class="icon-info-sign icon-large pull-left"></i>
+        Paste this URL into the top text box on the &lsquo;Enter metadata URL location&rsquo; tab at <a href="http://uncertgeo.aston.ac.uk/geolabel/silex/web/geolabel.html" target="_blank">http://uncertgeo.aston.ac.uk/geolabel/silex/web/geolabel.html <i class="icon-external-link" style="text-decoration: none;"></i></a> and supply your own code and codespace values from <a class="smooth" href="#t2s1">step 1</a> of tutorial 2.
+      </p>
+      <p>
+        <i class="icon-info-sign icon-large pull-left"></i>
+        Now click &lsquo;Submit&rsquo; and you should get your very own GEO label! Explore and experiment to see how different labels are returned from different datasets.
+      </p>
+    </div>
+    <div class="span4">
+      <img src="img/tutorial/g4.png" class="img-polaroid" />
+    </div>
+  </div>
+
+
+</section>
+
+<br><br><br><br>
+
+     <!-- Footer
+      ================================================== -->
+      <hr>
+
+      <footer id="footer">
+        <p class="pull-right"><a href="#top">Back to top</a></p>
+        <div class="links">
+          <a href="javascript:void(0)">Links</a>
+          <a href="javascript:void(0)">Go</a>
+          <a href="javascript:void(0)">Here</a>
+          <a href="http://inspire.jrc.ec.europa.eu/events/conferences/inspire_2013/" target="_blank">INSPIRE Conference 2013</a>
+        </div>
+        Credits, thanks, general information etc.</p>
+      </footer>
+
+    </div><!-- /container -->
+
+    <div><img src="img/inspire_footer.png" /></div>
+
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.smooth-scroll.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+
+  </body>
+</html>

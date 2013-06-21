@@ -1,0 +1,688 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<gvq:GVQ_Metadata xmlns:updated19115="http://www.geoviqua.org/19115_updates"
+                  xmlns:gmx="http://www.isotc211.org/2005/gmx"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:gmd="http://www.isotc211.org/2005/gmd"
+                  xmlns:gco="http://www.isotc211.org/2005/gco"
+                  xmlns:gvq="http://www.geoviqua.org/QualityInformationModel/4.0"
+                  xmlns:gml="http://www.opengis.net/gml/3.2"
+                  xmlns:gmd19157="http://www.geoviqua.org/gmd19157"
+                  xmlns:un="http://www.uncertml.org/2.0"
+                  xsi:schemaLocation="http://www.geoviqua.org/QualityInformationModel/4.0 http://schemas.geoviqua.org/GVQ/4.0/GeoViQua_PQM_UQM.xsd http://www.uncertml.org/2.0 http://www.uncertml.org/uncertml.xsd">
+   <gmd:fileIdentifier>
+      <gco:CharacterString>C28A5706-AA1C-429A-9370-D65815DD4280</gco:CharacterString>
+  </gmd:fileIdentifier>
+   <gmd:language>
+      <gmd:LanguageCode codeListValue="ger"
+                        codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#LanguageCode">ger</gmd:LanguageCode>
+  </gmd:language>
+   <gmd:characterSet/>
+   <gmd:hierarchyLevel>
+      <gmd:MD_ScopeCode codeListValue="dataset"
+                        codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_ScopeCode">dataset</gmd:MD_ScopeCode>
+  </gmd:hierarchyLevel>
+   <gmd:hierarchyLevelName>
+      <gco:CharacterString>WIBAS-OK Nr. 7.1.1.2</gco:CharacterString>
+  </gmd:hierarchyLevelName>
+   <gmd:contact>
+      <gmd:CI_ResponsibleParty>
+         <gmd:individualName>
+            <gco:CharacterString>Walter Deutschle</gco:CharacterString>
+         </gmd:individualName>
+         <gmd:organisationName>
+            <gco:CharacterString>Landesstelle für Straßentechnik, Regierungspräsidium Tübingen</gco:CharacterString>
+         </gmd:organisationName>
+         <gmd:positionName>
+            <gco:CharacterString>-</gco:CharacterString>
+         </gmd:positionName>
+         <gmd:contactInfo>
+            <gmd:CI_Contact>
+               <gmd:phone>
+                  <gmd:CI_Telephone>
+                     <gmd:voice>
+                        <gco:CharacterString>0711 8910 327</gco:CharacterString>
+                     </gmd:voice>
+                     <gmd:facsimile>
+                        <gco:CharacterString>-</gco:CharacterString>
+                     </gmd:facsimile>
+                  </gmd:CI_Telephone>
+               </gmd:phone>
+               <gmd:address>
+                  <gmd:CI_Address>
+                     <gmd:deliveryPoint>
+                        <gco:CharacterString>Heilbronner Straße 300-302</gco:CharacterString>
+                     </gmd:deliveryPoint>
+                     <gmd:city>
+                        <gco:CharacterString>Stuttgart</gco:CharacterString>
+                     </gmd:city>
+                     <gmd:administrativeArea>
+                        <gco:CharacterString>Baden-Württemberg</gco:CharacterString>
+                     </gmd:administrativeArea>
+                     <gmd:postalCode>
+                        <gco:CharacterString>70469</gco:CharacterString>
+                     </gmd:postalCode>
+                     <gmd:country>
+                        <gco:CharacterString>Germany</gco:CharacterString>
+                     </gmd:country>
+                     <gmd:electronicMailAddress>
+                        <gco:CharacterString>Walter.deutschle@rpt.bwl.de</gco:CharacterString>
+                     </gmd:electronicMailAddress>
+                  </gmd:CI_Address>
+               </gmd:address>
+            </gmd:CI_Contact>
+         </gmd:contactInfo>
+         <gmd:role>
+            <gmd:CI_RoleCode codeListValue="pointOfContact"
+                             codeList="http://www.isotc211.org/2005/resources/codeList.xml#CI_RoleCode">pointOfContact</gmd:CI_RoleCode>
+         </gmd:role>
+      </gmd:CI_ResponsibleParty>
+  </gmd:contact>
+   <gmd:dateStamp>
+      <gco:DateTime>2011-03-18T10:37:10.031</gco:DateTime>
+  </gmd:dateStamp>
+   <gmd:metadataStandardName>
+      <gco:CharacterString>ISO 19115:2003 (GDI-BW 1.1) RIPS-Profil</gco:CharacterString>
+  </gmd:metadataStandardName>
+   <gmd:metadataStandardVersion>
+      <gco:CharacterString>1.3</gco:CharacterString>
+  </gmd:metadataStandardVersion>
+   <gmd:dataSetURI>
+      <gco:CharacterString>http://dvz.lubw.bwl.de/dienstvz/alias.cweb?repositoryId=wibasok_report_langfassung&amp;value=7.1.1.2</gco:CharacterString>
+  </gmd:dataSetURI>
+   <gmd:referenceSystemInfo>
+      <gmd:MD_ReferenceSystem>
+         <gmd:referenceSystemIdentifier>
+            <gmd:RS_Identifier>
+               <gmd:code>
+                  <gco:CharacterString>EPSG 31467 (DHDN / Gauss-Krüger Zone 3)</gco:CharacterString>
+               </gmd:code>
+               <gmd:codeSpace>
+                  <gco:CharacterString>EPSG</gco:CharacterString>
+               </gmd:codeSpace>
+            </gmd:RS_Identifier>
+         </gmd:referenceSystemIdentifier>
+      </gmd:MD_ReferenceSystem>
+  </gmd:referenceSystemInfo>
+   <gmd:identificationInfo>
+      <gvq:GVQ_DataIdentification>
+         <gmd:citation>
+            <gmd:CI_Citation>
+               <gmd:title>
+                  <gco:CharacterString>Straßennetz (Abschnitt, Ast)</gco:CharacterString>
+               </gmd:title>
+               <gmd:alternateTitle>
+                  <gco:CharacterString>Str_netz</gco:CharacterString>
+               </gmd:alternateTitle>
+               <gmd:date>
+                  <gmd:CI_Date>
+                     <gmd:date>
+                        <gco:Date>2010-05-10</gco:Date>
+                     </gmd:date>
+                     <gmd:dateType>
+                        <gmd:CI_DateTypeCode codeListValue="creation"
+                                             codeList="http://www.isotc211.org/2005/resources/codeList.xml#CI_DateTypeCode">creation</gmd:CI_DateTypeCode>
+                     </gmd:dateType>
+                  </gmd:CI_Date>
+               </gmd:date>
+               <gmd:identifier>
+                  <updated19115:MD_Identifier>
+                     <gmd:code>
+                        <gco:CharacterString>01025700001</gco:CharacterString>
+                     </gmd:code>
+                     <updated19115:codeSpace gco:nilReason="missing">
+                        <gco:CharacterString/>
+                     </updated19115:codeSpace>
+                  </updated19115:MD_Identifier>
+               </gmd:identifier>
+            </gmd:CI_Citation>
+         </gmd:citation>
+         <gmd:abstract>
+            <gco:CharacterString>Als Straßen gelten befestigte, dem allgemeinen Verkehr dienende Verkehrswege. Die Straße umfasst den Straßenkörper einschließlich der in Unterführungen (im Tunnel) verlaufenden Abschnitte. Enthalten ist das klassifizierte überörtliche Straßennetz mit einer vollständige Erfassung der Bundesautobahnen, Bundesstraßen, Land(es)- bzw. Staatsstraßen und Kreisstraßen, ohne Gemeindestraßen.</gco:CharacterString>
+         </gmd:abstract>
+         <gmd:purpose>
+            <gco:CharacterString>-</gco:CharacterString>
+         </gmd:purpose>
+         <gmd:status>
+            <gmd:MD_ProgressCode codeListValue="onGoing"
+                                 codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_ProgressCode">onGoing</gmd:MD_ProgressCode>
+         </gmd:status>
+         <gmd:pointOfContact>
+            <gmd:CI_ResponsibleParty>
+               <gmd:individualName>
+                  <gco:CharacterString>Walter Deutschle</gco:CharacterString>
+               </gmd:individualName>
+               <gmd:organisationName>
+                  <gco:CharacterString>Landesstelle für Straßentechnik, Regierungspräsidium Tübingen</gco:CharacterString>
+               </gmd:organisationName>
+               <gmd:positionName>
+                  <gco:CharacterString>-</gco:CharacterString>
+               </gmd:positionName>
+               <gmd:contactInfo>
+                  <gmd:CI_Contact>
+                     <gmd:phone>
+                        <gmd:CI_Telephone>
+                           <gmd:voice>
+                              <gco:CharacterString>0711 8910 327</gco:CharacterString>
+                           </gmd:voice>
+                           <gmd:facsimile>
+                              <gco:CharacterString>-</gco:CharacterString>
+                           </gmd:facsimile>
+                        </gmd:CI_Telephone>
+                     </gmd:phone>
+                     <gmd:address>
+                        <gmd:CI_Address>
+                           <gmd:deliveryPoint>
+                              <gco:CharacterString>Heilbronner Straße 300-302</gco:CharacterString>
+                           </gmd:deliveryPoint>
+                           <gmd:city>
+                              <gco:CharacterString>Stuttgart</gco:CharacterString>
+                           </gmd:city>
+                           <gmd:administrativeArea>
+                              <gco:CharacterString>Baden-Württemberg</gco:CharacterString>
+                           </gmd:administrativeArea>
+                           <gmd:postalCode>
+                              <gco:CharacterString>70469</gco:CharacterString>
+                           </gmd:postalCode>
+                           <gmd:country>
+                              <gco:CharacterString>Germany</gco:CharacterString>
+                           </gmd:country>
+                           <gmd:electronicMailAddress>
+                              <gco:CharacterString>Walter.deutschle@rpt.bwl.de</gco:CharacterString>
+                           </gmd:electronicMailAddress>
+                        </gmd:CI_Address>
+                     </gmd:address>
+                  </gmd:CI_Contact>
+               </gmd:contactInfo>
+               <gmd:role>
+                  <gmd:CI_RoleCode codeListValue="pointOfContact"
+                                   codeList="http://www.isotc211.org/2005/resources/codeList.xml#CI_RoleCode">pointOfContact</gmd:CI_RoleCode>
+               </gmd:role>
+            </gmd:CI_ResponsibleParty>
+         </gmd:pointOfContact>
+         <gmd:resourceMaintenance>
+            <gmd:MD_MaintenanceInformation>
+               <gmd:maintenanceAndUpdateFrequency>
+                  <gmd:MD_MaintenanceFrequencyCode codeListValue="continual"
+                                                   codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_MaintenanceFrequencyCode">continual</gmd:MD_MaintenanceFrequencyCode>
+               </gmd:maintenanceAndUpdateFrequency>
+            </gmd:MD_MaintenanceInformation>
+         </gmd:resourceMaintenance>
+         <gmd:resourceFormat>
+            <gmd:MD_Format>
+               <gmd:name>
+                  <gco:CharacterString>ESRI Shape, Oracle Locator</gco:CharacterString>
+               </gmd:name>
+               <gmd:version>
+                  <gco:CharacterString>-</gco:CharacterString>
+               </gmd:version>
+            </gmd:MD_Format>
+         </gmd:resourceFormat>
+         <gmd:descriptiveKeywords>
+            <gmd:MD_Keywords>
+               <gmd:keyword>
+                  <gco:CharacterString>Strasse</gco:CharacterString>
+               </gmd:keyword>
+               <gmd:thesaurusName>
+                  <gmd:CI_Citation>
+                     <gmd:title>
+                        <gco:CharacterString>GEMET Themes, version 2.3</gco:CharacterString>
+                     </gmd:title>
+                     <gmd:date>
+                        <gmd:CI_Date>
+                           <gmd:date>
+                              <gco:Date>2011-03-30</gco:Date>
+                           </gmd:date>
+                           <gmd:dateType>
+                              <gmd:CI_DateTypeCode codeListValue="publication"
+                                                   codeList="http://www.isotc211.org/2005/resources/codeList.xml#CI_DateTypeCode">publication</gmd:CI_DateTypeCode>
+                           </gmd:dateType>
+                        </gmd:CI_Date>
+                     </gmd:date>
+                  </gmd:CI_Citation>
+               </gmd:thesaurusName>
+            </gmd:MD_Keywords>
+            <gmd:MD_Keywords>
+               <gmd:keyword>
+                  <gco:CharacterString>Verkehr</gco:CharacterString>
+               </gmd:keyword>
+               <gmd:thesaurusName>
+                  <gmd:CI_Citation>
+                     <gmd:title>
+                        <gco:CharacterString>GEMET Themes, version 2.3</gco:CharacterString>
+                     </gmd:title>
+                     <gmd:date>
+                        <gmd:CI_Date>
+                           <gmd:date>
+                              <gco:Date>2011-03-30</gco:Date>
+                           </gmd:date>
+                           <gmd:dateType>
+                              <gmd:CI_DateTypeCode codeListValue="publication"
+                                                   codeList="http://www.isotc211.org/2005/resources/codeList.xml#CI_DateTypeCode">publication</gmd:CI_DateTypeCode>
+                           </gmd:dateType>
+                        </gmd:CI_Date>
+                     </gmd:date>
+                  </gmd:CI_Citation>
+               </gmd:thesaurusName>
+            </gmd:MD_Keywords>
+            <gmd:MD_Keywords>
+               <gmd:keyword>
+                  <gco:CharacterString>Verkehrsnetz</gco:CharacterString>
+               </gmd:keyword>
+               <gmd:thesaurusName>
+                  <gmd:CI_Citation>
+                     <gmd:title>
+                        <gco:CharacterString>GEMET - INSPIRE themes</gco:CharacterString>
+                     </gmd:title>
+                     <gmd:date>
+                        <gmd:CI_Date>
+                           <gmd:date>
+                              <gco:Date>2008-06-01</gco:Date>
+                           </gmd:date>
+                           <gmd:dateType>
+                              <gmd:CI_DateTypeCode codeListValue="publication"
+                                                   codeList="http://www.isotc211.org/2005/resources/codeList.xml#CI_DateTypeCode">publication</gmd:CI_DateTypeCode>
+                           </gmd:dateType>
+                        </gmd:CI_Date>
+                     </gmd:date>
+                  </gmd:CI_Citation>
+               </gmd:thesaurusName>
+            </gmd:MD_Keywords>
+         </gmd:descriptiveKeywords>
+         <gmd:resourceConstraints>
+            <gmd:MD_Constraints>
+               <gmd:useLimitation>
+                  <gco:CharacterString>Ohne Gemeindestraßen.</gco:CharacterString>
+               </gmd:useLimitation>
+            </gmd:MD_Constraints>
+            <gmd:MD_LegalConstraints>
+               <gmd:useLimitation>
+                  <gco:CharacterString>-</gco:CharacterString>
+               </gmd:useLimitation>
+               <gmd:accessConstraints>
+                  <gmd:MD_RestrictionCode codeListValue="restricted"
+                                          codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_RestrictionCode">restricted</gmd:MD_RestrictionCode>
+               </gmd:accessConstraints>
+               <gmd:useConstraints>
+                  <gmd:MD_RestrictionCode codeListValue="copyright"
+                                          codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_RestrictionCode">copyright</gmd:MD_RestrictionCode>
+               </gmd:useConstraints>
+            </gmd:MD_LegalConstraints>
+            <gmd:MD_SecurityConstraints>
+               <gmd:useLimitation>
+                  <gco:CharacterString>-</gco:CharacterString>
+               </gmd:useLimitation>
+               <gmd:classification>
+                  <gmd:MD_ClassificationCode codeListValue="unclassified"
+                                             codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_ClassificationCode">unclassified</gmd:MD_ClassificationCode>
+               </gmd:classification>
+            </gmd:MD_SecurityConstraints>
+         </gmd:resourceConstraints>
+         <gmd:spatialRepresentationType>
+            <gmd:MD_SpatialRepresentationTypeCode codeListValue="vector"
+                                                  codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_SpatialRepresentationTypeCode">vector</gmd:MD_SpatialRepresentationTypeCode>
+         </gmd:spatialRepresentationType>
+         <gmd:spatialResolution>
+            <gmd:MD_Resolution>
+               <gmd:equivalentScale>
+                  <gmd:MD_RepresentativeFraction>
+                     <gmd:denominator>
+                        <gco:Integer>10000</gco:Integer>
+                     </gmd:denominator>
+                  </gmd:MD_RepresentativeFraction>
+               </gmd:equivalentScale>
+               <gmd:distance>
+                  <gco:Distance/>
+               </gmd:distance>
+            </gmd:MD_Resolution>
+         </gmd:spatialResolution>
+         <gmd:language>
+            <gmd:LanguageCode codeListValue="ger"
+                              codeList="http://www.isotc211.org/2005/resources/codeList.xml#LanguageCode">ger</gmd:LanguageCode>
+         </gmd:language>
+         <gmd:characterSet>
+            <gmd:MD_CharacterSetCode codeListValue="8859part1"
+                                     codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_CharacterSetCode">8859part1</gmd:MD_CharacterSetCode>
+         </gmd:characterSet>
+         <gmd:topicCategory>
+            <gmd:MD_TopicCategoryCode>transportation</gmd:MD_TopicCategoryCode>
+         </gmd:topicCategory>
+         <gmd:environmentDescription>
+            <gco:CharacterString>Straßeninformationsbank Baden-Württemberg (SIB) (SIB)</gco:CharacterString>
+         </gmd:environmentDescription>
+         <gmd:extent>
+            <gmd:EX_Extent>
+               <gmd:geographicElement>
+                  <gmd:EX_GeographicBoundingBox>
+                     <gmd:extentTypeCode>
+                        <gco:Boolean>false</gco:Boolean>
+                     </gmd:extentTypeCode>
+                     <gmd:westBoundLongitude>
+                        <gco:Decimal>7.5</gco:Decimal>
+                     </gmd:westBoundLongitude>
+                     <gmd:eastBoundLongitude>
+                        <gco:Decimal>9.3</gco:Decimal>
+                     </gmd:eastBoundLongitude>
+                     <gmd:southBoundLatitude>
+                        <gco:Decimal>47.5</gco:Decimal>
+                     </gmd:southBoundLatitude>
+                     <gmd:northBoundLatitude>
+                        <gco:Decimal>49</gco:Decimal>
+                     </gmd:northBoundLatitude>
+                  </gmd:EX_GeographicBoundingBox>
+               </gmd:geographicElement>
+               <gmd:temporalElement>
+                  <gmd:EX_TemporalExtent>
+                     <gmd:extent>
+                        <gml:TimePeriod gml:id="w115aaac11ac15ab1aaa" frame="">
+                           <gml:beginPosition>1999-09-09T23:23:23</gml:beginPosition>
+                        </gml:TimePeriod>
+                     </gmd:extent>
+                  </gmd:EX_TemporalExtent>
+               </gmd:temporalElement>
+               <gmd:verticalElement>
+                  <gmd:EX_VerticalExtent>
+                     <gmd:minimumValue>
+                        <gco:Real>0.0</gco:Real>
+                     </gmd:minimumValue>
+                     <gmd:maximumValue>
+                        <gco:Real>0.0</gco:Real>
+                     </gmd:maximumValue>
+                     <gmd:verticalCRS>
+                        <gml:VerticalCRS gml:id="ID_1">
+                           <gml:identifier codeSpace="http://www.isotc211.org/2005">-</gml:identifier>
+                           <gml:scope>String</gml:scope>
+                           <gml:usesVerticalCS xlink:type="simple"/>
+                           <gml:usesVerticalDatum xlink:type="simple"/>
+                        </gml:VerticalCRS>
+                     </gmd:verticalCRS>
+                  </gmd:EX_VerticalExtent>
+               </gmd:verticalElement>
+            </gmd:EX_Extent>
+         </gmd:extent>
+         <gmd:supplementalInformation>
+            <gco:CharacterString>-</gco:CharacterString>
+         </gmd:supplementalInformation>
+         <gvq:referenceDoc>
+            <gvq:GVQ_Publication>
+               <gmd:title gco:nilReason="missing">
+                  <gco:CharacterString/>
+               </gmd:title>
+               <gmd:date>
+                  <gmd:CI_Date>
+                     <gmd:date>
+                        <gco:Date>1900</gco:Date>
+                     </gmd:date>
+                     <gmd:dateType>
+                        <gmd:CI_DateTypeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#CI_DateTypeCode"
+                                             codeListValue=""/>
+                     </gmd:dateType>
+                  </gmd:CI_Date>
+               </gmd:date>
+               <gmd:citedResponsibleParty xlink:href="#"/>
+               <gmd:series>
+                  <gmd:CI_Series>
+                     <gmd:name gco:nilReason="missing">
+                        <gco:CharacterString/>
+                     </gmd:name>
+                     <gmd:issueIdentification gco:nilReason="missing">
+                        <gco:CharacterString/>
+                     </gmd:issueIdentification>
+                     <gmd:page gco:nilReason="missing">
+                        <gco:CharacterString/>
+                     </gmd:page>
+                  </gmd:CI_Series>
+               </gmd:series>
+               <gmd:ISSN gco:nilReason="missing">
+                  <gco:CharacterString/>
+               </gmd:ISSN>
+               <gvq:target xlink:href="#"/>
+               <gvq:doi gco:nilReason="missing">
+                  <gco:CharacterString/>
+               </gvq:doi>
+               <gvq:purpose>
+                  <gvq:GVQ_PublicationPurposeCode codeList="http://schemas.geoviqua.org/GVQ/4.0/resources/Codelist/gvqCodelists.xml#GVQ_PublicationPurposeCode"
+                                                  codeListValue=""/>
+               </gvq:purpose>
+               <gvq:scope xlink:href="#"/>
+               <gvq:category>
+                  <gvq:GVQ_PublicationCategoryCode codeList="http://schemas.geoviqua.org/GVQ/4.0/resources/Codelist/gvqCodelists.xml#GVQ_PublicationCategoryCode"
+                                                   codeListValue=""/>
+               </gvq:category>
+               <gvq:onlineResource>
+                  <gmd:CI_OnlineResource>
+                     <gmd:linkage>
+                        <gmd:URL/>
+                     </gmd:linkage>
+                  </gmd:CI_OnlineResource>
+               </gvq:onlineResource>
+            </gvq:GVQ_Publication>
+         </gvq:referenceDoc>
+      </gvq:GVQ_DataIdentification>
+  </gmd:identificationInfo>
+   <gmd:distributionInfo>
+      <gmd:MD_Distribution>
+         <gmd:distributionFormat>
+            <gmd:MD_Format>
+               <gmd:name>
+                  <gco:CharacterString>ESRI Shape (ArcView), Oracle Locator</gco:CharacterString>
+               </gmd:name>
+               <gmd:version>
+                  <gco:CharacterString>-</gco:CharacterString>
+               </gmd:version>
+            </gmd:MD_Format>
+         </gmd:distributionFormat>
+         <gmd:distributor>
+            <gmd:MD_Distributor>
+               <gmd:distributorContact>
+                  <gmd:CI_ResponsibleParty>
+                     <gmd:individualName>
+                        <gco:CharacterString>Walter Deutschle</gco:CharacterString>
+                     </gmd:individualName>
+                     <gmd:organisationName>
+                        <gco:CharacterString>Landesstelle für Straßentechnik, Regierungspräsidium Tübingen</gco:CharacterString>
+                     </gmd:organisationName>
+                     <gmd:positionName>
+                        <gco:CharacterString>-</gco:CharacterString>
+                     </gmd:positionName>
+                     <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                           <gmd:phone>
+                              <gmd:CI_Telephone>
+                                 <gmd:voice>
+                                    <gco:CharacterString>0711 8910 327</gco:CharacterString>
+                                 </gmd:voice>
+                                 <gmd:facsimile>
+                                    <gco:CharacterString>-</gco:CharacterString>
+                                 </gmd:facsimile>
+                              </gmd:CI_Telephone>
+                           </gmd:phone>
+                           <gmd:address>
+                              <gmd:CI_Address>
+                                 <gmd:deliveryPoint>
+                                    <gco:CharacterString>Heilbronner Straße 300-302</gco:CharacterString>
+                                 </gmd:deliveryPoint>
+                                 <gmd:city>
+                                    <gco:CharacterString>Stuttgart</gco:CharacterString>
+                                 </gmd:city>
+                                 <gmd:administrativeArea>
+                                    <gco:CharacterString>Baden-Württemberg</gco:CharacterString>
+                                 </gmd:administrativeArea>
+                                 <gmd:postalCode>
+                                    <gco:CharacterString>70469</gco:CharacterString>
+                                 </gmd:postalCode>
+                                 <gmd:country>
+                                    <gco:CharacterString>Germany</gco:CharacterString>
+                                 </gmd:country>
+                                 <gmd:electronicMailAddress>
+                                    <gco:CharacterString>Walter.deutschle@rpt.bwl.de</gco:CharacterString>
+                                 </gmd:electronicMailAddress>
+                              </gmd:CI_Address>
+                           </gmd:address>
+                        </gmd:CI_Contact>
+                     </gmd:contactInfo>
+                     <gmd:role>
+                        <gmd:CI_RoleCode codeListValue="pointOfContact"
+                                         codeList="http://www.isotc211.org/2005/resources/codeList.xml#CI_RoleCode">pointOfContact</gmd:CI_RoleCode>
+                     </gmd:role>
+                  </gmd:CI_ResponsibleParty>
+               </gmd:distributorContact>
+               <gmd:distributionOrderProcess>
+                  <gmd:MD_StandardOrderProcess>
+                     <gmd:fees>
+                        <gco:CharacterString>kostenlos bzw. nach Bereitstellungsaufwand</gco:CharacterString>
+                     </gmd:fees>
+                     <gmd:orderingInstructions>
+                        <gco:CharacterString>Datenabgabe an Dritte (z.B. Ing.-Büros, Unis, Verbände) erfolgt über Regierungspräsidien, Landratsämter und Bürgermeisterämter der Stadtkreise. Kreisübergreifend können die Geodaten auch über die Landesanstalt für Umwelt, Messungen und Naturschutz Baden-Württemberg (LUBW) bezogen werden.</gco:CharacterString>
+                     </gmd:orderingInstructions>
+                  </gmd:MD_StandardOrderProcess>
+               </gmd:distributionOrderProcess>
+            </gmd:MD_Distributor>
+         </gmd:distributor>
+         <gmd:transferOptions>
+            <gmd:MD_DigitalTransferOptions>
+               <gmd:unitsOfDistribution>
+                  <gco:CharacterString>landesweit oder kreisweise</gco:CharacterString>
+               </gmd:unitsOfDistribution>
+               <gmd:transferSize>
+                  <gco:Real>0.12345</gco:Real>
+               </gmd:transferSize>
+            </gmd:MD_DigitalTransferOptions>
+         </gmd:transferOptions>
+      </gmd:MD_Distribution>
+  </gmd:distributionInfo>
+   <gmd:describes>
+      <gmx:MX_DataSet>
+         <gmd:has xlink:href="#"/>
+         <gmx:dataFile>
+            <gmx:MX_DataFile>
+               <gmx:fileName>
+                  <gmx:FileName/>
+               </gmx:fileName>
+               <gmx:fileDescription gco:nilReason="missing">
+                  <gco:CharacterString/>
+               </gmx:fileDescription>
+               <gmx:fileType>
+                  <gmx:MimeFileType type=""/>
+               </gmx:fileType>
+               <gmx:featureTypes gco:nilReason="missing">
+                  <gco:LocalName/>
+               </gmx:featureTypes>
+               <gmx:fileFormat>
+                  <gmd:MD_Format>
+                     <gmd:name gco:nilReason="missing">
+                        <gco:CharacterString/>
+                     </gmd:name>
+                     <gmd:version gco:nilReason="missing">
+                        <gco:CharacterString/>
+                     </gmd:version>
+                     <gmd:fileDecompressionTechnique gco:nilReason="missing">
+                        <gco:CharacterString/>
+                     </gmd:fileDecompressionTechnique>
+                  </gmd:MD_Format>
+               </gmx:fileFormat>
+            </gmx:MX_DataFile>
+         </gmx:dataFile>
+      </gmx:MX_DataSet>
+   </gmd:describes>
+   <gvq:dataQualityInfo>
+      <gmd19157:DQ_DataQuality>
+         <gmd19157:scope>
+            <gmd19157:DQ_Scope>
+               <gmd19157:level>
+                  <gmd:MD_ScopeCode codeListValue="dataset"
+                                    codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_ScopeCode">dataset</gmd:MD_ScopeCode>
+               </gmd19157:level>
+            </gmd19157:DQ_Scope>
+         </gmd19157:scope>
+         <gmd19157:report>
+            <gmd19157:DQ_TopologicalConsistency>
+               <gmd19157:dateTime>
+                  <gco:DateTime>2011-01-31T11:00:00</gco:DateTime>
+               </gmd19157:dateTime>
+               <gmd19157:measure>
+                  <gmd19157:DQ_MeasureReference>
+                     <gmd19157:measureIdentification>
+                        <updated19115:MD_Identifier>
+                           <gmd:code>
+                              <gco:CharacterString>-</gco:CharacterString>
+                           </gmd:code>
+                           <updated19115:codeSpace gco:nilReason="missing">
+                              <gco:CharacterString/>
+                           </updated19115:codeSpace>
+                        </updated19115:MD_Identifier>
+                     </gmd19157:measureIdentification>
+                     <gmd19157:nameOfMeasure>
+                        <gco:CharacterString>Anweisung Straßeninformationsbank (Bundesministerium für Verkehr, Bau und Stadtentwicklung)</gco:CharacterString>
+                     </gmd19157:nameOfMeasure>
+                  </gmd19157:DQ_MeasureReference>
+               </gmd19157:measure>
+               <gmd19157:evaluation>
+                  <gvq:GVQ_SampleBasedInspection>
+                     <gmd19157:evaluationMethodDescription>
+                        <gco:CharacterString>Grundlage und Vorschrift für Erfassung bildet die ASB Netzdaten und die ASB Bestandsdaten in ihrer jeweils gültigen Fassung. Hieraus ergibt sich letztendlich auch die Qualität der Daten.</gco:CharacterString>
+                     </gmd19157:evaluationMethodDescription>
+                     <gmd19157:referenceDoc xlink:href="#"/>
+                     <gmd19157:samplingScheme gco:nilReason="missing">
+                        <gco:CharacterString/>
+                     </gmd19157:samplingScheme>
+                     <gmd19157:lotDescription gco:nilReason="missing">
+                        <gco:CharacterString/>
+                     </gmd19157:lotDescription>
+                     <gmd19157:samplingRatio gco:nilReason="missing">
+                        <gco:CharacterString/>
+                     </gmd19157:samplingRatio>
+                  </gvq:GVQ_SampleBasedInspection>
+               </gmd19157:evaluation>
+               <gmd19157:result>
+                  <gmd19157:DQ_ConformanceResult>
+                     <gmd19157:resultScope xlink:href="#"/>
+                     <gmd19157:specification>
+                        <gmd19157:CI_Citation>
+                           <gmd19157:title>
+                              <gco:CharacterString>k.A.</gco:CharacterString>
+                           </gmd19157:title>
+                           <gmd19157:alternateTitle>
+                              <gco:CharacterString>k.A.</gco:CharacterString>
+                           </gmd19157:alternateTitle>
+                           <gmd19157:date>
+                              <gmd19157:CI_Date>
+                                 <gmd19157:date>
+                                    <gco:Date>2011-01-30</gco:Date>
+                                 </gmd19157:date>
+                                 <gmd19157:dateType>
+                                    <gmd19157:CI_DateTypeCode codeListValue="creation"
+                                                              codeList="http://www.isotc211.org/2005/resources/codeList.xml#CI_DateTypeCode">creation</gmd19157:CI_DateTypeCode>
+                                 </gmd19157:dateType>
+                              </gmd19157:CI_Date>
+                           </gmd19157:date>
+                        </gmd19157:CI_Citation>
+                     </gmd19157:specification>
+                     <gmd19157:explanation>
+                        <gco:CharacterString>k.A.</gco:CharacterString>
+                     </gmd19157:explanation>
+                     <gmd19157:pass>
+                        <gco:Boolean>true</gco:Boolean>
+                     </gmd19157:pass>
+                  </gmd19157:DQ_ConformanceResult>
+               </gmd19157:result>
+            </gmd19157:DQ_TopologicalConsistency>
+         </gmd19157:report>
+         <gmd19157:lineage>
+            <gmd19157:LI_Lineage>
+               <gmd19157:statement>
+                  <gco:CharacterString>Das Straßennetz wurde ursprünglich bei der Ersterfassung auf Grundlage des ATKIS-Netzes digitalisiert. Heute werden Änderungen am Straßennetz aufgrund von Planungsunterlagen (auf ALK-Basis) oder örtlicher Aufnahme fortgeführt.</gco:CharacterString>
+               </gmd19157:statement>
+            </gmd19157:LI_Lineage>
+         </gmd19157:lineage>
+      </gmd19157:DQ_DataQuality>
+  </gvq:dataQualityInfo>
+   <gmd:metadataMaintenance>
+      <gmd:MD_MaintenanceInformation>
+         <gmd:maintenanceAndUpdateFrequency>
+            <gmd:MD_MaintenanceFrequencyCode codeListValue="continual"
+                                             codeList="http://www.isotc211.org/2005/resources/codeList.xml#MD_MaintenanceFrequencyCode">continual</gmd:MD_MaintenanceFrequencyCode>
+         </gmd:maintenanceAndUpdateFrequency>
+      </gmd:MD_MaintenanceInformation>
+  </gmd:metadataMaintenance>
+</gvq:GVQ_Metadata>
