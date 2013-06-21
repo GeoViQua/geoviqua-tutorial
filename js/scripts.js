@@ -9,9 +9,12 @@ $(document).ready(function () {
 		offset: -$('.subnav').offset().top
 	});
 
-	// POST to transform script and display results
-	$('#transform-form .submit').click(function() {
+	$('#tabs1-pane2 div').hide();
 
+	// POST to transform script and display results
+	$('#transform-form').on('submit', function(e) {
+
+		$('#tabs1-pane2 .alert-success').show();
 		$('#results-tab a').click();
 
 		return true;
