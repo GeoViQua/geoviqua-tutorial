@@ -1,6 +1,8 @@
 section {
 	margin-top: 60px;
 	padding-top: 220px;
+.tab-content {
+	overflow: visible;
 }
 
 a {

@@ -15,7 +15,7 @@
     <link href="css/bootswatch.css" rel="stylesheet">
   </head>
 
-  <body class="preview" id="top" data-spy="scroll" data-target=".subnav" data-offset="80">
+  <body class="preview">
 
   <!-- Navbar
     ================================================== -->
@@ -36,23 +36,25 @@
    </div>
  </div>
 
-    <div class="container">
+  <div class="container">
+
+    <div class="tab-content">
 
 
 <!-- Masthead
 ================================================== -->
-<header class="jumbotron subhead" id="overview">
+<header class="tab-pane active jumbotron subhead" id="overview">
   <div class="row">
     <div class="span12">
       <h2>GeoViQua Hands-On Workshop: INSPIRE Conference 2013</h2>
       <p class="lead"><i class="icon-reply icon-2x icon-rotate-270 pull-left"></i>Click to begin transforming your own metadata with richer quality information.</p>
     </div>
   </div>
-  <div class="subnav">
-    <ul class="nav nav-pills">
-      <li><a href="#producer">1. The Producer Quality Model</a></li>
-      <li><a href="#user">2. The User Feedback Model</a></li>
-      <li><a href="#label">3. The GEO Label</a></li>
+  <div class="tabbable subnav">
+    <ul id="homeNav" class="nav nav-pills">
+      <li><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
+      <li><a href="#user" data-toggle="pill">2. The User Feedback Model</a></li>
+      <li><a href="#label" data-toggle="pill">3. The GEO Label</a></li>
     </ul>
   </div>
   <div class="row">
@@ -73,7 +75,14 @@
 
 <!-- The Producer Quality Model
 ================================================== -->
-<section id="producer">
+<section class="tab-pane" id="producer">
+  <div class="tabbable subnav">
+    <ul id="producerNav" class="nav nav-pills">
+      <li><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
+      <li><a href="#user" data-toggle="pill">2. The User Feedback Model</a></li>
+      <li><a href="#label" data-toggle="pill">3. The GEO Label</a></li>
+    </ul>
+  </div>
   <div class="page-header">
     <h3>The Producer Quality Model</h3>
   </div>
@@ -254,7 +263,14 @@
 
 <!-- The User Feedback Model
 ================================================== -->
-<section id="user">
+<section class="tab-pane" id="user">
+  <div class="tabbable subnav">
+    <ul id="userNav" class="nav nav-pills">
+      <li><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
+      <li><a href="#user" data-toggle="pill">2. The User Feedback Model</a></li>
+      <li><a href="#label" data-toggle="pill">3. The GEO Label</a></li>
+    </ul>
+  </div>
   <div class="page-header">
     <h3>The User Feedback Model</h3>
   </div>
@@ -398,7 +414,14 @@
 
 <!-- The GEO Label
 ================================================== -->
-<section id="label">
+<section class="tab-pane" id="label">
+  <div class="tabbable subnav">
+    <ul id="labelNav" class="nav nav-pills">
+      <li><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
+      <li><a href="#user" data-toggle="pill">2. The User Feedback Model</a></li>
+      <li><a href="#label" data-toggle="pill">3. The GEO Label</a></li>
+    </ul>
+  </div>
   <div class="page-header">
     <h3>The GEO Label</h3>
   </div>
@@ -482,6 +505,8 @@
 
 
 </section>
+
+</div> <!-- /tab-content -->
 
 <br><br><br><br>
 

@@ -14,6 +14,21 @@ $(document).ready(function () {
 
 		return false;
 	});
+
+	// toggle active/inactive across multiple tab elements
+	$('a[data-toggle="pill"]').on('shown', function (e) {
+
+		var targetHref = $(e.target).attr('href'),
+			$active = $('a[data-toggle="pill"]').filter(function() {
+				return $(this).attr('href') === targetHref;	
+			}),
+			$notActive = $('a[data-toggle="pill"]').not($active);
+		
+		$notActive.parent().removeClass('active');
+		$active.parent().addClass('active');
+		$(e.target).trigger('click');
+	});
+
 });
 
 (function ($) {
