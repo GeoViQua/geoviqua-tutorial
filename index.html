@@ -281,9 +281,9 @@
       <p>
         Use the form below to visit the feedback server, entering the code and codespace that you decided on in step 1.
       </p>
-      <form action="" id="feedback-form1" class="well form-search feedback" target="_blank">
-          <input class="input-small" placeholder="Code" type="text" />
-          <input class="input-small" placeholder="Codespace" type="text" />
+      <form action="https://geoviqua.stcorp.nl/submit_feedback.html" method="get" class="well form-search feedback" target="_blank">
+          <input name="target_code" class="input-small" placeholder="Code" type="text" />
+          <input name="target_codespace" class="input-small" placeholder="Codespace" type="text" />
           <button type="submit" class="btn">Go</button>
       </form>
       <div class="alert alert-info">
@@ -364,9 +364,10 @@
       <p>
         Use the form below to retrieve a summary of your feedback from the server, entering your code and codespace if it's not already there.
       </p>
-      <form action="" id="feedback-form2" class="well form-search feedback" target="_blank">
-          <input class="input-small" placeholder="Code" type="text" />
-          <input class="input-small" placeholder="Codespace" type="text" />
+      <form action="https://geoviqua.stcorp.nl/api/v1/feedback/items/search" method="get" class="well form-search feedback" target="_blank">
+          <input name="format" type="hidden" value="xml" />
+          <input name="target_code" class="input-small" placeholder="Code" type="text" />
+          <input name="target_codespace" class="input-small" placeholder="Codespace" type="text" />
           <button type="submit" class="btn">Go</button>
       </form>
       <div class="alert alert-info">
