@@ -9,12 +9,12 @@ $(document).ready(function () {
 		offset: -$('.subnav').offset().top
 	});
 
+	// POST to transform script and display results
 	$('#transform-form .submit').click(function() {
-
 
 		$('#results-tab a').click();
 
-		return false;
+		return true;
 	});
 
 	// toggle active/inactive across multiple tab elements
