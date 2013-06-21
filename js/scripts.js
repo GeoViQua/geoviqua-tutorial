@@ -5,7 +5,9 @@ $(document).ready(function () {
 	});
 
 
-	$('.navbar a, .subnav a, a.smooth').smoothScroll();
+	$('.subnav a, a.smooth').smoothScroll({
+		offset: -$('.subnav').offset().top
+	});
 
 	$('#transform-form .submit').click(function() {
 
