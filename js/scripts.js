@@ -1,9 +1,6 @@
 $(document).ready(function () {
 	
-	$('a[rel=tooltip]').tooltip({
-		'placement': 'bottom'
-	});
-
+	$("a[rel=fancy]").fancybox();
 
 	$('.subnav a, a.smooth').smoothScroll({
 		offset: -$('.subnav').offset().top
