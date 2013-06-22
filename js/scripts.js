@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	
-	$("a[rel=fancy]").fancybox();
+	$("a.fancy").fancybox();
 
 	$('.subnav a, a.smooth').smoothScroll({
 		offset: -$('.subnav').offset().top
