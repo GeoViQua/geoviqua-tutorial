@@ -31,6 +31,16 @@ $(document).ready(function () {
 		$(e.target).trigger('click');
 	});
 
+	// update each feedback form with the code and codespace used on submit
+	$('form.feedback').on('submit', function (e) {
+
+		var code = $(this).children('input[name=target_code]').val(), 
+		codespace = $(this).children('input[name=target_codespace]').val(), 
+		$childs = $('form.feedback').not($(this)).children();
+		$childs.filter('input[name=target_code]').val(code);
+		$childs.filter('input[name=target_codespace]').val(codespace);
+	});
+
 });
 
 (function ($) {
