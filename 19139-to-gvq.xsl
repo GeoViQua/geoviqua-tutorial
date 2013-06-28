@@ -126,10 +126,19 @@
     
     
     <!-- ===============================================
-    gmd:dataQualityInfo to gvq:dataQualityInfo
+    GVQ data quality changes
     ==================================================== -->
+    
+    <!-- gmd:dataQualityInfo to gvq:dataQualityInfo -->
     <xsl:template match="gmd:dataQualityInfo">
         <xsl:element name="gvq:dataQualityInfo">
+            <xsl:apply-templates select="@*|node()"/>
+		</xsl:element>
+	</xsl:template>
+    
+    <!-- gmd:DQ_DataQuality to gvq:GVQ_DataQuality -->
+    <xsl:template match="gmd:DQ_DataQuality" priority="500">
+        <xsl:element name="gvq:GVQ_DataQuality">
             <xsl:apply-templates select="@*|node()"/>
 		</xsl:element>
 	</xsl:template>
