@@ -15,6 +15,7 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootswatch.css" rel="stylesheet">
     <link href="js/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="js/video-js/video-js.min.css" rel="stylesheet">
   </head>
 
   <body class="preview">
@@ -60,14 +61,65 @@
     </ul>
   </div>
   <div class="row">
-    <div class="span4">
-      <img src="img/producer-hero.png" class="img-polaroid">
+    <div class="span4" style="position: relative;">
+      <a href="#producer-player" class="video-preview" data-video="producer">
+        <div class="play">
+          <span class="icon-stack icon-3x">
+            <i class="icon-circle icon-stack-base"></i>
+            <i class="icon-youtube-play icon-light"></i>
+          </span>
+        </div>
+        <img src="img/producer-hero.png" class="img-polaroid">
+        <div style="display:none">
+          <video id="producer-player" class="video-js vjs-default-skin"
+            width="853" height="480"
+            data-setup='{ "controls": true, "autoplay": false, "preload": "auto" }'>
+            <source src="resources/producer_video/video.mp4" type='video/mp4' />
+            <source src="resources/producer_video/video.webm" type='video/webm' />
+            <source src="resources/producer_video/video.ogv" type='video/ogg' />
+          </video>
+        </div>
+      </a>
     </div>
-    <div class="span4">
-      <img src="img/user-hero.png" class="img-polaroid">
+    <div class="span4" style="position: relative;">
+      <a href="#feedback-player" class="video-preview" data-video="feedback">
+        <div class="play">
+          <span class="icon-stack icon-3x">
+            <i class="icon-circle icon-stack-base"></i>
+            <i class="icon-youtube-play icon-light"></i>
+          </span>
+        </div>
+        <img src="img/user-hero.png" class="img-polaroid">
+        <div style="display:none">
+          <video id="feedback-player" class="video-js vjs-default-skin"
+            width="853" height="480"
+            data-setup='{ "controls": true, "autoplay": false, "preload": "auto" }'>
+            <source src="resources/feedback_video/video.mp4" type='video/mp4' />
+            <source src="resources/feedback_video/video.webm" type='video/webm' />
+            <source src="resources/feedback_video/video.ogv" type='video/ogg' />
+          </video>
+        </div>
+      </a>
     </div>
-    <div class="span4">
-      <img src="img/label-hero.png" class="img-polaroid">
+    <div class="span4" style="position: relative;">
+      <a href="#label-player" class="video-preview" data-video="label">
+        <div class="play">
+          <span class="icon-stack icon-3x">
+            <i class="icon-circle icon-stack-base"></i>
+            <i class="icon-youtube-play icon-light"></i>
+          </span>
+        </div>
+        <img src="img/label-hero.png" class="img-polaroid">
+        <div style="display:none">
+          <video id="label-player" class="video-js vjs-default-skin"
+            width="853" height="480"
+            data-setup='{ "controls": true, "autoplay": false, "preload": "auto" }'>
+            <source src="resources/label_video/video.mp4" type='video/mp4' />
+            <source src="resources/label_video/video.webm" type='video/webm' />
+            <source src="resources/label_video/video.ogv" type='video/ogg' />
+          </video>
+        </div>
+      </a>
     </div>
   </div>
 </header>
@@ -557,6 +609,7 @@
     <script src="js/jquery.smooth-scroll.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/fancybox/jquery.fancybox.pack.js"></script>
+    <script src="js/video-js/video.js"></script>
     <script src="js/scripts.js"></script>
 
 

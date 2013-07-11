@@ -2,6 +2,38 @@ $(document).ready(function () {
 	
 	$("a.fancy").fancybox();
 
+	videojs.options.flash.swf = 'js/video-js/video-js.swf';
+
+	// display video.js player in a lightbox, auto-plays on show and pauses when hidden
+	$('a.video-preview').fancybox({
+		type: 'inline',
+		autoResize: true,
+		hideOnContentClick: false,
+		afterShow: function() {
+			var self = this.element;
+			videojs($(self).data('video') + '-player').ready(function() {
+
+				var myPlayer = this;
+
+				if (myPlayer.paused()) {
+					myPlayer.play();
+				}
+
+			});
+		},
+		beforeClose: function() {
+			var self = this.element;
+			videojs($(self).data('video') + '-player').ready(function() {
+
+				var myPlayer = this;
+
+				if (!myPlayer.paused()) {
+					myPlayer.pause();
+				}
+			});
+		}
+	});
+
 	$('.subnav a, a.smooth').smoothScroll({
 		offset: -$('.subnav').offset().top
 	});
