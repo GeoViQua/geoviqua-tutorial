@@ -81,6 +81,9 @@ $(document).ready(function () {
 		
 		$notActive.parent().removeClass('active');
 		$active.parent().addClass('active');
+
+		// workaround: trigger a 2nd click event to correctly scroll to the top of the page
+		$(e.target).trigger('click');
 	});
 
 	// update each feedback form with the code and codespace used on submit
@@ -122,9 +125,13 @@ $(document).ready(function () {
 	// track page views for different sections of the tutorial
 	$('a[data-toggle="pill"]').on('click', function (e) {
 
-		window.location.href = this.href;
-		document.title = originalTitle + ': ' + $(this).text();
-		ga('send', 'pageview', window.location.pathname + window.location.search + window.location.hash);
+		// check that the event has been triggered by a human, not jquery
+		if (e.originalEvent !== undefined) {
+
+			window.location.href = this.href;
+			document.title = originalTitle + ': ' + $(this).text();
+			ga('send', 'pageview', window.location.pathname + window.location.search + window.location.hash);
+		}
 	});
 
 	// track video interactions without affecting bounce rate, weighted by importance
