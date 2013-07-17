@@ -63,6 +63,8 @@ $(document).ready(function () {
 			$('#tabs1-pane2 .alert-success').show();
 			$('#results-tab a').click();
 
+			// track metadata transformation form interactions under the "producer tutorial" category
+			ga('send', 'event', 'producer tutorial', 'transform metadata', (metadata !== '' ? metadata : metadata_url));
 		}
 
 		return true;
@@ -106,6 +108,9 @@ $(document).ready(function () {
 
 			$childs.filter('input[name=target_code]').val(code);
 			$childs.filter('input[name=target_codespace]').val(codespace);
+
+			// track feedback server form interactions (actions are "submit" or "search") under the "feedback tutorial" category
+			ga('send', 'event', 'feedback tutorial', $(this).data('stage'), 'Code: ' + code + ' , Codespace: ' + codespace);
 		}
 	});
 
@@ -128,19 +133,19 @@ $(document).ready(function () {
 		videojs($(this).data('video') + '-player').ready(function () {
 
 			this.on('play', function () {
-				ga('send', 'event', 'Videos', 'play', this.O, 5, {'nonInteraction': 1});
+				ga('send', 'event', 'videos', 'play', this.O, 5, {'nonInteraction': 1});
 			});
 
 			this.on('pause', function () {
-				ga('send', 'event', 'Videos', 'pause', this.O, 1, {'nonInteraction': 1});
+				ga('send', 'event', 'videos', 'pause', this.O, 1, {'nonInteraction': 1});
 			});
 
 			this.on('ended', function () {
-				ga('send', 'event', 'Videos', 'ended', this.O, 10, {'nonInteraction': 1});
+				ga('send', 'event', 'videos', 'ended', this.O, 10, {'nonInteraction': 1});
 			});
 
 			this.on('error', function () {
-				ga('send', 'event', 'Videos', 'error', this.O, 1, {'nonInteraction': 1});
+				ga('send', 'event', 'videos', 'error', this.O, 1, {'nonInteraction': 1});
 			});
 		});
 	});
