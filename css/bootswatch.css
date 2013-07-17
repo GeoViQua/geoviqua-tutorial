@@ -192,11 +192,17 @@ body .one .bsa_it_p {
 	margin-right: 10px;
 }
 
+.footer-base {
+	background-color: #074A8B;
+	height: 120px;
+}
+
 #inspire {
-	background: url('../img/inspire_footer.png') #074A8B no-repeat;
+	background-image: url('../img/inspire_footer.png');
+	background-repeat: no-repeat;
 	min-height: 285px;
 	height: auto !important;
-	height: 285px; 
+	height: 285px;
 }
 
 @media (max-width: 480px) {
