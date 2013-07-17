@@ -2,6 +2,8 @@ $(document).ready(function () {
 
 	var originalTitle = document.title;
 	
+	$(".no-js").show();
+
 	$("a.fancy").fancybox();
 
 	videojs.options.flash.swf = 'js/video-js/video-js.swf';

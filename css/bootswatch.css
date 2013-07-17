@@ -2,6 +2,10 @@ body {
 	background-color: #fff;
 }
 
+.no-js {
+	display: none;
+}
+
 .tab-content {
 	overflow: visible;
 }
