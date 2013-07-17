@@ -45,8 +45,25 @@ $(document).ready(function () {
 	// POST to transform script and display results
 	$('#transform-form').on('submit', function(e) {
 
-		$('#tabs1-pane2 .alert-success').show();
-		$('#results-tab a').click();
+		var metadata_url = $('#metadata_url').val(),
+			metadata = $('#metadata').val();
+
+		if (metadata_url !== '' && metadata !== '') {
+
+			alert("Error: You have provided both a metadata document and a metadata URL location, please only use one!");
+			return false;
+		}
+		else if (metadata_url === '' && metadata === '') {
+
+			alert("Error: Please provide a metadata document either by uploading a local document or entering a URL.");
+			return false;
+		}
+		else {
+
+			$('#tabs1-pane2 .alert-success').show();
+			$('#results-tab a').click();
+
+		}
 
 		return true;
 	});
@@ -67,11 +84,29 @@ $(document).ready(function () {
 	// update each feedback form with the code and codespace used on submit
 	$('form.feedback').on('submit', function (e) {
 
-		var code = $(this).children('input[name=target_code]').val(), 
-		codespace = $(this).children('input[name=target_codespace]').val(), 
-		$childs = $('form.feedback').not($(this)).children();
-		$childs.filter('input[name=target_code]').val(code);
-		$childs.filter('input[name=target_codespace]').val(codespace);
+		var $code = $(this).children('input[name=target_code]'),
+			code = $code.val(),
+			$codespace = $(this).children('input[name=target_codespace]'),
+			codespace = $codespace.val(),
+			$childs = $('form.feedback').not($(this)).children();
+
+		if (code === '') {
+
+			alert('Error: Please enter a code');
+			$code.focus();
+			return false;
+		}
+		else if (codespace === '') {
+
+			alert('Error: Please enter a codespace');
+			$codespace.focus();
+			return false;
+		}
+		else {
+
+			$childs.filter('input[name=target_code]').val(code);
+			$childs.filter('input[name=target_codespace]').val(codespace);
+		}
 	});
 
 
