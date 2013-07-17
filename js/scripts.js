@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+	var originalTitle = document.title;
 	
 	$("a.fancy").fancybox();
 
@@ -60,7 +62,6 @@ $(document).ready(function () {
 		
 		$notActive.parent().removeClass('active');
 		$active.parent().addClass('active');
-		$(e.target).trigger('click');
 	});
 
 	// update each feedback form with the code and codespace used on submit
@@ -71,6 +72,42 @@ $(document).ready(function () {
 		$childs = $('form.feedback').not($(this)).children();
 		$childs.filter('input[name=target_code]').val(code);
 		$childs.filter('input[name=target_codespace]').val(codespace);
+	});
+
+
+	/**
+	* Analytics
+	*/
+
+	// track page views for different sections of the tutorial
+	$('a[data-toggle="pill"]').on('click', function (e) {
+
+		window.location.href = this.href;
+		document.title = originalTitle + ': ' + $(this).text();
+		ga('send', 'pageview', window.location.pathname + window.location.search + window.location.hash);
+	});
+
+	// track video interactions without affecting bounce rate, weighted by importance
+	$('a.video-preview').each(function () {
+
+		videojs($(this).data('video') + '-player').ready(function () {
+
+			this.on('play', function () {
+				ga('send', 'event', 'Videos', 'play', this.O, 5, {'nonInteraction': 1});
+			});
+
+			this.on('pause', function () {
+				ga('send', 'event', 'Videos', 'pause', this.O, 1, {'nonInteraction': 1});
+			});
+
+			this.on('ended', function () {
+				ga('send', 'event', 'Videos', 'ended', this.O, 10, {'nonInteraction': 1});
+			});
+
+			this.on('error', function () {
+				ga('send', 'event', 'Videos', 'error', this.O, 1, {'nonInteraction': 1});
+			});
+		});
 	});
 
 });
@@ -110,3 +147,27 @@ $(document).ready(function () {
 	});
 
 })(window.jQuery);
+
+// helper method to track outbound links
+function trackOutbound(obj, category, value) {
+
+	value = typeof value !== 'undefined' ? value : 1;
+
+	try {
+
+		ga('send', 'event', category, 'click', obj.href, value);
+	}
+	catch (err) {}
+
+	setTimeout(function() {
+
+		if (obj.target === '_blank') {
+
+			window.open(obj.href);
+		}
+		else {
+
+			document.location.href = obj.href;
+		}
+	}, 100);
+}
