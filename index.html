@@ -220,62 +220,147 @@
       <p>Metadata documents like this can be published in catalogues such as the GCI and retrieved using catalogue searches and brokering services. For the purposes of this demonstration, we will publish the metadata using the popular open-source Geonetwork software.</p>
 
       <br />
-      <div class="row">
-        <div class="span8">
-          <p>
-            <i class="icon-info-sign icon-large pull-left"></i>
-            In your browser, go to <a href="http://uncertdata.aston.ac.uk:8080/geonetwork" target="_blank">http://uncertdata.aston.ac.uk:8080/geonetwork <i class="icon-external-link" style="text-decoration: none;"></i></a> and log in with the user name and password that you have been given. Go to the &lsquo;Administration&rsquo; panel and select &lsquo;Metadata insert&rsquo; to import your metadata.
-          </p>
-        </div>
-        <div class="span4">
-          <a class="fancy" href="img/tutorial/p1.png"><img src="img/tutorial/p1.png" class="img-polaroid" /></a>
-        </div>
+
+      <div class="row no-js">
+        <div class="tabbable span12">
+          <ul class="nav nav-tabs">
+            <li id="publish-tab" class="active"><a data-toggle="tab" href="#tabs2-pane1">Publish to GeoNetwork</a></li>
+            <li id="publish-results-tab" class=""><a data-toggle="tab" href="#tabs2-pane2">View result</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="tabs2-pane1" class="tab-pane active">
+              <form id="publish-form" class="form-horizontal" enctype="multipart/form-data" method="post" action="publish.php">
+                <div class="alert alert-error" style="display: none;"></div>
+                <fieldset>
+                  <div class="control-group">
+                    <label for="metadata" class="control-label">Select metadata document:</label>
+                    <div class="controls">
+                      <input type="hidden" name="download" value="xml" />
+                      <input type="file" name="publish-metadata" class="input-file" id="publish-metadata">
+                    </div>
+                  </div>
+                  <div class="form-actions">
+                    <button class="btn btn-info submit" type="submit">Submit</button>
+                    <button class="btn" type="reset">Clear</button>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+            <div id="tabs2-pane2" class="tab-pane">
+              <div class="alert alert-error">
+                You have not yet published your transformed metadata document to GeoNetwork.
+              </div>
+              <div class="alert alert-success publish-steps">
+                Your document has been successfully published to our GeoNetwork instance with the following ID: <strong id="publish-ID"></strong>
+                <br />
+                <a id="publish-URL" href="" target="_blank">View your published metadata document directly <i class="icon-external-link" style="text-decoration: none;"></i></a>
+              </div>
+              <div class="alert alert-block publish-steps">
+                <strong>Important:</strong> Keep a note of the ID under which your metadata is published, as you will need this later!
+              </div>
+
+              <br />
+
+              <div class="row publish-steps">
+                <div class="span8">
+                  <p>
+                    <i class="icon-info-sign icon-large pull-left"></i>
+                    In your browser, go to <a href="http://uncertdata.aston.ac.uk:8080/geonetwork" target="_blank">http://uncertdata.aston.ac.uk:8080/geonetwork <i class="icon-external-link" style="text-decoration: none;"></i></a> and log in with the following details:
+                    <br />
+                    <ul>
+                      <li>Username: <strong id="publish-username"></strong></li>
+                      <li>Password: <strong id="publish-password"></strong></li>
+                    </ul>
+                  </p>
+                </div>
+                <div class="span4">
+                  <a class="fancy" href="img/tutorial/p8.png"><img src="img/tutorial/p8.png" class="img-polaroid" /></a>
+                </div>
+              </div>
+
+              <br />
+
+              <div class="row publish-steps">
+                <div class="span8">
+                  <p>
+                    <i class="icon-info-sign icon-large pull-left"></i>
+                    Use the Simple Search on the right-hand side to locate your metadata document and then click on its title in the results list.
+                  </p>
+                  <div class="alert alert-info">
+                    Alternatively, you can edit the URL below, replacing &lsquo;<strong>xx</strong>&rsquo; with the GeoNetwork ID:
+                    <br />
+                    <a href="javascript:void(0)">http://uncertdata.aston.ac.uk:8080/geonetwork/srv/eng/metadata.show?id=<strong>xx</strong>&amp;currTab=simple</a>
+                  </div>
+                </div>
+                <div class="span4">
+                  <a class="fancy" href="img/tutorial/p4.png"><img src="img/tutorial/p4.png" class="img-polaroid" /></a>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- /.tab-content -->
+        </div><!-- /.tabbable -->
       </div>
 
-      <br />
-      <div class="row">
-        <div class="span8">
-          <p>
-            <i class="icon-info-sign icon-large pull-left"></i>
-            Browse for the file and add it by clicking &lsquo;Insert&rsquo;.
-          </p>
-          <div class="alert alert-block">
-            <strong>Important:</strong> Make sure to specify that a new UUID should be generated.
+      <!-- instructions if JS-enabled publish form isn't supported -->
+      <noscript>
+        <div class="row">
+          <div class="span8">
+            <p>
+              <i class="icon-info-sign icon-large pull-left"></i>
+              In your browser, go to <a href="http://uncertdata.aston.ac.uk:8080/geonetwork" target="_blank">http://uncertdata.aston.ac.uk:8080/geonetwork <i class="icon-external-link" style="text-decoration: none;"></i></a> and log in with the user name and password that you have been given. Go to the &lsquo;Administration&rsquo; panel and select &lsquo;Metadata insert&rsquo; to import your metadata.
+            </p>
+          </div>
+          <div class="span4">
+            <a class="fancy" href="img/tutorial/p1.png"><img src="img/tutorial/p1.png" class="img-polaroid" /></a>
           </div>
         </div>
-        <div class="span4">
-          <a class="fancy" href="img/tutorial/p2.png"><img src="img/tutorial/p2.png" class="img-polaroid" /></a>
-        </div>
-      </div>
 
-      <br />
-      <div class="row">
-        <div class="span8">
-          <p>
-            <i class="icon-info-sign icon-large pull-left"></i>
-            If the insert was successful you will see the ID that your metadata has been published under in the catalogue.
-          </p>
-          <div class="alert alert-block">
-            <strong>Important:</strong> Keep a note of the ID under which your metadata is published, as you will need this later!
+        <br />
+        <div class="row">
+          <div class="span8">
+            <p>
+              <i class="icon-info-sign icon-large pull-left"></i>
+              Browse for the file and add it by clicking &lsquo;Insert&rsquo;.
+            </p>
+            <div class="alert alert-block">
+              <strong>Important:</strong> Make sure to specify that a new UUID should be generated.
+            </div>
+          </div>
+          <div class="span4">
+            <a class="fancy" href="img/tutorial/p2.png"><img src="img/tutorial/p2.png" class="img-polaroid" /></a>
           </div>
         </div>
-        <div class="span4">
-          <a class="fancy" href="img/tutorial/p3.png"><img src="img/tutorial/p3.png" class="img-polaroid" /></a>
-        </div>
-      </div>
 
-      <br />
-      <div class="row">
-        <div class="span8">
-          <p>
-            <i class="icon-info-sign icon-large pull-left"></i>
-            If you now select &lsquo;Metadata&rsquo; you will be able to view the imported document. It contains some detailed data quality information, among other things.
-          </p>
+        <br />
+        <div class="row">
+          <div class="span8">
+            <p>
+              <i class="icon-info-sign icon-large pull-left"></i>
+              If the insert was successful you will see the ID that your metadata has been published under in the catalogue.
+            </p>
+            <div class="alert alert-block">
+              <strong>Important:</strong> Keep a note of the ID under which your metadata is published, as you will need this later!
+            </div>
+          </div>
+          <div class="span4">
+            <a class="fancy" href="img/tutorial/p3.png"><img src="img/tutorial/p3.png" class="img-polaroid" /></a>
+          </div>
         </div>
-        <div class="span4">
-          <a class="fancy" href="img/tutorial/p4.png"><img src="img/tutorial/p4.png" class="img-polaroid" /></a>
+
+        <br />
+        <div class="row">
+          <div class="span8">
+            <p>
+              <i class="icon-info-sign icon-large pull-left"></i>
+              If you now select &lsquo;Metadata&rsquo; you will be able to view the imported document. It contains some detailed data quality information, among other things.
+            </p>
+          </div>
+          <div class="span4">
+            <a class="fancy" href="img/tutorial/p4.png"><img src="img/tutorial/p4.png" class="img-polaroid" /></a>
+          </div>
         </div>
-      </div>
+      </noscript>
 
       <br />
       <h4 id="t1s4">Step 4: Add some information to your document</h4>

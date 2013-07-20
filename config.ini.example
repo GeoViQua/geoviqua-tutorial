@@ -1,0 +1,15 @@
+[users]
+
+; Account details of a user with an Editor profile.
+editor_username = "demo"
+editor_password = "demo123"
+editor_group_id = 2
+
+; Account details of a user with an Administrator profile.
+admin_username = "admin"
+admin_password = "admin"
+
+[api]
+
+; Base URL for GeoNetwork where XML services will be appended to form different endpoints.
+geonetwork_baseURL = "http://localhost:8080/geonetwork/srv/eng/"

@@ -2,7 +2,7 @@ body {
 	background-color: #fff;
 }
 
-.no-js {
+.no-js, .publish-steps {
 	display: none;
 }
 

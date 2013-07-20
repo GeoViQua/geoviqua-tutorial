@@ -72,6 +72,63 @@ $(document).ready(function () {
 		return true;
 	});
 
+	$('#publish-form .submit').on('click', function (e) {
+
+		var $form = $(this).parents('form'),
+		$inputs = $form.find('input, select, button, textarea'),
+		$iframe = $('<iframe name="postiframe" id="postiframe" style="display: none" />'),
+		$error_container = $form.find('.alert-error');
+
+		// append the upload iframe to the body
+		$('body').append($iframe);
+
+		// switch the upload form's target to the iframe & submit
+		$form.attr('target', 'postiframe');
+		$form.submit();
+
+		// disable inputs for duration of request
+		$inputs.prop("disabled", true);
+
+		$('#postiframe').load(function () {
+
+			// parse the response
+			response = $.parseJSON($('#postiframe')[0].contentWindow.document.body.innerHTML);
+
+			if (response.status === 'error') {
+
+				// show error message
+				$error_container.html(response.message);
+				$error_container.show();
+			}
+			else if (response.status === 'success') {
+
+				// hide error messages
+				$error_container.hide();
+				$('#tabs2-pane2').find('.alert-error').hide();
+
+				// update the tutorial copy with the correct information
+				$('.publish-steps').find('#publish-ID').text(response.data.geonetwork.metadata_id);
+				$('.publish-steps').find('#publish-URL').attr("href", response.data.geonetwork.url + 'xml_geoviqua?id=' + response.data.geonetwork.metadata_id + '&styleSheet=xml_iso19139.geoviqua.xsl');
+				$('.publish-steps').find('#publish-username').text(response.data.geonetwork.username);
+				$('.publish-steps').find('#publish-password').text(response.data.geonetwork.password);
+
+				// display the tutorial copy
+				$('.publish-steps').show();
+				$('#publish-results-tab a').click();
+
+			}
+
+			// remove the iframe for subsequent requests
+			$(this).remove();
+		});
+
+		// prevent default posting of form
+		e.preventDefault();
+
+		// re-enable inputs
+		$inputs.prop("disabled", false);
+	});
+
 	// toggle active/inactive across multiple tab elements
 	$('a[data-toggle="pill"]').on('shown', function (e) {
 
