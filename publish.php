@@ -3,7 +3,7 @@
 session_start();
 
 // name and path of the configuration file for this script
-$config_file = "config.ini";
+$config_file = dirname(__FILE__) . "/app/config/config.ini";
 
 // check that the configuration file is readable
 if (file_exists($config_file) && is_readable($config_file)) {
