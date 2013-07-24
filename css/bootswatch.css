@@ -197,8 +197,21 @@ body .one .bsa_it_p {
 }
 
 .footer-base {
-	background-color: #074A8B;
+	color: #fff;
+	background-image: linear-gradient(bottom, rgb(0,79,153) 9%, rgb(7,73,139) 55%);
+	background-image: -o-linear-gradient(bottom, rgb(0,79,153) 9%, rgb(7,73,139) 55%);
+	background-image: -moz-linear-gradient(bottom, rgb(0,79,153) 9%, rgb(7,73,139) 55%);
+	background-image: -webkit-linear-gradient(bottom, rgb(0,79,153) 9%, rgb(7,73,139) 55%);
+	background-image: -ms-linear-gradient(bottom, rgb(0,79,153) 9%, rgb(7,73,139) 55%);
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.09, rgb(0,79,153)),
+		color-stop(0.55, rgb(7,73,139))
+	);
 	height: 120px;
+	padding-top: 20px;
 }
 
 #inspire {
