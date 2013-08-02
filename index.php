@@ -1,3 +1,35 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['response'])) {
+
+  $valid = $_SESSION['response']['valid'];
+  $errors = $_SESSION['response']['errors'];
+  $fields = $_SESSION['response']['fields'];
+
+  unset($_SESSION['response']);
+
+  if (!$valid) {
+
+      $submit_message = 'There were some problems with your submission.';
+
+      if (isset($errors['locked_out'])) {
+
+        $submit_message .= '<br />' . $errors['locked_out'];
+      }
+
+      $response_type = 'error';
+  }
+  else {
+
+      $submit_message = 'Thank you! Your email has been submitted.';
+      $response_type = 'success';
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" id="top">
   <head>
@@ -70,66 +102,81 @@
       <li><a href="#label" data-toggle="pill">3. The GEO Label</a></li>
     </ul>
   </div>
+  <div class="row hero-preview">
+    <div class="span3 img-polaroid" data-sibling="producer">
+      <img src="img/producer-hero.png" />
+    </div>
+    <div class="span3 img-polaroid" data-sibling="feedback">
+      <img src="img/user-hero.png" />
+    </div>
+    <div class="span3 img-polaroid" data-sibling="label">
+      <img src="img/label-hero.png" />
+    </div>
+  </div>
   <div class="row">
-    <div class="span4" style="position: relative;">
-      <a href="#producer-player" class="video-preview" data-video="producer">
-        <div class="play">
-          <span class="icon-stack icon-3x">
-            <i class="icon-circle icon-stack-base"></i>
-            <i class="icon-youtube-play icon-light"></i>
-          </span>
-        </div>
-        <img src="img/producer-hero.png" class="img-polaroid">
-        <div style="display:none">
-          <video id="producer-player" class="video-js vjs-default-skin"
-            width="853" height="480"
-            data-setup='{ "controls": true, "autoplay": false, "preload": "auto" }'>
-            <source src="resources/producer_video/video.mp4" type='video/mp4' />
-            <source src="resources/producer_video/video.webm" type='video/webm' />
-            <source src="resources/producer_video/video.ogv" type='video/ogg' />
-          </video>
-        </div>
-      </a>
+    <div class="span6">
+      <legend>About</legend>
+      <blockquote>
+        <p><i class="icon-quote-left icon-4x pull-left icon-muted"></i> GeoViQua provides a set of scientifically developed software components and services that facilitate the creation, search and visualization of quality information on EO data integrated and validated in the GEOSS Common Infrastructure.</p>
+      </blockquote>
     </div>
-    <div class="span4" style="position: relative;">
-      <a href="#feedback-player" class="video-preview" data-video="feedback">
-        <div class="play">
-          <span class="icon-stack icon-3x">
-            <i class="icon-circle icon-stack-base"></i>
-            <i class="icon-youtube-play icon-light"></i>
-          </span>
+    <div class="span6">
+      <form id="contact" class="form-horizontal" method="post" action="email.php">
+        <?php
+
+        $csrf_name = "csrf_" . mt_rand(0, mt_getrandmax());
+        $csrf_token = md5(md5($csrf_name) . uniqid(rand(), true));
+
+        if (isset($_SESSION)) {
+
+          unset($_SESSION['csrf_token']);
+          $_SESSION['csrf_token'][$csrf_name] = $csrf_token;
+        }
+
+        ?>
+        <input type="hidden" name="csrf" value="<?php echo $csrf_name; ?>" />
+        <input type="hidden" name="token" value="<?php echo $csrf_token ?>" />
+        <legend>Contact Us</legend>
+        <div class="<?php echo (isset($valid) ? 'alert alert-' . $response_type : 'hidden'); ?>">
+          <?php if(isset($valid)) { echo $submit_message; } ?>
         </div>
-        <img src="img/user-hero.png" class="img-polaroid">
-        <div style="display:none">
-          <video id="feedback-player" class="video-js vjs-default-skin"
-            width="853" height="480"
-            data-setup='{ "controls": true, "autoplay": false, "preload": "auto" }'>
-            <source src="resources/feedback_video/video.mp4" type='video/mp4' />
-            <source src="resources/feedback_video/video.webm" type='video/webm' />
-            <source src="resources/feedback_video/video.ogv" type='video/ogg' />
-          </video>
-        </div>
-      </a>
-    </div>
-    <div class="span4" style="position: relative;">
-      <a href="#label-player" class="video-preview" data-video="label">
-        <div class="play">
-          <span class="icon-stack icon-3x">
-            <i class="icon-circle icon-stack-base"></i>
-            <i class="icon-youtube-play icon-light"></i>
-          </span>
-        </div>
-        <img src="img/label-hero.png" class="img-polaroid">
-        <div style="display:none">
-          <video id="label-player" class="video-js vjs-default-skin"
-            width="853" height="480"
-            data-setup='{ "controls": true, "autoplay": false, "preload": "auto" }'>
-            <source src="resources/label_video/video.mp4" type='video/mp4' />
-            <source src="resources/label_video/video.webm" type='video/webm' />
-            <source src="resources/label_video/video.ogv" type='video/ogg' />
-          </video>
-        </div>
-      </a>
+        <fieldset>
+          <div class="control-group stage clear">
+            <label for="name" class="control-label"><strong>Name: <em>*</em></strong></label>
+            <div class="controls">
+              <input type="text" name="contactname" id="contactname" value="<?php echo $fields['contactname']; ?>" class="span4 required <?php if (isset($errors['contactname'])) { echo 'error'; } ?>" role="input" aria-required="true" />
+              <?php if (isset($errors['contactname'])): ?><label class="error"><?php echo $errors['contactname']; ?></label><?php endif; ?>
+            </div>
+          </div>
+          <div class="control-group stage clear">
+            <label for="email" class="control-label"><strong>Email: <em>*</em></strong></label>
+            <div class="controls">
+              <input type="text" name="email" id="email" value="<?php echo $fields['email']; ?>" class="span4 required email <?php if (isset($errors['email'])) { echo 'error'; } ?>" role="input" aria-required="true" />
+              <?php if (isset($errors['email'])): ?><label class="error"><?php echo $errors['email']; ?></label><?php endif; ?>
+            </div>
+          </div>
+          <div class="control-group stage clear">
+            <label for="subject" class="control-label"><strong>Subject: <em>*</em></strong></label>
+            <div class="controls">
+              <input type="text" name="subject" id="subject" value="<?php echo $fields['subject']; ?>" class="span4 required <?php if (isset($errors['subject'])) { echo 'error'; } ?>" role="input" aria-required="true" />
+              <?php if (isset($errors['subject'])): ?><label class="error"><?php echo $errors['subject']; ?></label><?php endif; ?>
+            </div>
+          </div>
+          <div class="control-group stage clear">
+            <label for="message" class="control-label"><strong>Message: <em>*</em></strong></label>
+            <div class="controls">
+              <textarea rows="8" name="message" id="message" class="span4 required <?php if (isset($errors['message'])) { echo 'error'; } ?>" role="textbox" aria-required="true"><?php echo $fields['message']; ?></textarea>
+              <?php if (isset($errors['message'])): ?><label class="error"><?php echo $errors['message']; ?></label><?php endif; ?>
+            </div>
+          </div>
+          <input type="text" name="dob" id="dob" value="" role="input" />
+          <p class="requiredNote"><em>*</em> Denotes a required field.</p>
+          <div class="form-actions">
+            <button class="btn btn-info submit" type="submit">Submit</button>
+            <button class="btn" type="reset">Clear</button>
+          </div>
+        <fieldset>
+      </form>
     </div>
   </div>
 </header>
@@ -142,6 +189,7 @@
 <section class="tab-pane" id="producer">
   <div class="tabbable subnav">
     <ul id="producerNav" class="nav nav-pills">
+      <li class=""><a data-toggle="pill" href="#overview"><i class="no-js icon-home icon-large"></i></a></li>
       <li class="active"><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
       <li><a href="#feedback" data-toggle="pill">2. The User Feedback Model</a></li>
       <li><a href="#label" data-toggle="pill">3. The GEO Label</a></li>
@@ -153,11 +201,33 @@
 
   <div class="row">
     <div class="span12">
-      
-      <blockquote>
-      <p><i class="icon-quote-left icon-4x pull-left icon-muted"></i> The GeoViQua quality model allows ISO 19115/19139 to be extended with richer quality information, reference to publications and datasets and documentation of discovered issues with a dataset. In this first exercise, we are going to take a typical ISO producer metadata document, and extend it in just this way.</p>
-      </blockquote>
-
+      <div class="row">
+        <div class="span8">
+          <blockquote>
+          <p><i class="icon-quote-left icon-4x pull-left icon-muted"></i> The GeoViQua quality model allows ISO 19115/19139 to be extended with richer quality information, reference to publications and datasets and documentation of discovered issues with a dataset. In this first exercise, we are going to take a typical ISO producer metadata document, and extend it in just this way.</p>
+          </blockquote>
+        </div>
+        <div class="span4" style="position: relative;">
+          <a href="#producer-player" class="video-preview" data-video="producer">
+            <div class="play">
+              <span class="icon-stack icon-3x">
+                <i class="icon-circle icon-stack-base"></i>
+                <i class="icon-youtube-play icon-light"></i>
+              </span>
+            </div>
+            <img src="img/producer-hero.png" class="img-polaroid">
+            <div style="display:none">
+              <video id="producer-player" class="video-js vjs-default-skin"
+                width="853" height="480"
+                data-setup='{ "controls": true, "autoplay": false, "preload": "auto" }'>
+                <source src="resources/producer_video/video.mp4" type='video/mp4' />
+                <source src="resources/producer_video/video.webm" type='video/webm' />
+                <source src="resources/producer_video/video.ogv" type='video/ogg' />
+              </video>
+            </div>
+          </a>
+        </div>
+      </div>
       <br />
 
       <h4 id="t1s1">Step 1: Find your document</h4>
@@ -421,6 +491,7 @@
 <section class="tab-pane" id="feedback">
   <div class="tabbable subnav">
     <ul id="feedbackNav" class="nav nav-pills">
+      <li class=""><a data-toggle="pill" href="#overview"><i class="no-js icon-home icon-large"></i></a></li>
       <li><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
       <li class="active"><a href="#feedback" data-toggle="pill">2. The User Feedback Model</a></li>
       <li><a href="#label" data-toggle="pill">3. The GEO Label</a></li>
@@ -432,11 +503,33 @@
 
   <div class="row">
     <div class="span12">
-
-      <blockquote>
-      <p><i class="icon-quote-left icon-4x pull-left icon-muted"></i> GeoViQua offers a feedback server where users may record ratings, comments, reports of usage and citations for any datasets which have a unique identifier. In this way, user information about data can be harvested from one or many feedback servers, and combined with the producer metadata to give an up-to-date record of usage and of quality as assessed by other domain experts.</p>
-      </blockquote>
-
+      <div class="row">
+        <div class="span8">
+          <blockquote>
+          <p><i class="icon-quote-left icon-4x pull-left icon-muted"></i> GeoViQua offers a feedback server where users may record ratings, comments, reports of usage and citations for any datasets which have a unique identifier. In this way, user information about data can be harvested from one or many feedback servers, and combined with the producer metadata to give an up-to-date record of usage and of quality as assessed by other domain experts.</p>
+          </blockquote>
+        </div>
+        <div class="span4" style="position: relative;">
+          <a href="#feedback-player" class="video-preview" data-video="feedback">
+            <div class="play">
+              <span class="icon-stack icon-3x">
+                <i class="icon-circle icon-stack-base"></i>
+                <i class="icon-youtube-play icon-light"></i>
+              </span>
+            </div>
+            <img src="img/user-hero.png" class="img-polaroid">
+            <div style="display:none">
+              <video id="feedback-player" class="video-js vjs-default-skin"
+                width="853" height="480"
+                data-setup='{ "controls": true, "autoplay": false, "preload": "auto" }'>
+                <source src="resources/feedback_video/video.mp4" type='video/mp4' />
+                <source src="resources/feedback_video/video.webm" type='video/webm' />
+                <source src="resources/feedback_video/video.ogv" type='video/ogg' />
+              </video>
+            </div>
+          </a>
+        </div>
+      </div>
       <br />
 
       <h4 id="t2s1">Step 1: Generate your dataset identifier</h4>
@@ -580,6 +673,7 @@
 <section class="tab-pane" id="label">
   <div class="tabbable subnav">
     <ul id="labelNav" class="nav nav-pills">
+      <li class=""><a data-toggle="pill" href="#overview"><i class="no-js icon-home icon-large"></i></a></li>
       <li><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
       <li><a href="#feedback" data-toggle="pill">2. The User Feedback Model</a></li>
       <li class="active"><a href="#label" data-toggle="pill">3. The GEO Label</a></li>
@@ -597,9 +691,26 @@
         <p>The GEOlabel has 8 facets, and each will be coloured only if that type of information is available. A quick summary of what’s available can be obtained by hovering over the facet.</p>
       </blockquote>
     </div>
-      <div class="span4">
-        <a class="fancy" href="img/tutorial/g1.png"><img src="img/tutorial/g1.png" class="img-polaroid" /></a>
-      </div>
+    <div class="span4" style="position: relative;">
+      <a href="#label-player" class="video-preview" data-video="label">
+        <div class="play">
+          <span class="icon-stack icon-3x">
+            <i class="icon-circle icon-stack-base"></i>
+            <i class="icon-youtube-play icon-light"></i>
+          </span>
+        </div>
+        <img src="img/label-hero.png" class="img-polaroid">
+        <div style="display:none">
+          <video id="label-player" class="video-js vjs-default-skin"
+            width="853" height="480"
+            data-setup='{ "controls": true, "autoplay": false, "preload": "auto" }'>
+            <source src="resources/label_video/video.mp4" type='video/mp4' />
+            <source src="resources/label_video/video.webm" type='video/webm' />
+            <source src="resources/label_video/video.ogv" type='video/ogg' />
+          </video>
+        </div>
+      </a>
+    </div>
   </div>
 
   <br />
@@ -720,6 +831,8 @@
 
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.smooth-scroll.min.js"></script>
+    <script src="js/validate/jquery.validate.min.js"></script>
+    <script src="js/validate/additional-methods.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/fancybox/jquery.fancybox.pack.js"></script>
     <script src="js/video-js/video.js"></script>

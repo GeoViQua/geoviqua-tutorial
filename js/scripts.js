@@ -183,6 +183,26 @@ $(document).ready(function () {
 		$('.subnav a[href="' + $(this).data('next') + '"]').first().trigger('click');
 	});
 
+	// add a hover effect to the corresponding hero picture on the homepage
+	$('#homeNav li').on('mouseenter mouseleave', function (e) {
+
+		var href = $(this).find('a').attr('href'),
+			href = href.substring(1),
+			target = $('.hero-preview div[data-sibling="' + href + '"]');
+
+		if (e.type === 'mouseenter') {
+
+			target.addClass('focused');
+		}
+		else {
+
+			target.removeClass('focused');
+		}
+	});
+
+	// use the validation library to validate the contact form
+	$('#contact').validate();
+
 
 	/**
 	* Analytics

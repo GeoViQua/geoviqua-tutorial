@@ -2,7 +2,7 @@ body {
 	background-color: #fff;
 }
 
-.no-js, .publish-steps {
+.no-js, .publish-steps, .hidden {
 	display: none;
 }
 
@@ -16,6 +16,19 @@ a {
 
 a:hover, a:focus {
 	color: #D37D30;
+}
+
+/* contact form */
+
+input.error, textarea.error {
+	border-color: rgba(236, 82, 82, 0.8);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(236, 82, 82, 0.6);
+}
+
+#dob {
+    float: left;
+    margin-left: -321px;
+    visibility: hidden;
 }
 
 /* index */
@@ -49,6 +62,26 @@ a:hover, a:focus {
 .hero-unit h1,
 .hero-unit p {
 	margin-bottom: 15px;
+}
+
+.hero-preview {
+	margin: -30px 0 60px;
+}
+.hero-preview .img-polaroid {
+	height: 160px;
+	overflow: hidden;
+	margin-left: 16px;
+	transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+	-webkit-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+	-moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+}
+.hero-preview .img-polaroid:first-child {
+	margin-left: 0;
+}
+.hero-preview .focused {
+	border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+    outline: 0 none;
 }
 
 #social {

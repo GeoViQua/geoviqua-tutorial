@@ -1,3 +1,16 @@
+[email]
+
+to_address = "example@example.com"
+from_address = "example@example.com"
+transport_method = "smtp"
+
+; SMTP options
+smtp_host = "smtp.example.com"
+smtp_port = 25
+smtp_encryption = "ssl"
+smtp_username = "username"
+smtp_password = "password"
+
 [users]
 
 ; Account details of a user with an Editor profile.
