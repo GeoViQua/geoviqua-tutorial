@@ -2,7 +2,10 @@
 
 to_address = "example@example.com"
 from_address = "example@example.com"
-transport_method = "smtp"
+transport_method = "smtp" ; Accepted values: smtp, sendmail, mail
+
+; Sendmail options
+sendmail_cmd = "" ; Defaults to '/usr/sbin/sendmail -bs'
 
 ; SMTP options
 smtp_host = "smtp.example.com"

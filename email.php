@@ -99,6 +99,14 @@ if (isset($_POST['csrf']) && isset($_POST['token']) && ($_SESSION['csrf_token'][
 						if ($config['smtp_username'] !== '') $transport->setUsername($config['smtp_username']);
 						if ($config['smtp_password'] !== '') $transport->setPassword($config['smtp_password']);
 						break;
+					case 'sendmail':
+						if ($config['sendmail_cmd'] !== '') {
+							$transport = Swift_SendmailTransport::newInstance($config['sendmail_cmd']);
+						}
+						else {
+							$transport = Swift_SendmailTransport::newInstance();
+						}
+						break;
 					default:
 						// default to PHP's mail() function
 						$transport = Swift_MailTransport::newInstance();
