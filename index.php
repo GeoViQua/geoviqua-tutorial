@@ -192,7 +192,7 @@ if (isset($_SESSION['response'])) {
 <section class="tab-pane" id="producer">
   <div class="tabbable subnav">
     <ul id="producerNav" class="nav nav-pills">
-      <li class=""><a data-toggle="pill" href="#overview"><i class="no-js icon-home icon-large"></i></a></li>
+      <li class="home"><a data-toggle="pill" href="#overview"><i class="no-js icon-home icon-large"></i></a></li>
       <li class="active"><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
       <li><a href="#feedback" data-toggle="pill">2. The User Feedback Model</a></li>
       <li><a href="#label" data-toggle="pill">3. The GEO label</a></li>
@@ -494,7 +494,7 @@ if (isset($_SESSION['response'])) {
 <section class="tab-pane" id="feedback">
   <div class="tabbable subnav">
     <ul id="feedbackNav" class="nav nav-pills">
-      <li class=""><a data-toggle="pill" href="#overview"><i class="no-js icon-home icon-large"></i></a></li>
+      <li class="home"><a data-toggle="pill" href="#overview"><i class="no-js icon-home icon-large"></i></a></li>
       <li><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
       <li class="active"><a href="#feedback" data-toggle="pill">2. The User Feedback Model</a></li>
       <li><a href="#label" data-toggle="pill">3. The GEO label</a></li>
@@ -676,7 +676,7 @@ if (isset($_SESSION['response'])) {
 <section class="tab-pane" id="label">
   <div class="tabbable subnav">
     <ul id="labelNav" class="nav nav-pills">
-      <li class=""><a data-toggle="pill" href="#overview"><i class="no-js icon-home icon-large"></i></a></li>
+      <li class="home"><a data-toggle="pill" href="#overview"><i class="no-js icon-home icon-large"></i></a></li>
       <li><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
       <li><a href="#feedback" data-toggle="pill">2. The User Feedback Model</a></li>
       <li class="active"><a href="#label" data-toggle="pill">3. The GEO label</a></li>
