@@ -429,6 +429,10 @@ body .one .bsa_it_p {
 	float: left;
 	width: 46px;
 }
+
+li.home .icon-home {
+	line-height: 13px !important;
+}
  
 .subnav .nav > li > a {
 	margin: 0;
