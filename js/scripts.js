@@ -102,6 +102,9 @@ $(document).ready(function () {
 				// show error message
 				$error_container.html(response.message);
 				$error_container.show();
+
+				// track the error
+				ga('send', 'event', 'error', 'producer tutorial', 'Publish form: ' + response.message);
 			}
 			else if (response.status === 'success') {
 
@@ -110,8 +113,9 @@ $(document).ready(function () {
 				$('#tabs2-pane2').find('.alert-error').hide();
 
 				// update the tutorial copy with the correct information
+				var publish_url = response.data.geonetwork.url + 'xml_geoviqua?id=' + response.data.geonetwork.metadata_id + '&styleSheet=xml_iso19139.geoviqua.xsl';
 				$('.publish-steps').find('#publish-ID').text(response.data.geonetwork.metadata_id);
-				$('.publish-steps').find('#publish-URL').attr("href", response.data.geonetwork.url + 'xml_geoviqua?id=' + response.data.geonetwork.metadata_id + '&styleSheet=xml_iso19139.geoviqua.xsl');
+				$('.publish-steps').find('#publish-URL').attr("href", publish_url);
 				$('.publish-steps').find('#publish-username').text(response.data.geonetwork.username);
 				$('.publish-steps').find('#publish-password').text(response.data.geonetwork.password);
 
@@ -119,6 +123,8 @@ $(document).ready(function () {
 				$('.publish-steps').show();
 				$('#publish-results-tab a').click();
 
+				// track this interaction & where the metadata has been published to
+				ga('send', 'event', 'producer tutorial', 'publish metadata', 'Metadata published to ' + publish_url);
 			}
 
 			// remove the iframe for subsequent requests
@@ -204,7 +210,16 @@ $(document).ready(function () {
 	});
 
 	// use the validation library to validate the contact form
-	$('#contact').validate();
+	$('#contact').validate({
+		submitHandler: function(form) {
+
+			// track this event
+			ga('send', 'event', 'contact form', 'valid submission', 'Name: ' + $(form).find('#contactname').val() + ', Email: ' + $(form).find('#email').val() + ', Subject: ' + $(form).find('#subject').val() + ', Message: ' + $(form).find('#message').val());
+
+			// submit
+			form.submit();
+		}
+	});
 
 
 	/**
