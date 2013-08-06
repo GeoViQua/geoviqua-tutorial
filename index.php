@@ -2,6 +2,15 @@
 
 session_start();
 
+// name and path of the configuration file for this script
+$config_file = dirname(__FILE__) . "/app/config/config.ini";
+
+// check that the configuration file is readable
+if (file_exists($config_file) && is_readable($config_file)) {
+
+  $config = parse_ini_file($config_file);
+}
+
 if (isset($_SESSION['response'])) {
 
   $valid = $_SESSION['response']['valid'];
@@ -195,10 +204,10 @@ if (isset($_SESSION['response'])) {
 
 <!-- The Producer Quality Model
 ================================================== -->
-<section class="tab-pane" id="producer">
+<section class="tab-pane active" id="producer">
   <div class="tabbable subnav">
     <ul id="producerNav" class="nav nav-pills">
-      <li class="home"><a data-toggle="pill" href="#overview"><i class="no-js icon-home icon-large"></i></a></li>
+      <li class="home"><a data-toggle="pill" href="#overview"><i class="icon-home icon-large"></i></a></li>
       <li class="active"><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
       <li><a href="#feedback" data-toggle="pill">2. The User Feedback Model</a></li>
       <li><a href="#label" data-toggle="pill">3. The GEO label</a></li>
@@ -218,7 +227,7 @@ if (isset($_SESSION['response'])) {
         </div>
         <div class="span4" style="position: relative;">
           <a href="#producer-player" class="video-preview" data-video="producer">
-            <div class="play">
+            <div class="play no-js">
               <span class="icon-stack icon-3x">
                 <i class="icon-circle icon-stack-base"></i>
                 <i class="icon-youtube-play icon-light"></i>
@@ -387,7 +396,8 @@ if (isset($_SESSION['response'])) {
           <div class="span8">
             <p>
               <i class="icon-info-sign icon-large pull-left"></i>
-              In your browser, go to <a href="http://uncertdata.aston.ac.uk:8080/geonetwork" target="_blank">http://uncertdata.aston.ac.uk:8080/geonetwork <i class="icon-external-link" style="text-decoration: none;"></i></a> and log in with the user name and password that you have been given. Go to the &lsquo;Administration&rsquo; panel and select &lsquo;Metadata insert&rsquo; to import your metadata.
+              In your browser, go to <a href="http://uncertdata.aston.ac.uk:8080/geonetwork" target="_blank">http://uncertdata.aston.ac.uk:8080/geonetwork <i class="icon-external-link" style="text-decoration: none;"></i></a>
+              and log in with the username <strong><?php echo $config['editor_username']; ?></strong> and password <strong><?php echo $config['editor_password']; ?></strong>. Go to the &lsquo;Administration&rsquo; panel and select &lsquo;Metadata insert&rsquo; to import your metadata.
             </p>
           </div>
           <div class="span4">
@@ -497,10 +507,10 @@ if (isset($_SESSION['response'])) {
 
 <!-- The User Feedback Model
 ================================================== -->
-<section class="tab-pane" id="feedback">
+<section class="tab-pane active" id="feedback">
   <div class="tabbable subnav">
     <ul id="feedbackNav" class="nav nav-pills">
-      <li class="home"><a data-toggle="pill" href="#overview"><i class="no-js icon-home icon-large"></i></a></li>
+      <li class="home"><a data-toggle="pill" href="#overview"><i class="icon-home icon-large"></i></a></li>
       <li><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
       <li class="active"><a href="#feedback" data-toggle="pill">2. The User Feedback Model</a></li>
       <li><a href="#label" data-toggle="pill">3. The GEO label</a></li>
@@ -520,7 +530,7 @@ if (isset($_SESSION['response'])) {
         </div>
         <div class="span4" style="position: relative;">
           <a href="#feedback-player" class="video-preview" data-video="feedback">
-            <div class="play">
+            <div class="play no-js">
               <span class="icon-stack icon-3x">
                 <i class="icon-circle icon-stack-base"></i>
                 <i class="icon-youtube-play icon-light"></i>
@@ -679,10 +689,10 @@ if (isset($_SESSION['response'])) {
 
 <!-- The GEO label
 ================================================== -->
-<section class="tab-pane" id="label">
+<section class="tab-pane active" id="label">
   <div class="tabbable subnav">
     <ul id="labelNav" class="nav nav-pills">
-      <li class="home"><a data-toggle="pill" href="#overview"><i class="no-js icon-home icon-large"></i></a></li>
+      <li class="home"><a data-toggle="pill" href="#overview"><i class="icon-home icon-large"></i></a></li>
       <li><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
       <li><a href="#feedback" data-toggle="pill">2. The User Feedback Model</a></li>
       <li class="active"><a href="#label" data-toggle="pill">3. The GEO label</a></li>
@@ -702,7 +712,7 @@ if (isset($_SESSION['response'])) {
     </div>
     <div class="span4" style="position: relative;">
       <a href="#label-player" class="video-preview" data-video="label">
-        <div class="play">
+        <div class="play no-js">
           <span class="icon-stack icon-3x">
             <i class="icon-circle icon-stack-base"></i>
             <i class="icon-youtube-play icon-light"></i>

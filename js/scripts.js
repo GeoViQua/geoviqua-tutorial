@@ -2,7 +2,10 @@ $(document).ready(function () {
 
 	var originalTitle = document.title;
 	
-	$(".no-js").show();
+	$(".no-js").show().removeClass('no-js');
+
+	// hide all sections
+	$("section.tab-pane").removeClass('active');
 
 	$("a.fancy").fancybox();
 

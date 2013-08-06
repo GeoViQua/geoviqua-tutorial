@@ -3,7 +3,7 @@ body {
 }
 
 .no-js, .publish-steps, .hidden {
-	display: none;
+	display: none !important;
 }
 
 .tab-content {
