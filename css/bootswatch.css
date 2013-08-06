@@ -2,8 +2,12 @@ body {
 	background-color: #fff;
 }
 
-.no-js, .publish-steps, .hidden {
+.no-js {
 	display: none !important;
+}
+
+.publish-steps, .hidden {
+	display: none;
 }
 
 .tab-content {
