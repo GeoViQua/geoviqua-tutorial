@@ -688,7 +688,7 @@ if (isset($_SESSION['response'])) {
       <blockquote>
         <p><i class="icon-quote-left icon-4x pull-left icon-muted"></i> The GEO label is a quick way to assess and interrogate the metadata that's available for a dataset, by pulling together producer documents and user feedback into a simple, clickable symbol.</p>
         <br />
-        <p>The GEO label has 8 facets, and each will be coloured only if that type of information is available. A quick summary of what’s available can be obtained by hovering over the facet.</p>
+        <p>The GEO label has 8 facets, and each will be coloured only if that type of information is available. A quick summary of what's available can be obtained by hovering over the facet.</p>
       </blockquote>
     </div>
     <div class="span4" style="position: relative;">
