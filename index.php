@@ -99,7 +99,7 @@ if (isset($_SESSION['response'])) {
     <ul id="homeNav" class="nav nav-pills">
       <li><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
       <li><a href="#feedback" data-toggle="pill">2. The User Feedback Model</a></li>
-      <li><a href="#label" data-toggle="pill">3. The GEO Label</a></li>
+      <li><a href="#label" data-toggle="pill">3. The GEO label</a></li>
     </ul>
   </div>
   <div class="row hero-preview">
@@ -192,7 +192,7 @@ if (isset($_SESSION['response'])) {
       <li class=""><a data-toggle="pill" href="#overview"><i class="no-js icon-home icon-large"></i></a></li>
       <li class="active"><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
       <li><a href="#feedback" data-toggle="pill">2. The User Feedback Model</a></li>
-      <li><a href="#label" data-toggle="pill">3. The GEO Label</a></li>
+      <li><a href="#label" data-toggle="pill">3. The GEO label</a></li>
     </ul>
   </div>
   <div class="page-header">
@@ -494,7 +494,7 @@ if (isset($_SESSION['response'])) {
       <li class=""><a data-toggle="pill" href="#overview"><i class="no-js icon-home icon-large"></i></a></li>
       <li><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
       <li class="active"><a href="#feedback" data-toggle="pill">2. The User Feedback Model</a></li>
-      <li><a href="#label" data-toggle="pill">3. The GEO Label</a></li>
+      <li><a href="#label" data-toggle="pill">3. The GEO label</a></li>
     </ul>
   </div>
   <div class="page-header">
@@ -659,7 +659,7 @@ if (isset($_SESSION['response'])) {
       </div>
 
       <br />
-      <button class="btn btn-large btn-block btn-info btn-next no-js" type="button" data-next="#label">Continue to Part 3: The GEO Label</button>
+      <button class="btn btn-large btn-block btn-info btn-next no-js" type="button" data-next="#label">Continue to Part 3: The GEO label</button>
 
     </div>
   </div>
@@ -668,7 +668,7 @@ if (isset($_SESSION['response'])) {
 
 
 
-<!-- The GEO Label
+<!-- The GEO label
 ================================================== -->
 <section class="tab-pane" id="label">
   <div class="tabbable subnav">
@@ -676,11 +676,11 @@ if (isset($_SESSION['response'])) {
       <li class=""><a data-toggle="pill" href="#overview"><i class="no-js icon-home icon-large"></i></a></li>
       <li><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
       <li><a href="#feedback" data-toggle="pill">2. The User Feedback Model</a></li>
-      <li class="active"><a href="#label" data-toggle="pill">3. The GEO Label</a></li>
+      <li class="active"><a href="#label" data-toggle="pill">3. The GEO label</a></li>
     </ul>
   </div>
   <div class="page-header">
-    <h3>The GEO Label</h3>
+    <h3>The GEO label</h3>
   </div>
 
   <div class="row">
@@ -688,7 +688,7 @@ if (isset($_SESSION['response'])) {
       <blockquote>
         <p><i class="icon-quote-left icon-4x pull-left icon-muted"></i> The GEO label is a quick way to assess and interrogate the metadata that's available for a dataset, by pulling together producer documents and user feedback into a simple, clickable symbol.</p>
         <br />
-        <p>The GEOlabel has 8 facets, and each will be coloured only if that type of information is available. A quick summary of what’s available can be obtained by hovering over the facet.</p>
+        <p>The GEO label has 8 facets, and each will be coloured only if that type of information is available. A quick summary of what’s available can be obtained by hovering over the facet.</p>
       </blockquote>
     </div>
     <div class="span4" style="position: relative;">
@@ -808,7 +808,7 @@ if (isset($_SESSION['response'])) {
         <p class="pull-right"><a href="#top">Back to top</a></p>
         <div class="links">
           <a href="http://www.geoviqua.org/" onclick="trackOutbound(this, 'external', 5); return false;" title="GeoViQua project website" target="_blank">GeoViQua</a>
-          <a href="http://geolabel.info/" onclick="trackOutbound(this, 'external', 5); return false;" title="GEOlabel project website" target="_blank">GEOlabel</a>
+          <a href="http://geolabel.info/" onclick="trackOutbound(this, 'external', 5); return false;" title="GEO label project website" target="_blank">GEO label</a>
           <a href="http://ec.europa.eu/research/fp7/" onclick="trackOutbound(this, 'external'); return false;" title="EC FP7 Research website" target="_blank">EC FP7</a>
           <a href="http://www.earthobservations.net/index.shtml" onclick="trackOutbound(this, 'external'); return false;" title="GEO - Group on Earth Observations website" target="_blank">GEO - Group on Earth Observations</a>
         </div>
