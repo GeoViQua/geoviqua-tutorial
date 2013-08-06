@@ -103,18 +103,24 @@ if (isset($_SESSION['response'])) {
     </ul>
   </div>
   <div class="row hero-preview">
-    <div class="span3 img-polaroid" data-sibling="producer">
-      <img src="img/producer-hero.png" />
+    <div class="span4" data-sibling="producer">
+      <div class="img-polaroid">
+        <img src="img/producer-hero.png" />
+      </div>
     </div>
-    <div class="span3 img-polaroid" data-sibling="feedback">
-      <img src="img/user-hero.png" />
+    <div class="span4" data-sibling="feedback">
+      <div class="img-polaroid">
+        <img src="img/user-hero.png" />
+      </div>
     </div>
-    <div class="span3 img-polaroid" data-sibling="label">
-      <img src="img/label-hero.png" />
+    <div class="span4" data-sibling="label">
+      <div class="img-polaroid">
+        <img src="img/label-hero.png" />
+      </div>
     </div>
   </div>
   <div class="row">
-    <div class="span6">
+    <div class="span7">
       <legend>About</legend>
       <blockquote>
         <p><i class="icon-quote-left icon-4x pull-left icon-muted"></i> GeoViQua provides a set of scientifically developed software components and services that facilitate the creation, search and visualization of quality information on EO data integrated and validated in the GEOSS Common Infrastructure.</p>
@@ -123,7 +129,7 @@ if (isset($_SESSION['response'])) {
       <p>Our User Quality Model permits users of datasets to submit ratings, comments, citations and assessments of those datasets to a Feedback server where their comments can be collated and combined with the more tradiational metadata to help other users assess the data's fitness for purpose.</p>
       <p>Our proposed GEO label presents a condensed visual summary of the producer and use metadata, allowing a quick assessment of the availability of data quality information on a dataset, as well as a drill-down feature so that users can query the quality information in more detail.</p>
     </div>
-    <div class="span6">
+    <div class="span5">
       <form id="contact" class="form-horizontal" method="post" action="email.php">
         <?php
 
@@ -147,28 +153,28 @@ if (isset($_SESSION['response'])) {
           <div class="control-group stage clear">
             <label for="name" class="control-label"><strong>Name: <em>*</em></strong></label>
             <div class="controls">
-              <input type="text" name="contactname" id="contactname" value="<?php echo $fields['contactname']; ?>" class="span4 required <?php if (isset($errors['contactname'])) { echo 'error'; } ?>" role="input" aria-required="true" />
+              <input type="text" name="contactname" id="contactname" value="<?php echo $fields['contactname']; ?>" class="span3 required <?php if (isset($errors['contactname'])) { echo 'error'; } ?>" role="input" aria-required="true" />
               <?php if (isset($errors['contactname'])): ?><label class="error"><?php echo $errors['contactname']; ?></label><?php endif; ?>
             </div>
           </div>
           <div class="control-group stage clear">
             <label for="email" class="control-label"><strong>Email: <em>*</em></strong></label>
             <div class="controls">
-              <input type="text" name="email" id="email" value="<?php echo $fields['email']; ?>" class="span4 required email <?php if (isset($errors['email'])) { echo 'error'; } ?>" role="input" aria-required="true" />
+              <input type="text" name="email" id="email" value="<?php echo $fields['email']; ?>" class="span3 required email <?php if (isset($errors['email'])) { echo 'error'; } ?>" role="input" aria-required="true" />
               <?php if (isset($errors['email'])): ?><label class="error"><?php echo $errors['email']; ?></label><?php endif; ?>
             </div>
           </div>
           <div class="control-group stage clear">
             <label for="subject" class="control-label"><strong>Subject: <em>*</em></strong></label>
             <div class="controls">
-              <input type="text" name="subject" id="subject" value="<?php echo $fields['subject']; ?>" class="span4 required <?php if (isset($errors['subject'])) { echo 'error'; } ?>" role="input" aria-required="true" />
+              <input type="text" name="subject" id="subject" value="<?php echo $fields['subject']; ?>" class="span3 required <?php if (isset($errors['subject'])) { echo 'error'; } ?>" role="input" aria-required="true" />
               <?php if (isset($errors['subject'])): ?><label class="error"><?php echo $errors['subject']; ?></label><?php endif; ?>
             </div>
           </div>
           <div class="control-group stage clear">
             <label for="message" class="control-label"><strong>Message: <em>*</em></strong></label>
             <div class="controls">
-              <textarea rows="8" name="message" id="message" class="span4 required <?php if (isset($errors['message'])) { echo 'error'; } ?>" role="textbox" aria-required="true"><?php echo $fields['message']; ?></textarea>
+              <textarea rows="8" name="message" id="message" class="span3 required <?php if (isset($errors['message'])) { echo 'error'; } ?>" role="textbox" aria-required="true"><?php echo $fields['message']; ?></textarea>
               <?php if (isset($errors['message'])): ?><label class="error"><?php echo $errors['message']; ?></label><?php endif; ?>
             </div>
           </div>

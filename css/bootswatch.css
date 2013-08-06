@@ -31,6 +31,10 @@ input.error, textarea.error {
     visibility: hidden;
 }
 
+.requiredNote {
+	margin-left: 180px;
+}
+
 /* index */
 
 .play {
@@ -65,12 +69,12 @@ input.error, textarea.error {
 }
 
 .hero-preview {
-	margin: -30px 0 60px;
+	margin-top: -30px;
+	margin-bottom: 60px;
 }
 .hero-preview .img-polaroid {
 	height: 160px;
 	overflow: hidden;
-	margin-left: 16px;
 	transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
 	-webkit-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
 	-moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
