@@ -119,6 +119,9 @@ if (isset($_SESSION['response'])) {
       <blockquote>
         <p><i class="icon-quote-left icon-4x pull-left icon-muted"></i> GeoViQua provides a set of scientifically developed software components and services that facilitate the creation, search and visualization of quality information on EO data integrated and validated in the GEOSS Common Infrastructure.</p>
       </blockquote>
+      <p>Our Producer Quality Model extends ISO 19115 and 19157 standards to allow traditional metadata documents to be supplemented with richer information such as citations, discovered issues, information about reference datasets and full statistical representations of uncertainty.</p>
+      <p>Our User Quality Model permits users of datasets to submit ratings, comments, citations and assessments of those datasets to a Feedback server where their comments can be collated and combined with the more tradiational metadata to help other users assess the data's fitness for purpose.</p>
+      <p>Our proposed GEO label presents a condensed visual summary of the producer and use metadata, allowing a quick assessment of the availability of data quality information on a dataset, as well as a drill-down feature so that users can query the quality information in more detail.</p>
     </div>
     <div class="span6">
       <form id="contact" class="form-horizontal" method="post" action="email.php">
