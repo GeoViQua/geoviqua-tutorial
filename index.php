@@ -782,7 +782,7 @@ if (isset($_SESSION['response'])) {
     <div class="span8">
       <p>
         <i class="icon-info-sign icon-large pull-left"></i>
-        In your browser, go to <a href="http://uncertgeo.aston.ac.uk/geolabel/silex/web/geolabel.html" target="_blank">http://uncertgeo.aston.ac.uk/geolabel/silex/web/geolabel.html <i class="icon-external-link" style="text-decoration: none;"></i></a>
+        In your browser, go to <a href="http://www.geolabel.net/geolabel.html" target="_blank">http://www.geolabel.net/geolabel.html <i class="icon-external-link" style="text-decoration: none;"></i></a>
         <br /><br />
         Select the tab &lsquo;Example metadata documents&rsquo;, select the documents as shown in the image below, and click &lsquo;Submit&rsquo;. There will probably be a short delay: in this time, the GEO label service is retrieving the producer document, but also querying the feedback service, and aggregating all the results.
       </p>
@@ -808,7 +808,7 @@ if (isset($_SESSION['response'])) {
         First, copy the URL for your metadata document. This can be the URL of a traditional ISO document, e.g. our <a href="http://schemas.geoviqua.org/GVQ/4.0/example_documents/19139/DigitalClimaticAtlas19139.xml" target="_blank">example metadata document <i class="icon-external-link" style="text-decoration: none;"></i></a> or a <a href="http://schemas.geoviqua.org/GVQ/4.0/example_documents/PQMs/DigitalClimaticAtlas_mt_an_v10.xml" target="_blank">GeoViQua-transformed document <i class="icon-external-link" style="text-decoration: none;"></i></a>
       </p>
       <p>
-        Visit <a href="http://uncertgeo.aston.ac.uk/geolabel/silex/web/geolabel.html" target="_blank">The GEO label website <i class="icon-external-link" style="text-decoration: none;"></i></a> again and paste this URL into the top text box on the &lsquo;Enter metadata URL location&rsquo; tab</a>, ensuring that you enter your own code and codespace values from step 1 of tutorial 2.
+        Visit <a href="http://www.geolabel.net/geolabel.html" target="_blank">The GEO label website <i class="icon-external-link" style="text-decoration: none;"></i></a> again and paste this URL into the top text box on the &lsquo;Enter metadata URL location&rsquo; tab</a>, ensuring that you enter your own code and codespace values from step 1 of tutorial 2.
       </p>
       <div class="alert alert-success">
         Now click &lsquo;Submit&rsquo; and you should get your very own GEO label! Explore and experiment to see how different labels are returned from different datasets.
@@ -821,24 +821,73 @@ if (isset($_SESSION['response'])) {
 
   <br />
   <div class="row">
-    <div class="span8">
+    <div class="span12">
       <p>
         <i class="icon-info-sign icon-large pull-left"></i>
-        Even better, we can generate a GEO label for the GeoViQua compliant document that we transformed and stored in GeoNetwork earlier.
+        Even better, we can generate a GEO label for the GeoViQua compliant document that we transformed and stored in GeoNetwork earlier
+        by using the GEO label API. The form below will fetch the metadata record that you published and submit it along with your chosen
+        code &amp; codespace for feedback to the GEO label service, which will then return your very own GEO label!
       </p>
-      <p>
-        Visit <a href="http://uncertgeo.aston.ac.uk/geolabel/silex/web/geolabel.html" target="_blank">The GEO label website <i class="icon-external-link" style="text-decoration: none;"></i></a> once more, navigate to the &lsquo;Test with your own documents&rsquo; tab and enter the numeric ID of your published dataset that you recorded during step 3 of tutorial 1.
-      </p>
-      <div class="alert alert-warning">
-        Don't forget to re-enter your own code and codespace values before clicking &lsquo;Submit&rsquo;!
-      </div>
+    </div>
+  </div>
+
+  <br />
+  <div class="row no-js">
+    <div class="tabbable span12">
+      <ul class="nav nav-tabs">
+        <li id="geolabel-tab" class="active"><a data-toggle="tab" href="#tabs3-pane1">Generate GEO label</a></li>
+        <li id="geolabel-results-tab" class=""><a data-toggle="tab" href="#tabs3-pane2">View result</a></li>
+      </ul>
+      <div class="tab-content">
+        <div id="tabs3-pane1" class="tab-pane active">
+          <form id="geolabel-form" class="form-horizontal" enctype="multipart/form-data" method="post" action="geolabel.php">
+            <div class="alert alert-error" style="display: none;"></div>
+            <fieldset>
+              <div class="control-group">
+                <label for="geonetwork_id" class="control-label">Enter the ID of your dataset:</label>
+                <div class="controls">
+                  <input type="text" name="geonetwork_id" placeholder="5" class="input-xlarge" id="geonetwork_id">
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="target_code" class="control-label">Enter target code:</label>
+                <div class="controls">
+                  <input type="text" name="target_code" placeholder="mtri2an1ib" class="input-xlarge" id="target_code">
+                </div>
+              </div>
+              <div class="control-group">
+                <label for="target_codespace" class="control-label">Enter target codespace:</label>
+                <div class="controls">
+                  <input type="text" name="target_codespace" placeholder="opengis.uab.cat" class="input-xlarge" id="target_codespace">
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-info submit" type="submit">Submit</button>
+                <button class="btn" type="reset">Clear</button>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <div id="tabs3-pane2" class="tab-pane">
+          <div class="alert alert-error">
+            You have not yet submitted the required data to the GEO label service.
+          </div>
+          <div class="alert alert-success" style="display: none;">
+            Your GEO label was successfully generated!
+          </div>
+          <div id="geolabel-result"></div>
+          <br />
+        </div>
+      </div><!-- /.tab-content -->
+    </div><!-- /.tabbable -->
+  </div>
+
+  <div class="row">
+    <div class="span12">
       <div class="alert alert-info">
         You could also submit your document manually by following the previous example and using the URL <a href="javascript:void(0)">http://uncertdata.aston.ac.uk:8080/geonetwork/srv/eng/xml_geoviqua?id=<strong>YOURDATSETID</strong>&amp;styleSheet=xml_iso19139.geoviqua.xsl</a>,
         replacing &lsquo;<strong>YOURDATASETID</strong>&rsquo; with the numeric ID.
       </div>
-    </div>
-    <div class="span4">
-      <a class="fancy" href="img/tutorial/g5.png"><img src="img/tutorial/g5.png" class="img-polaroid" /></a>
     </div>
   </div>
 

@@ -29,3 +29,6 @@ admin_password = "admin"
 
 ; Base URL for GeoNetwork where XML services will be appended to form different endpoints.
 geonetwork_baseURL = "http://localhost:8080/geonetwork/srv/eng/"
+
+; Endpoint for the GEO label service
+geolabel_endpoint = "http://www.geolabel.net/api/v1/geolabel"

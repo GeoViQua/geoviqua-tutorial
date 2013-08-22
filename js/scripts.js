@@ -119,6 +119,9 @@ $(document).ready(function () {
 				$('.publish-steps').find('#publish-username').text(response.data.geonetwork.username);
 				$('.publish-steps').find('#publish-password').text(response.data.geonetwork.password);
 
+				// update the GEO label form in part 3 with the ID
+				$('#geonetwork_id').val(response.data.geonetwork.metadata_id);
+
 				// display the tutorial copy
 				$('.publish-steps').show();
 				$('#publish-results-tab a').click();
@@ -129,6 +132,58 @@ $(document).ready(function () {
 
 			// remove the iframe for subsequent requests
 			$(this).remove();
+		});
+
+		// prevent default posting of form
+		e.preventDefault();
+
+		// re-enable inputs
+		$inputs.prop("disabled", false);
+	});
+
+	$('#geolabel-form .submit').on('click', function (e) {
+
+		var $form = $(this).parents('form'),
+		$inputs = $form.find('input, select, button, textarea'),
+		$error_container = $form.find('.alert-error'),
+		url = $form.attr('action'),
+		data = $form.serialize();
+
+		// disable inputs for duration of request
+		$inputs.prop("disabled", true);
+
+		// POST the form
+		$.ajax({
+			url: url,
+			method: 'POST',
+			data: data
+		})
+		.done(function (response) {
+
+			// hide error messages
+			$error_container.hide();
+			$('#tabs3-pane2').find('.alert-error').hide();
+
+			// embed the GEO label
+			$('#geolabel-result').html(response.data.label_svg);
+
+			// display the success message & GEO label
+			$('#tabs3-pane2').find('.alert-success').show();
+			$('#geolabel-results-tab a').click();
+
+			// track this interaction
+			ga('send', 'event', 'GEO label tutorial', 'generate label', 'GEO label generated for ID ' + response.data.ID);
+		})
+		.fail(function (response) {
+
+			response = $.parseJSON(response.responseText);
+
+			// show error message
+			$error_container.html(response.message);
+			$error_container.show();
+
+			// track the error
+			ga('send', 'event', 'error', 'GEO label tutorial', 'Generate label form: ' + response.message);
 		});
 
 		// prevent default posting of form
@@ -161,8 +216,7 @@ $(document).ready(function () {
 		var $code = $(this).children('input[name=target_code]'),
 			code = $code.val(),
 			$codespace = $(this).children('input[name=target_codespace]'),
-			codespace = $codespace.val(),
-			$childs = $('form.feedback').not($(this)).children();
+			codespace = $codespace.val();
 
 		if (code === '') {
 
@@ -178,8 +232,8 @@ $(document).ready(function () {
 		}
 		else {
 
-			$childs.filter('input[name=target_code]').val(code);
-			$childs.filter('input[name=target_codespace]').val(codespace);
+			$('input[name=target_code]').not($code).val(code);
+			$('input[name=target_codespace]').not($codespace).val(codespace);
 
 			// track feedback server form interactions (actions are "submit" or "search") under the "feedback tutorial" category
 			ga('send', 'event', 'feedback tutorial', $(this).data('stage'), 'Code: ' + code + ' , Codespace: ' + codespace);
