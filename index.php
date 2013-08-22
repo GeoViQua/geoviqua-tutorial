@@ -832,7 +832,7 @@ if (isset($_SESSION['response'])) {
   </div>
 
   <br />
-  <div class="row no-js">
+  <div class="row">
     <div class="tabbable span12">
       <ul class="nav nav-tabs">
         <li id="geolabel-tab" class="active"><a data-toggle="tab" href="#tabs3-pane1">Generate GEO label</a></li>
@@ -840,7 +840,7 @@ if (isset($_SESSION['response'])) {
       </ul>
       <div class="tab-content">
         <div id="tabs3-pane1" class="tab-pane active">
-          <form id="geolabel-form" class="form-horizontal" enctype="multipart/form-data" method="post" action="geolabel.php">
+          <form id="geolabel-form" class="form-horizontal" enctype="multipart/form-data" method="post" action="geolabel.php" target="_blank">
             <div class="alert alert-error" style="display: none;"></div>
             <fieldset>
               <div class="control-group">
