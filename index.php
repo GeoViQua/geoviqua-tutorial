@@ -460,21 +460,27 @@ if (isset($_SESSION['response'])) {
         <div class="span8">
           <p>
             <i class="icon-info-sign icon-large pull-left"></i>
-            If you click &lsquo;Edit&rsquo; you will be able to add information to the new document. This view also allows you to see how the namespaces and elements have changed from a standard ISO document. For example, new elements such as  reference documents describing usage, evalulation or dataset generation are now possible.
+            The &lsquo;identification&rsquo; section of your metadata document in GeoNetwork should look similar to the example metadata document pictured to the right.
+            The <strong>unique resource identifier</strong> highlighted above is the identifier <strong>code</strong> of the dataset. It is taken from the citation element, contained in the <strong>MD_DataIdentification</strong> part of the document.
           </p>
+          <p>
+            In GeoViQua, we propose to use the latest version of the 19115 <strong>MD_Identifier</strong> element, which also allows a <strong>codespace</strong> to be supplied which unambiguously defines the namespace for the identifier.
+            The combination of code and codespace forms a unique identifier which will permit digital citations to datasets, opening up many opportunities for automated discovery and referencing of data.
+          </p>
+          <div class="alert alert-info">
+            For more discussion of codespaces and their function, see <a href="https://geo-ide.noaa.gov/wiki/index.php?title=ISO_Identifiers" onclick="trackOutbound(this, 'external'); return false;" title="ISO Identifiers - NOAA Environmental Data Management Wiki" target="_blank">this NOAA EDM wiki article</a>.
+          </div>
         </div>
         <div class="span4">
-          <a class="fancy" href="img/tutorial/p5.png"><img src="img/tutorial/p5.png" class="img-polaroid" /></a>
+          <a class="fancy" href="img/tutorial/p9.png"><img src="img/tutorial/p9.png" class="img-polaroid" /></a>
         </div>
       </div>
 
-      <br />
       <div class="row">
         <div class="span8">
-          <p>
-            <i class="icon-info-sign icon-large pull-left"></i>
-            The data quality reports have all been restructured to comply with the new ISO 19157 standard.
-          </p>
+            <div class="alert alert-info">
+              The data quality reports have all been restructured to comply with the new ISO 19157 standard.
+            </div>
         </div>
         <div class="span4">
           <a class="fancy" href="img/tutorial/p6.png"><img src="img/tutorial/p6.png" class="img-polaroid" /></a>
@@ -486,14 +492,37 @@ if (isset($_SESSION['response'])) {
         <div class="span8">
           <p>
             <i class="icon-info-sign icon-large pull-left"></i>
-            The identifiers have also been updated to include a code PLUS a codespace, for unique identification, as proposed for the latest version of ISO 19115.
+            If you click &lsquo;edit&rsquo;, you can add a codespace to your dataset, pictured to the right.
           </p>
-          <div class="alert alert-info">
-            If time allows, you can experiment with adding more of these elements, and save your changes.
-          </div>
         </div>
         <div class="span4">
-          <a class="fancy" href="img/tutorial/p7.png"><img src="img/tutorial/p7.png" class="img-polaroid" /></a>
+          <a class="fancy" href="img/tutorial/p10.png"><img src="img/tutorial/p10.png" class="img-polaroid" /></a>
+        </div>
+      </div>
+
+      <br />
+      <div class="row">
+        <div class="span8">
+          <p>
+            <i class="icon-info-sign icon-large pull-left"></i>
+            Click &lsquo;Save and Close&rsquo; and you will now see your codespace displayed in the metadata record.
+          </p>
+        </div>
+        <div class="span4">
+          <a class="fancy" href="img/tutorial/p11.png"><img src="img/tutorial/p11.png" class="img-polaroid" /></a>
+        </div>
+      </div>
+
+      <br />
+      <div class="row">
+        <div class="span8">
+          <p>
+            <i class="icon-info-sign icon-large pull-left"></i>
+            The edited document can be exported in XML format using the &lsquo;&lt;&gt;&rsquo; button top right.
+          </p>
+        </div>
+        <div class="span4">
+          <a class="fancy" href="img/tutorial/p12.png"><img src="img/tutorial/p12.png" class="img-polaroid" /></a>
         </div>
       </div>
 
