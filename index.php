@@ -329,6 +329,7 @@ if (isset($_SESSION['response'])) {
                     </div>
                   </div>
                   <div class="form-actions">
+                    <div class="loading"><img src="img/loading.gif" /></div>
                     <button class="btn btn-info submit" type="submit">Submit</button>
                     <button class="btn" type="reset">Clear</button>
                   </div>
@@ -862,6 +863,7 @@ if (isset($_SESSION['response'])) {
                 </div>
               </div>
               <div class="form-actions">
+                <div class="loading"><img src="img/loading.gif" /></div>
                 <button class="btn btn-info submit" type="submit">Submit</button>
                 <button class="btn" type="reset">Clear</button>
               </div>

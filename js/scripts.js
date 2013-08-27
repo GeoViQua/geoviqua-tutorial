@@ -80,6 +80,7 @@ $(document).ready(function () {
 		var $form = $(this).parents('form'),
 		$inputs = $form.find('input, select, button, textarea'),
 		$iframe = $('<iframe name="postiframe" id="postiframe" style="display: none" />'),
+		$loading = $form.find('.loading'),
 		$error_container = $form.find('.alert-error');
 
 		// append the upload iframe to the body
@@ -92,7 +93,15 @@ $(document).ready(function () {
 		// disable inputs for duration of request
 		$inputs.prop("disabled", true);
 
+		// show the loading animation
+		$form.find('.form-actions button').hide();
+		$loading.show();
+
 		$('#postiframe').load(function () {
+
+			// hide the loading animation
+			$loading.hide();
+			$form.find('.form-actions button').show();
 
 			// parse the response
 			response = $.parseJSON($('#postiframe')[0].contentWindow.document.body.innerHTML);
@@ -146,11 +155,16 @@ $(document).ready(function () {
 		var $form = $(this).parents('form'),
 		$inputs = $form.find('input, select, button, textarea'),
 		$error_container = $form.find('.alert-error'),
+		$loading = $form.find('.loading'),
 		url = $form.attr('action'),
 		data = $form.serialize();
 
 		// disable inputs for duration of request
 		$inputs.prop("disabled", true);
+
+		// show the loading animation
+		$form.find('.form-actions button').hide();
+		$loading.show();
 
 		// POST the form
 		$.ajax({
@@ -184,6 +198,12 @@ $(document).ready(function () {
 
 			// track the error
 			ga('send', 'event', 'error', 'GEO label tutorial', 'Generate label form: ' + response.message);
+		})
+		.always(function() {
+
+			// hide the loading animation
+			$loading.hide();
+			$form.find('.form-actions button').show();
 		});
 
 		// prevent default posting of form
