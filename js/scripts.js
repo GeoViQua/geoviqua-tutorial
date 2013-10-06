@@ -153,6 +153,7 @@ $(document).ready(function () {
 	publish_uploader.bind('Error', function(up, response) {
 
 		handlePublishResponse(response.response);
+		$('#publish-form [type="reset"]').trigger('click');
 	});
 
 	publish_uploader.bind('FileUploaded', function(up, file, response) {
