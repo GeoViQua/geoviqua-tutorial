@@ -67,7 +67,7 @@ if (file_exists($config_file) && is_readable($config_file)) {
 
             $data = array(
                 "metadata" => $metadata_url,
-                "feedback" => $config["feedback_endpoint"] . '/items/search?format=xml&target_code=' . $target_code . '&target_codespace=' . $target_codespace
+                "feedback" => $config["feedback_endpoint"] . '/items/search?format=xml&target_code=' . $target_code . '&target_codespace=' . $target_codespace . '&view=full'
             );
 
             // request a GEO label
