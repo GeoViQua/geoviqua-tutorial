@@ -75,79 +75,124 @@ $(document).ready(function () {
 		return true;
 	});
 
+	var publish_uploader = new plupload.Uploader({
+			runtimes : 'html5,flash,html4',
+			browse_button: 'browse',
+			container: 'publish-upload-container',
+			url: 'publish.php',
+			file_data_name: 'publish-metadata',
+			flash_swf_url : '/js/plupload/plupload.flash.swf'
+		}),
+		$publish_form = $('#publish-form'),
+		$publish_inputs = $publish_form.find('input, select, button, textarea'),
+		$publish_loading = $publish_form.find('.loading'),
+		$publish_error_container = $publish_form.find('.alert-error');
+
+	publish_uploader.init();
+
+	publish_uploader.bind('FilesAdded', function(up, files) {
+
+		$('#publish-upload-container .filename').text(files[0].name);
+	});
+
+	publish_uploader.bind('QueueChanged', function(up) {
+
+		if (publish_uploader.files.length === 0) {
+
+			$('#publish-upload-container .filename').text('No file selected.');
+		}
+	});
+
+	var handlePublishResponse = function(response) {
+
+		// parse the response
+		response = $.parseJSON(response);
+
+		if (response.status === 'error') {
+
+			// show error message
+			$publish_error_container.html(response.message);
+			$publish_error_container.show();
+
+			// track the error
+			ga('send', 'event', 'error', 'producer tutorial', 'Publish form: ' + response.message);
+		}
+		else if (response.status === 'success') {
+
+			// hide error messages
+			$publish_error_container.hide();
+			$('#tabs2-pane2').find('.alert-error').hide();
+
+			// update the tutorial copy with the correct information
+			var publish_url = response.data.geonetwork.url + 'xml_geoviqua?id=' + response.data.geonetwork.metadata_id + '&styleSheet=xml_iso19139.geoviqua.xsl',
+				$publish_steps = $('.publish-steps');
+			$publish_steps.find('#publish-ID').text(response.data.geonetwork.metadata_id);
+			$publish_steps.find('#publish-URL').attr("href", publish_url);
+			$publish_steps.find('#publish-username').text(response.data.geonetwork.username);
+			$publish_steps.find('#publish-password').text(response.data.geonetwork.password);
+
+			// update the GEO label form in part 3 with the ID
+			$('#geonetwork_id').val(response.data.geonetwork.metadata_id);
+
+			// display the tutorial copy
+			$publish_steps.show();
+			$('#publish-results-tab a').click();
+
+			// track this interaction & where the metadata has been published to
+			ga('send', 'event', 'producer tutorial', 'publish metadata', 'Metadata published to ' + publish_url);
+		}
+
+		// show form buttons again
+		$publish_loading.hide();
+		$publish_form.find('.form-actions button').show();
+
+		// re-enable inputs
+		$publish_inputs.prop("disabled", false);
+	}
+
+	publish_uploader.bind('Error', function(up, response) {
+
+		handlePublishResponse(response.response);
+	});
+
+	publish_uploader.bind('FileUploaded', function(up, file, response) {
+
+		handlePublishResponse(response.response);
+	});
+
+	publish_uploader.bind('UploadComplete', function(up, files) {
+
+		publish_uploader.refresh();
+	});
+
 	$('#publish-form .submit').on('click', function (e) {
 
-		var $form = $(this).parents('form'),
-		$inputs = $form.find('input, select, button, textarea'),
-		$iframe = $('<iframe name="postiframe" id="postiframe" style="display: none" />'),
-		$loading = $form.find('.loading'),
-		$error_container = $form.find('.alert-error');
+		if (publish_uploader.files.length > 0) {
 
-		// append the upload iframe to the body
-		$('body').append($iframe);
+			// disable inputs for duration of request
+			$publish_inputs.prop("disabled", true);
 
-		// switch the upload form's target to the iframe & submit
-		$form.attr('target', 'postiframe');
-		$form.submit();
+			// show the loading animation
+			$publish_form.find('.form-actions button').hide();
+			$publish_loading.show();
 
-		// disable inputs for duration of request
-		$inputs.prop("disabled", true);
+			// start upload
+			publish_uploader.start();
+		}
+		else {
 
-		// show the loading animation
-		$form.find('.form-actions button').hide();
-		$loading.show();
-
-		$('#postiframe').load(function () {
-
-			// hide the loading animation
-			$loading.hide();
-			$form.find('.form-actions button').show();
-
-			// parse the response
-			response = $.parseJSON($('#postiframe')[0].contentWindow.document.body.innerHTML);
-
-			if (response.status === 'error') {
-
-				// show error message
-				$error_container.html(response.message);
-				$error_container.show();
-
-				// track the error
-				ga('send', 'event', 'error', 'producer tutorial', 'Publish form: ' + response.message);
-			}
-			else if (response.status === 'success') {
-
-				// hide error messages
-				$error_container.hide();
-				$('#tabs2-pane2').find('.alert-error').hide();
-
-				// update the tutorial copy with the correct information
-				var publish_url = response.data.geonetwork.url + 'xml_geoviqua?id=' + response.data.geonetwork.metadata_id + '&styleSheet=xml_iso19139.geoviqua.xsl';
-				$('.publish-steps').find('#publish-ID').text(response.data.geonetwork.metadata_id);
-				$('.publish-steps').find('#publish-URL').attr("href", publish_url);
-				$('.publish-steps').find('#publish-username').text(response.data.geonetwork.username);
-				$('.publish-steps').find('#publish-password').text(response.data.geonetwork.password);
-
-				// update the GEO label form in part 3 with the ID
-				$('#geonetwork_id').val(response.data.geonetwork.metadata_id);
-
-				// display the tutorial copy
-				$('.publish-steps').show();
-				$('#publish-results-tab a').click();
-
-				// track this interaction & where the metadata has been published to
-				ga('send', 'event', 'producer tutorial', 'publish metadata', 'Metadata published to ' + publish_url);
-			}
-
-			// remove the iframe for subsequent requests
-			$(this).remove();
-		});
+			// show error message
+			$publish_error_container.html("Please select a file for upload.");
+			$publish_error_container.show();
+		}
 
 		// prevent default posting of form
 		e.preventDefault();
+	});
 
-		// re-enable inputs
-		$inputs.prop("disabled", false);
+	$('#publish-form [type="reset"]').on('click', function (e) {
+
+		publish_uploader.splice();
 	});
 
 	$('#geolabel-form .submit').on('click', function (e) {
