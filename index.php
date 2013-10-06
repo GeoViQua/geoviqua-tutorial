@@ -323,9 +323,12 @@ if (isset($_SESSION['response'])) {
                 <fieldset>
                   <div class="control-group">
                     <label for="metadata" class="control-label">Select metadata document:</label>
-                    <div class="controls">
-                      <input type="hidden" name="download" value="xml" />
-                      <input type="file" name="publish-metadata" class="input-file" id="publish-metadata">
+                    <div id="publish-upload-container" class="controls">
+                      <button id="browse" class="btn" href="javascript:;">Browse...</button>
+                      <span class="filename">No file selected.</span>
+                      <noscript>
+                        <input type="file" name="publish-metadata" class="input-file" id="publish-metadata">
+                      </noscript>
                     </div>
                   </div>
                   <div class="form-actions">
@@ -936,6 +939,7 @@ if (isset($_SESSION['response'])) {
     <script src="js/bootstrap.min.js"></script>
     <script src="js/fancybox/jquery.fancybox.pack.js"></script>
     <script src="js/video-js/video.js"></script>
+    <script src="js/plupload/plupload.full.min.js"></script>
     <script src="js/scripts.js"></script>
 
 
