@@ -786,7 +786,7 @@ if (isset($_SESSION['response'])) {
     <div class="span8">
       <p>
         <i class="icon-info-sign icon-large pull-left"></i>
-        In your browser, go to <a href="http://www.geolabel.net/geolabel.html" target="_blank">http://www.geolabel.net/geolabel.html <i class="icon-external-link" style="text-decoration: none;"></i></a>
+        In your browser, go to <a href="http://www.geolabel.net/demo.html" target="_blank">http://www.geolabel.net/demo.html <i class="icon-external-link" style="text-decoration: none;"></i></a>
         <br /><br />
         Select the tab &lsquo;Example metadata documents&rsquo;, select the documents as shown in the image below, and click &lsquo;Submit&rsquo;. There will probably be a short delay: in this time, the GEO label service is retrieving the producer document, but also querying the feedback service, and aggregating all the results.
       </p>
@@ -812,7 +812,7 @@ if (isset($_SESSION['response'])) {
         First, copy the URL for your metadata document. This can be the URL of a traditional ISO document, e.g. our <a href="http://schemas.geoviqua.org/GVQ/4.0/example_documents/19139/DigitalClimaticAtlas19139.xml" target="_blank">example metadata document <i class="icon-external-link" style="text-decoration: none;"></i></a> or a <a href="http://schemas.geoviqua.org/GVQ/4.0/example_documents/PQMs/DigitalClimaticAtlas_mt_an_v10.xml" target="_blank">GeoViQua-transformed document <i class="icon-external-link" style="text-decoration: none;"></i></a>
       </p>
       <p>
-        Visit <a href="http://www.geolabel.net/geolabel.html" target="_blank">The GEO label website <i class="icon-external-link" style="text-decoration: none;"></i></a> again and paste this URL into the top text box on the &lsquo;Enter metadata URL location&rsquo; tab</a>, ensuring that you enter your own code and codespace values from step 1 of tutorial 2.
+        Visit <a href="http://www.geolabel.net/demo.html" target="_blank">The GEO label website <i class="icon-external-link" style="text-decoration: none;"></i></a> again and paste this URL into the top text box on the &lsquo;Enter metadata URL location&rsquo; tab</a>, ensuring that you enter your own code and codespace values from step 1 of tutorial 2.
       </p>
       <div class="alert alert-success">
         Now click &lsquo;Submit&rsquo; and you should get your very own GEO label! Explore and experiment to see how different labels are returned from different datasets.
