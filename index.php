@@ -322,7 +322,7 @@ if (isset($_SESSION['response'])) {
                 <div class="alert alert-error" style="display: none;"></div>
                 <fieldset>
                   <div class="control-group">
-                    <label for="metadata" class="control-label">Select metadata document:</label>
+                    <label for="browse" class="control-label">Select metadata document:</label>
                     <div id="publish-upload-container" class="controls">
                       <button id="browse" class="btn" href="javascript:;">Browse...</button>
                       <span class="filename">No file selected.</span>
