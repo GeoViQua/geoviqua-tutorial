@@ -98,7 +98,7 @@ if (isset($_SESSION['response'])) {
 
 <!-- Masthead
 ================================================== -->
-<header class="tab-pane active jumbotron subhead" id="overview">
+<header class="tab-pane active jumbotron subhead" id="home">
   <div class="row">
     <div class="span12">
       <h2>GeoViQua Hands-On Workshop</h2>
@@ -107,9 +107,9 @@ if (isset($_SESSION['response'])) {
   </div>
   <div class="tabbable subnav">
     <ul id="homeNav" class="nav nav-pills">
-      <li><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
-      <li><a href="#feedback" data-toggle="pill">2. The User Feedback Model</a></li>
-      <li><a href="#label" data-toggle="pill">3. The GEO label</a></li>
+      <li><a href="#producer">1. The Producer Quality Model</a></li>
+      <li><a href="#feedback">2. The User Feedback Model</a></li>
+      <li><a href="#label">3. The GEO label</a></li>
     </ul>
   </div>
   <div class="row hero-preview">
@@ -194,7 +194,7 @@ if (isset($_SESSION['response'])) {
             <button class="btn btn-info submit" type="submit">Submit</button>
             <button class="btn" type="reset">Clear</button>
           </div>
-        <fieldset>
+        </fieldset>
       </form>
     </div>
   </div>
@@ -208,10 +208,10 @@ if (isset($_SESSION['response'])) {
 <section class="tab-pane active" id="producer">
   <div class="tabbable subnav">
     <ul id="producerNav" class="nav nav-pills">
-      <li class="home"><a data-toggle="pill" href="#overview"><i class="icon-home icon-large"></i></a></li>
-      <li class="active"><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
-      <li><a href="#feedback" data-toggle="pill">2. The User Feedback Model</a></li>
-      <li><a href="#label" data-toggle="pill">3. The GEO label</a></li>
+      <li class="home"><a href="#home"><i class="icon-home icon-large"></i></a></li>
+      <li class="active"><a href="#producer">1. The Producer Quality Model</a></li>
+      <li><a href="#feedback">2. The User Feedback Model</a></li>
+      <li><a href="#label">3. The GEO label</a></li>
     </ul>
   </div>
   <div class="page-header">
@@ -544,10 +544,10 @@ if (isset($_SESSION['response'])) {
 <section class="tab-pane active" id="feedback">
   <div class="tabbable subnav">
     <ul id="feedbackNav" class="nav nav-pills">
-      <li class="home"><a data-toggle="pill" href="#overview"><i class="icon-home icon-large"></i></a></li>
-      <li><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
-      <li class="active"><a href="#feedback" data-toggle="pill">2. The User Feedback Model</a></li>
-      <li><a href="#label" data-toggle="pill">3. The GEO label</a></li>
+      <li class="home"><a href="#home"><i class="icon-home icon-large"></i></a></li>
+      <li><a href="#producer">1. The Producer Quality Model</a></li>
+      <li class="active"><a href="#feedback">2. The User Feedback Model</a></li>
+      <li><a href="#label">3. The GEO label</a></li>
     </ul>
   </div>
   <div class="page-header">
@@ -726,10 +726,10 @@ if (isset($_SESSION['response'])) {
 <section class="tab-pane active" id="label">
   <div class="tabbable subnav">
     <ul id="labelNav" class="nav nav-pills">
-      <li class="home"><a data-toggle="pill" href="#overview"><i class="icon-home icon-large"></i></a></li>
-      <li><a href="#producer" data-toggle="pill">1. The Producer Quality Model</a></li>
-      <li><a href="#feedback" data-toggle="pill">2. The User Feedback Model</a></li>
-      <li class="active"><a href="#label" data-toggle="pill">3. The GEO label</a></li>
+      <li class="home"><a href="#home"><i class="icon-home icon-large"></i></a></li>
+      <li><a href="#producer">1. The Producer Quality Model</a></li>
+      <li><a href="#feedback">2. The User Feedback Model</a></li>
+      <li class="active"><a href="#label">3. The GEO label</a></li>
     </ul>
   </div>
   <div class="page-header">
@@ -940,6 +940,7 @@ if (isset($_SESSION['response'])) {
     <script src="js/fancybox/jquery.fancybox.pack.js"></script>
     <script src="js/video-js/video.js"></script>
     <script src="js/plupload/plupload.full.min.js"></script>
+    <script src="js/jquery.hashchange.min.js"></script>
     <script src="js/scripts.js"></script>
 
 

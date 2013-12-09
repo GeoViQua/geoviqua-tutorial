@@ -4,9 +4,6 @@ $(document).ready(function () {
 	
 	$(".no-js").show().removeClass('no-js');
 
-	// hide all sections
-	$("section.tab-pane").removeClass('active');
-
 	$("a.fancy").fancybox();
 
 	videojs.options.flash.swf = 'js/video-js/video-js.swf';
@@ -46,6 +43,11 @@ $(document).ready(function () {
 	});
 
 	$('#tabs1-pane2 div').hide();
+
+	$('a[href=#top]').click(function() {
+		$('html, body').animate({scrollTop:0}, 'normal');
+		return false;
+	});
 
 	// POST to transform script and display results
 	$('#transform-form').on('submit', function(e) {
@@ -260,13 +262,13 @@ $(document).ready(function () {
 	});
 
 	// toggle active/inactive across multiple tab elements
-	$('a[data-toggle="pill"]').on('shown', function (e) {
+	$('.nav-pills a').on('shown', function (e) {
 
 		var targetHref = $(e.target).attr('href'),
-			$active = $('a[data-toggle="pill"]').filter(function() {
+			$active = $('.nav-pills a').filter(function() {
 				return $(this).attr('href') === targetHref;	
 			}),
-			$notActive = $('a[data-toggle="pill"]').not($active);
+			$notActive = $('.nav-pills a').not($active);
 		
 		$notActive.parent().removeClass('active');
 		$active.parent().addClass('active');
@@ -347,15 +349,31 @@ $(document).ready(function () {
 	*/
 
 	// track page views for different sections of the tutorial
-	$('a[data-toggle="pill"]').on('click', function (e, isJquery) {
+	$('.nav-pills a').on('click', function (e, isJquery) {
 
-		// check that the event has been triggered by a human, not jquery
-		if (!isJquery) {
+		e.preventDefault();
 
-			window.location.href = this.href;
-			document.title = originalTitle + ': ' + $(this).text();
+		var $href = $(this).attr('href'),
+			href = ($href !== '#home' ? $href : window.location.href.split('#')[0]),
+			title = (href !== '' ? originalTitle + ': ' + $(this).text() : originalTitle),
+			hrefIsEqual = window.location.hash === href;
+
+		document.title = title;
+
+		// check that the event has been triggered by a human, not jquery, and that a different location hash is requested
+		if (!isJquery && !hrefIsEqual) {
+
+			if (history.pushState) {
+				history.pushState({}, title, href);
+			}
+			else {
+				window.location.hash = href;
+			}
+
 			ga('send', 'pageview', window.location.pathname + window.location.search + window.location.hash);
 		}
+
+		$(this).tab('show');
 	});
 
 	// track video interactions without affecting bounce rate, weighted by importance
@@ -418,6 +436,19 @@ $(document).ready(function () {
 	});
 
 })(window.jQuery);
+
+// switch to the correct tab on hash change
+$(function() {
+
+	$(window).hashchange(function() {
+
+		var hash = (window.location.hash !== '' ? window.location.hash : '#home');
+		$(".nav-pills a[href='" + hash + "']").first().trigger("click");
+	});
+
+	$(window).hashchange();
+
+});
 
 // helper method to track outbound links
 function trackOutbound(obj, category, value) {
