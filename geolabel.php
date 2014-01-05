@@ -26,10 +26,18 @@ if (file_exists($config_file) && is_readable($config_file)) {
             $metadata = trim($_POST["metadata"]);
             $size = trim($_POST["size"]);
 
-            call_geolabel_service($config["geolabel_endpoint"], array(
+            $svg = call_geolabel_service($config["geolabel_endpoint"], array(
                 "metadata" => $metadata,
                 "size" => $size
             ), "POST");
+
+            // job done, send a success response
+            send_response(array(
+                "status" => "success",
+                "data"  => array(
+                    "label_svg" => $svg
+                )
+            ));
         }
     }
     // usual request made by the tutorial
@@ -92,9 +100,18 @@ if (file_exists($config_file) && is_readable($config_file)) {
             }
             else {
 
-                call_geolabel_service($config["geolabel_endpoint"], array(
+                $svg = call_geolabel_service($config["geolabel_endpoint"], array(
                     "metadata" => $metadata_url,
                     "feedback" => $config["feedback_endpoint"] . '/items/search?format=xml&target_code=' . $target_code . '&target_codespace=' . $target_codespace . '&view=full'
+                ));
+
+                // job done, send a success response
+                send_response(array(
+                    "status" => "success",
+                    "data"  => array(
+                        "id" => $geonetwork_id,
+                        "label_svg" => $svg
+                    )
                 ));
             }
         }
@@ -162,14 +179,7 @@ function call_geolabel_service($url, $data, $method = "GET") {
         }
         else {
 
-            // job done, send a success response
-            send_response(array(
-                "status" => "success",
-                "data"  => array(
-                    "id" => $geonetwork_id,
-                    "label_svg" => $output
-                )
-            ));
+            return $output;
         }
     }
 }
