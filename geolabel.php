@@ -1,9 +1,14 @@
 <?php
 
-// enable cross-origin resource sharing
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
+$is_cors_request = array_key_exists("cors", $_GET);
+
+if ($is_cors_request) {
+
+    // enable cross-origin resource sharing
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+    header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
+}
 
 // name and path of the configuration file for this script
 $config_file = dirname(__FILE__) . "/app/config/config.ini";
@@ -13,17 +18,22 @@ if (file_exists($config_file) && is_readable($config_file)) {
 
     $config = parse_ini_file($config_file);
 
-    if (isset($_POST["metadata"])) {
+    // cross-domain request made by the schema plugin to call the GEO label service
+    if ($is_cors_request) {
 
-        $metadata = trim($_POST["metadata"]);
-        $size = trim($_POST["size"]);
+        if (isset($_POST["metadata"])) {
 
-        call_geolabel_service($config["geolabel_endpoint"], array(
-            "metadata" => $metadata,
-            "size" => $size
-        ), "POST");
+            $metadata = trim($_POST["metadata"]);
+            $size = trim($_POST["size"]);
+
+            call_geolabel_service($config["geolabel_endpoint"], array(
+                "metadata" => $metadata,
+                "size" => $size
+            ), "POST");
+        }
     }
-    elseif (isset($_POST["geonetwork_id"])) {
+    // usual request made by the tutorial
+    else {
 
         // validate user input
         $validation_error = "";
