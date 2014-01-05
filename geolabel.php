@@ -147,7 +147,7 @@ function call_geolabel_service($url, $data, $method = "GET") {
 
             send_response(array(
                 "status" => "error",
-                "message" => $output
+                "message" => "Unable to parse response (" . htmlentities($output) . ")"
             ));
         }
         else {
