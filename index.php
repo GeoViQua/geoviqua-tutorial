@@ -695,7 +695,7 @@ if (isset($_SESSION['response'])) {
       <div class="alert alert-info">
         Alternatively, you can manually edit the URL below, replacing &lsquo;<strong>xx</strong>&rsquo; with your code and &lsquo;<strong>yyy</strong>&rsquo; with your codespace: 
         <br />
-        <a href="javascript:void(0)"><?php echo $config['feedback_endpoint']; ?>/items/search?format=xml&amp;target_codespace=<strong>yyy</strong>&amp;target_code=<strong>xx</strong></a>
+        <a href="javascript:void(0)"><?php echo $config['feedback_endpoint']; ?>/items/search?format=xml&amp;target_code=<strong>xx</strong>&amp;target_codespace=<strong>yyy</strong></a>
       </div>
 
       <br />
@@ -708,6 +708,48 @@ if (isset($_SESSION['response'])) {
         </div>
         <div class="span4">
           <a class="fancy" href="img/tutorial/f6.png"><img src="img/tutorial/f6.png" class="img-polaroid" /></a>
+        </div>
+      </div>
+
+      <br />
+      <h4 id="t2s4">Step 4: View the feedback collection</h4>
+
+      <p>
+        The user feedback model describes the structure and attributes of comments, citations, discovered issues, ratings and reports of usage. In step 2 you will have
+        generated a "feedback item", but at the root of the user feedback model is the concept of a "feedback collection" which can hold zero or more feedback items.
+        You can retrieve a feedback collection that contains feedback from users and experts alike that targets the same code and codespace you provided.
+      </p>
+
+      <p>
+        Use the form below to retrieve a feedback collection from the server, entering your code and codespace if it's not already there.
+      </p>
+      <form action="<?php echo $config['feedback_endpoint']; ?>/collections" method="get" class="well form-search feedback" target="_blank" data-stage="collections">
+          <input name="format" type="hidden" value="xml" />
+          <input name="target_code" class="span3" placeholder="Code" type="text" />
+          <input name="target_codespace" class="span3" placeholder="Codespace" type="text" />
+          <button type="submit" class="btn btn-info">Submit</button>
+          <button class="btn" type="reset">Clear</button>
+      </form>
+      <div class="alert alert-info">
+        Alternatively, you can manually edit the URL below, replacing &lsquo;<strong>xx</strong>&rsquo; with your code and &lsquo;<strong>yyy</strong>&rsquo; with your codespace:
+        <br />
+        <a href="javascript:void(0)"><?php echo $config['feedback_endpoint']; ?>/collections?format=xml&amp;target_code=<strong>xx</strong>&amp;target_codespace=<strong>yyy</strong></a>
+      </div>
+
+      <br />
+      <div class="row">
+        <div class="span8">
+          <p>
+            <i class="icon-info-sign icon-large pull-left"></i>
+            This will show a feedback XML document that's compliant with the GeoViQua User Quality Model schema.
+            <div class="alert alert-info">
+              The GEO label can then use this to display information on user feedback, expert review and producer comments associated with your metadata.
+              A feedback collection can be embedded within a GVQ metadata record or provided using an external service (such as this feedback server!)
+            </div>
+          </p>
+        </div>
+        <div class="span4">
+          <a class="fancy" href="img/tutorial/f7.png"><img src="img/tutorial/f7.png" class="img-polaroid" /></a>
         </div>
       </div>
 
