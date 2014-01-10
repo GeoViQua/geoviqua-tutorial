@@ -950,7 +950,11 @@ if (isset($_SESSION['response'])) {
       <hr>
 
       <footer id="footer">
-        <p class="pull-right"><a href="#top">Back to top</a></p>
+        <p class="pull-right">
+          <a href="https://github.com/GeoViQua/geoviqua-tutorial/issues/new" onclick="trackOutbound(this, 'external'); return false;" title="Have you encountered a problem? If so, please report it on our issue tracker." target="_blank">Report an issue</a>
+          -
+          <a href="#top">Back to top</a>
+        </p>
         <div class="links">
           <a href="http://www.geoviqua.org/" onclick="trackOutbound(this, 'external', 5); return false;" title="GeoViQua project website" target="_blank">GeoViQua</a>
           <a href="http://geolabel.info/" onclick="trackOutbound(this, 'external', 5); return false;" title="GEO label project website" target="_blank">GEO label</a>
