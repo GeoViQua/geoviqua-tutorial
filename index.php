@@ -402,7 +402,7 @@ if (isset($_SESSION['response'])) {
             <p>
               <i class="icon-info-sign icon-large pull-left"></i>
               In your browser, go to <a href="http://uncertdata.aston.ac.uk:8080/geonetwork" target="_blank">http://uncertdata.aston.ac.uk:8080/geonetwork <i class="icon-external-link" style="text-decoration: none;"></i></a>
-              and log in with the username <strong><?php echo $config['editor_username']; ?></strong> and password <strong><?php echo $config['editor_password']; ?></strong>. Go to the &lsquo;Administration&rsquo; panel and select &lsquo;Metadata insert&rsquo; to import your metadata.
+              and log in with the username <strong><?php echo $config['editor_username']; ?></strong> and password <strong><?php echo $config['editor_password']; ?></strong> - go to the &lsquo;Administration&rsquo; panel and select &lsquo;Metadata insert&rsquo; to import your metadata.
             </p>
           </div>
           <div class="span4">
@@ -658,7 +658,7 @@ if (isset($_SESSION['response'])) {
         <div class="span8">
           <p>
             <i class="icon-info-sign icon-large pull-left"></i>
-            When you submit the feedback, you'll be prompted for a username and password. The username is <strong>inspire_user</strong>, and the password is <strong>Insp1357</strong>.
+            When you submit the feedback, you'll be prompted for a username and password. The username is <strong><?php echo $config['feedback_username']; ?></strong>, and the password is <strong><?php echo $config['feedback_password']; ?></strong>
           </p>
         </div>
         <div class="span4">
@@ -685,7 +685,7 @@ if (isset($_SESSION['response'])) {
       <p>
         Use the form below to retrieve a summary of your feedback from the server, entering your code and codespace if it's not already there.
       </p>
-      <form action="https://geoviqua.stcorp.nl/api/v1/feedback/items/search" method="get" class="well form-search feedback" target="_blank" data-stage="search">
+      <form action="<?php echo $config['feedback_endpoint']; ?>/items/search" method="get" class="well form-search feedback" target="_blank" data-stage="search">
           <input name="format" type="hidden" value="xml" />
           <input name="target_code" class="span3" placeholder="Code" type="text" />
           <input name="target_codespace" class="span3" placeholder="Codespace" type="text" />
@@ -695,7 +695,7 @@ if (isset($_SESSION['response'])) {
       <div class="alert alert-info">
         Alternatively, you can manually edit the URL below, replacing &lsquo;<strong>xx</strong>&rsquo; with your code and &lsquo;<strong>yyy</strong>&rsquo; with your codespace: 
         <br />
-        <a href="javascript:void(0)">https://geoviqua.stcorp.nl/api/v1/feedback/items/search?format=xml&amp;target_codespace=<strong>yyy</strong>&amp;target_code=<strong>xx</strong></a>
+        <a href="javascript:void(0)"><?php echo $config['feedback_endpoint']; ?>/items/search?format=xml&amp;target_codespace=<strong>yyy</strong>&amp;target_code=<strong>xx</strong></a>
       </div>
 
       <br />
