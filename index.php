@@ -723,7 +723,7 @@ if (isset($_SESSION['response'])) {
       <p>
         Use the form below to retrieve a feedback collection from the server, entering your code and codespace if it's not already there.
       </p>
-      <form action="<?php echo $config['feedback_endpoint']; ?>/collections" method="get" class="well form-search feedback" target="_blank" data-stage="collections">
+      <form action="<?php echo $config['feedback_endpoint']; ?>/collections/" method="get" class="well form-search feedback" target="_blank" data-stage="collections">
           <input name="format" type="hidden" value="xml" />
           <input name="target_code" class="span3" placeholder="Code" type="text" />
           <input name="target_codespace" class="span3" placeholder="Codespace" type="text" />
@@ -733,7 +733,7 @@ if (isset($_SESSION['response'])) {
       <div class="alert alert-info">
         Alternatively, you can manually edit the URL below, replacing &lsquo;<strong>xx</strong>&rsquo; with your code and &lsquo;<strong>yyy</strong>&rsquo; with your codespace:
         <br />
-        <a href="javascript:void(0)"><?php echo $config['feedback_endpoint']; ?>/collections?format=xml&amp;target_code=<strong>xx</strong>&amp;target_codespace=<strong>yyy</strong></a>
+        <a href="javascript:void(0)"><?php echo $config['feedback_endpoint']; ?>/collections/?format=xml&amp;target_code=<strong>xx</strong>&amp;target_codespace=<strong>yyy</strong></a>
       </div>
 
       <br />

@@ -102,7 +102,7 @@ if (file_exists($config_file) && is_readable($config_file)) {
 
                 $svg = call_geolabel_service($config["geolabel_endpoint"], array(
                     "metadata" => $metadata_url,
-                    "feedback" => $config["feedback_endpoint"] . '/collections?format=xml&target_code=' . $target_code . '&target_codespace=' . $target_codespace
+                    "feedback" => $config["feedback_endpoint"] . '/collections/?format=xml&target_code=' . $target_code . '&target_codespace=' . $target_codespace
                 ));
 
                 // job done, send a success response
