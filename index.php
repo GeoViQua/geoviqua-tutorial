@@ -75,8 +75,8 @@ if (isset($_SESSION['response'])) {
   <!-- Navbar
     ================================================== -->
  <div class="navbar navbar-fixed-top">
-   <div class="navbar-inner header">
-     <div class="container">
+   <div class="navbar-inner">
+     <div class="container header">
        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
