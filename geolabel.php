@@ -17,6 +17,7 @@ $config_file = dirname(__FILE__) . "/app/config/config.ini";
 if (file_exists($config_file) && is_readable($config_file)) {
 
     $config = parse_ini_file($config_file);
+    $feedback_api_url = $config["feedback_endpoint"] . '/collections/?format=xml&target_code=%1$s&target_codespace=%2$s';
 
     // cross-domain request made by the schema plugin to call the GEO label service
     if ($is_cors_request) {
@@ -25,11 +26,35 @@ if (file_exists($config_file) && is_readable($config_file)) {
 
             $metadata = trim($_POST["metadata"]);
             $size = trim($_POST["size"]);
+            $target_code = trim($_POST["code"]);
+            $target_codespace = trim($_POST["codespace"]);
 
-            $svg = call_geolabel_service($config["geolabel_endpoint"], array(
-                "metadata" => $metadata,
-                "size" => $size
-            ), "POST");
+            // data to POST to the GEO label API
+            $post_vars = array(
+                "metadata" => $metadata
+            );
+
+            if ($target_code !== "" && $target_codespace !== "") {
+
+                // get feedback collection to upload
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, sprintf($feedback_api_url, $target_code, $target_codespace));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                $post_vars["feedback"] = curl_exec($ch);
+                curl_close($ch);
+
+                if (curl_errno($ch)) {
+
+                    // discard any output from the request if there was an error
+                    unset($post_vars["feedback"]);
+                }
+            }
+
+            if (is_numeric($size) && $size > 0) {
+                $post_vars["size"] = $size;
+            }
+
+            $svg = call_geolabel_service($config["geolabel_endpoint"], $post_vars, "POST");
 
             // job done, send a success response
             send_response(array(
@@ -100,10 +125,17 @@ if (file_exists($config_file) && is_readable($config_file)) {
             }
             else {
 
-                $svg = call_geolabel_service($config["geolabel_endpoint"], array(
-                    "metadata" => $metadata_url,
-                    "feedback" => $config["feedback_endpoint"] . '/collections/?format=xml&target_code=' . $target_code . '&target_codespace=' . $target_codespace
-                ));
+                // data to POST to the GEO label API
+                $post_vars = array(
+                    "metadata" => $metadata_url
+                );
+
+                // submit a feedback URL if code & codespace is provided
+                if ($target_code !== "" && $target_codespace !== "") {
+                    $post_vars["feedback"] = sprintf($feedback_api_url, $target_code, $target_codespace);
+                }
+
+                $svg = call_geolabel_service($config["geolabel_endpoint"], $post_vars);
 
                 // job done, send a success response
                 send_response(array(
@@ -135,9 +167,15 @@ function call_geolabel_service($url, $data, $method = "GET") {
             break;
         case "POST":
             // create a tmp file containing the XML for upload
-            $file = tempnam(sys_get_temp_dir(), "geolabel_POST_");
-            file_put_contents($file, $data["metadata"]);
-            $data["metadata"] = "@".$file;
+            $metadata_file = tempnam(sys_get_temp_dir(), "geolabel_POST_");
+            file_put_contents($metadata_file, $data["metadata"]);
+            $data["metadata"] = "@".$metadata_file;
+            // attach the feedback collection as well
+            if (array_key_exists("feedback", $data)) {
+                $feedback_file = tempnam(sys_get_temp_dir(), "geolabel_POST_");
+                file_put_contents($feedback_file, $data["feedback"]);
+                $data["feedback"] = "@".$feedback_file;
+            }
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_POST, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
@@ -148,9 +186,10 @@ function call_geolabel_service($url, $data, $method = "GET") {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $output = curl_exec($ch);
 
-    // remove the tmp file
+    // remove the tmp files
     if ($method == "POST") {
-        unlink($file);
+        unlink($metadata_file);
+        unlink($feedback_file);
     }
 
     // something went wrong
