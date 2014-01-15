@@ -598,7 +598,7 @@ if (isset($_SESSION['response'])) {
       <p>
         Use the form below to visit the feedback server, entering the code and codespace that you decided on in step 1.
       </p>
-      <form action="https://geoviqua.stcorp.nl/submit_feedback.html" method="get" class="well form-search feedback" target="_blank" data-stage="submit">
+      <form action="https://geoviqua.stcorp.nl/devel/submit_feedback.html" method="get" class="well form-search feedback" target="_blank" data-stage="submit">
           <input name="target_code" class="span3" placeholder="Code" type="text" />
           <input name="target_codespace" class="span3" placeholder="Codespace" type="text" />
           <button type="submit" class="btn btn-info">Submit</button>
@@ -607,7 +607,7 @@ if (isset($_SESSION['response'])) {
       <div class="alert alert-info">
         Alternatively, you can manually edit the URL below, replacing &lsquo;<strong>xx</strong>&rsquo; with the code and &lsquo;<strong>yyy</strong>&rsquo; with the codespace you chose: 
         <br />
-        <a href="javascript:void(0)">https://geoviqua.stcorp.nl/submit_feedback.html?target_code=<strong>xx</strong>&amp;target_codespace=<strong>yyy</strong></a>
+        <a href="javascript:void(0)">https://geoviqua.stcorp.nl/devel/submit_feedback.html?target_code=<strong>xx</strong>&amp;target_codespace=<strong>yyy</strong></a>
       </div>
 
       <br />
