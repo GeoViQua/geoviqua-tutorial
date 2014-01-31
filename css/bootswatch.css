@@ -1,3 +1,8 @@
+/* Fix for Bootstrap/SyntaxHighlighter container conflict */
+div.syntaxhighlighter .container:before,div.syntaxhighlighter .container:after {
+    content:none;
+}
+
 body, .navbar-inner {
 	background: #fff;
 }
@@ -408,7 +413,6 @@ body .one .bsa_it_p {
 .subnav {
 	margin-bottom: 60px;
 	width: 100%;
-	height: 36px;
 	background-color: #eeeeee; /* Old browsers */
 	background-repeat: repeat-x; /* Repeat the gradient */
 	background-image: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%); /* FF3.6+ */

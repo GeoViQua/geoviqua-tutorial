@@ -57,6 +57,8 @@ if (isset($_SESSION['response'])) {
     <link href="css/bootswatch.css" rel="stylesheet">
     <link href="js/fancybox/jquery.fancybox.css" rel="stylesheet">
     <link href="js/video-js/video-js.min.css" rel="stylesheet">
+    <link href="css/syntaxhighlighter/shCore.css" rel="stylesheet">
+    <link href="css/syntaxhighlighter/shCoreDefault.css" rel="stylesheet">
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -110,22 +112,28 @@ if (isset($_SESSION['response'])) {
       <li><a href="#producer">1. The Producer Quality Model</a></li>
       <li><a href="#feedback">2. The User Feedback Model</a></li>
       <li><a href="#label">3. The GEO label</a></li>
+      <li><a href="#wms-q">4. WMS-Q</a></li>
     </ul>
   </div>
   <div class="row hero-preview">
-    <div class="span4" data-sibling="producer">
+    <div class="span3" data-sibling="producer">
       <div class="img-polaroid">
         <img src="img/producer-hero.png" />
       </div>
     </div>
-    <div class="span4" data-sibling="feedback">
+    <div class="span3" data-sibling="feedback">
       <div class="img-polaroid">
         <img src="img/user-hero.png" />
       </div>
     </div>
-    <div class="span4" data-sibling="label">
+    <div class="span3" data-sibling="label">
       <div class="img-polaroid">
         <img src="img/label-hero.png" />
+      </div>
+    </div>
+    <div class="span3" data-sibling="wms-q">
+      <div class="img-polaroid">
+        <img src="img/wms-q-hero.png" />
       </div>
     </div>
   </div>
@@ -212,6 +220,7 @@ if (isset($_SESSION['response'])) {
       <li class="active"><a href="#producer">1. The Producer Quality Model</a></li>
       <li><a href="#feedback">2. The User Feedback Model</a></li>
       <li><a href="#label">3. The GEO label</a></li>
+      <li><a href="#wms-q">4. WMS-Q</a></li>
     </ul>
   </div>
   <div class="page-header">
@@ -548,6 +557,7 @@ if (isset($_SESSION['response'])) {
       <li><a href="#producer">1. The Producer Quality Model</a></li>
       <li class="active"><a href="#feedback">2. The User Feedback Model</a></li>
       <li><a href="#label">3. The GEO label</a></li>
+      <li><a href="#wms-q">4. WMS-Q</a></li>
     </ul>
   </div>
   <div class="page-header">
@@ -772,6 +782,7 @@ if (isset($_SESSION['response'])) {
       <li><a href="#producer">1. The Producer Quality Model</a></li>
       <li><a href="#feedback">2. The User Feedback Model</a></li>
       <li class="active"><a href="#label">3. The GEO label</a></li>
+      <li><a href="#wms-q">4. WMS-Q</a></li>
     </ul>
   </div>
   <div class="page-header">
@@ -938,8 +949,286 @@ if (isset($_SESSION['response'])) {
     </div>
   </div>
 
+  <br />
+  <button class="btn btn-large btn-block btn-info btn-next no-js" type="button" data-next="#wms-q">Continue to Part 4: WMS-Q</button>
 
 </section>
+
+
+
+<!-- WMS-Q
+================================================== -->
+<section class="tab-pane active" id="wms-q">
+  <div class="tabbable subnav">
+    <ul id="wms-qNav" class="nav nav-pills">
+      <li class="home"><a href="#home"><i class="icon-home icon-large"></i></a></li>
+      <li><a href="#producer">1. The Producer Quality Model</a></li>
+      <li><a href="#feedback">2. The User Feedback Model</a></li>
+      <li><a href="#label">3. The GEO label</a></li>
+      <li class="active"><a href="#wms-q">4. WMS-Q</a></li>
+    </ul>
+  </div>
+  <div class="page-header">
+    <h3>Visualization of uncertain data through WMS-Q</h3>
+  </div>
+
+  <style type="text/css">
+    .syntaxhighlighter {
+      overflow-y: hidden !important;
+      overflow-x: auto !important;
+    }
+  </style>
+
+  <div class="row">
+    <div class="span8">
+      <blockquote>
+        <p><i class="icon-quote-left icon-4x pull-left icon-muted"></i> GeoViQua has developed new standards and tools for visualizing uncertain data through Web Map Services.
+          The &ldquo;WMS-Q&rdquo; specification is currently in preparation, but will soon be published through the GeoViQua website.</p>
+          <br />
+        <p>This tutorial describes how to use two GeoViQua tools for uncertainty visualization: the Godiva2 interactive website (intended for end users) 
+          and a simple online test tool that demonstrates the use of the new advanced styling features (intended for developers of standards and software).</p>
+      </blockquote>
+    </div>
+    <div class="span4" style="position: relative;">
+        <img src="img/wms-q-hero.png" class="img-polaroid">
+      </a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+      <h4 id="t4s1">Interactive web client</h4>
+      <p>
+        The interactive visualisation service can be accessed by visiting 
+        <a href="http://ncwms.geoviqua.org/godiva2.html" onclick="trackOutbound(this, 'external'); return false;" title="GODIVA2 Data Visualization demo" target="_blank">http://ncwms.geoviqua.org/godiva2.html</a>
+      </p>
+      <p>
+        This system is based on the Godiva2 WMS client provided by the <a href="http://www.resc.reading.ac.uk" onclick="trackOutbound(this, 'external'); return false;" title="Reading e-Science Centre" target="_blank">Reading e-Science Centre</a>.
+        The details of using this system can be found here:
+        <a href="http://www.resc.rdg.ac.uk/trac/ncWMS/wiki/GodivaTwoUserGuide" onclick="trackOutbound(this, 'external'); return false;" title="GODIVA2 user guide" target="_blank">http://www.resc.rdg.ac.uk/trac/ncWMS/wiki/GodivaTwoUserGuide</a>.
+        This tutorial focuses on the new features of uncertainty visualization.
+      </p>
+    </div>
+  </div>
+
+  <h5>Grouping of uncertainty-enabled variables</h5>
+  <div class="row">
+    <div class="span8">
+      <p>
+        The key difference from the standard Godiva2 client is that the GeoViQua client automatically groups layers representing measurements with associated layers representing uncertainty. 
+        In the standard client, a server may contain multiple datasets, each of which can be expanded to list the available variables. 
+        In the GeoViQua client, each of these variables may be expanded to show uncertainty components (mean, variance, etc). 
+        In the example screenshot, the &ldquo;Sea-surface temperature&rdquo; variable has a number of child variables, any of which can be individually selected. 
+        Additionally parent layers for uncertainty fields can be selected to produce a combined visualisation as in the below example. 
+        A parent layer is selectable if the mouse pointer changes to a hand when moved over it, as seen in the example.
+      </p>
+      <h5>Changing visualisation style</h5>
+      <p>
+        When a parent layer is selected, the default style is for a colour map to be used to visualise the selected data field, 
+        with overlaid contours indicating the uncertainty associated with the field. 
+        To select a different visualisation style, there is a drop-down box available to the right-hand side of the colourbar. 
+        The available styles (names in brackets) are: colourmap/contour (ucontour), colourmap/darkened (ufade), colourmap/stippling (ustipple), 
+        upper/lower confidence intervals (utriangles), and coloured dots/greyscale uncertainty (ugreydots).
+      </p>
+    </div>
+    <div class="span4">
+      <a class="fancy" href="img/tutorial/w1.png"><img src="img/tutorial/w1.png" class="img-polaroid" /></a>
+    </div>
+  </div>
+
+  <br />
+  <h4 id="t4s1">Test client for fine-grained control over styling</h4>
+  <div class="row">
+    <div class="span12">
+      <p>
+        In GeoViQua we have developed extensions to the OGC Styled Layer Descriptor and Symbology Encoding (SLD/SE) specifications to enable WMS clients to exercise closer control over the style of the bespoke images generated by the WMS. 
+        The extensions encompass new styles (including contours, stippling, fading and bivariate colour maps) that are frequently used to represent uncertainty, although they could also be applied to representing other kinds of data.
+      </p>
+    </div>
+  </div>
+
+  <h5>Overview</h5>
+  <div class="row">
+    <div class="span8">
+      <p>
+        Users of the tool may specify a style to manipulate the display of the installed datasets. 
+        The style controls the colours used, the manner in which variables, such as uncertainty, are depicted and a range of other options. 
+        Typically, a user requires a basic colour field to depict their data value with an overlay to indicate that data’s uncertainty, such as in the image to the right.
+        Depending upon the type of data however, other colour schemes and alternative uncertainty presentations may be more suitable.
+      </p>
+    </div>
+    <div class="span4">
+      <a class="fancy" href="img/tutorial/w2.png"><img src="img/tutorial/w2.png" class="img-polaroid" /></a>
+    </div>
+  </div>
+
+  <h5>Retrieving and applying a stored style</h5>
+  <div class="row">
+    <div class="span8">
+      <p>
+        On the <a href="http://ncwms.geoviqua.org/sldtest.html" onclick="trackOutbound(this, 'external'); return false;" title="GODIVA2 user guide" target="_blank">style demonstration page</a>, 
+        select a style from the drop-down list.
+        The selected style’s text will appear in the text portion of the page; you will see that it is in XML format, based upon the Symbology Encoding specification.
+        Click the &lsquo;Submit&rsquo; button on screen and the style will be applied to its data to produce an image which will be drawn in the image portion of the page.
+      </p>
+      <p>
+        Note that available datasets are listed on the web page and any of these may be substituted in the style specification: use the identifier in brackets.
+        <pre class="brush: xml; highlight: [2]">
+        <NamedLayer>
+          <se:Name>OSTIA/analysed_sst</se:Name>
+
+          ...
+
+        </pre>
+      </p>
+    </div>
+    <div class="span4">
+      <a class="fancy" href="img/tutorial/w3.png"><img src="img/tutorial/w3.png" class="img-polaroid" /></a>
+      <br /><br />
+      <a class="fancy" href="img/tutorial/w4.png"><img src="img/tutorial/w4.png" class="img-polaroid" /></a>
+      <br /><br />
+      <a class="fancy" href="img/tutorial/w5.png"><img src="img/tutorial/w5.png" class="img-polaroid" /></a>
+    </div>
+  </div>
+
+  <h5>Creating a new style</h5>
+  <div class="row">
+    <div class="span12">
+      <p>
+        You may experiment with the style by specifying different image instructions and different variables in the data. 
+        Note that the xml must be valid according to the specification and the data must exist otherwise an image will not be drawn. 
+        A few examples are given below but there are many more available to try: you are encouraged to refer to the specification and to experiment.
+        <br /><br />
+        For example:
+      </p>
+      <p>
+        <b>1. change the colour banding with thresholds</b>
+        <pre class="brush: xml">
+        <se:RasterSymbolizer>
+          <se:Opacity>1.0</se:Opacity>
+          <se:ColorMap>
+            <se:Categorize fallbackValue="#00000000">
+              <se:LookupValue>Rasterdata</se:LookupValue>
+              <se:Value>#FF0000FF</se:Value>
+              <se:Threshold>275.0</se:Threshold>
+              <se:Value>#FF00FFFF</se:Value>
+              <se:Threshold>280.0</se:Threshold>
+              <se:Value>#FF00FF00</se:Value>
+              <se:Threshold>285.0</se:Threshold>
+              <se:Value>#FFFFFF00</se:Value>
+              <se:Threshold>290.0</se:Threshold>
+              <se:Value>#FFFFC800</se:Value>
+              <se:Threshold>295.0</se:Threshold>
+              <se:Value>#FFFFAFAF</se:Value>
+              <se:Threshold>300.0</se:Threshold>
+              <se:Value>#FFFF0000</se:Value>
+            </se:Categorize>
+          </se:ColorMap>
+        </se:RasterSymbolizer>
+        </pre>
+        Specify your colours and the values you want to use to change from one to another, and the colour when no data is present.
+        The opacity may be any value between 0 and 1 but is flatly applied.
+      </p>
+      <br />
+      <p>
+        <b>2. change the depiction of uncertainty</b>
+        <br /><br/>
+        Contours:
+        <pre class="brush: xml">
+        <resc:ContourSymbolizer>
+          <se:Opacity>1.0</se:Opacity>
+          <resc:NumberOfContours>10</resc:NumberOfContours>
+          <resc:ContourLineColour>#FF000000</resc:ContourLineColour>
+          <resc:Scale>
+            <resc:ScaleMin>0.5</resc:ScaleMin>
+            <resc:ScaleMax>2.5</resc:ScaleMax>
+            <resc:Logarithmic>false</resc:Logarithmic>
+          </resc:Scale>
+          <resc:AutoscaleEnabled>false</resc:AutoscaleEnabled>
+        </resc:ContourSymbolizer>
+        </pre>
+        Patterns such as stippling:
+        <pre class="brush: xml">
+        <resc:StippleSymbolizer>
+          <se:Opacity>1.0</se:Opacity>
+          <resc:PatternScale>
+            <resc:PatternBands>5</resc:PatternBands>
+            <resc:TransparentValue>0.5</resc:TransparentValue>
+            <resc:OpaqueValue>2.5</resc:OpaqueValue>
+            <resc:Logarithmic>false</resc:Logarithmic>
+          </resc:PatternScale>
+        </resc:StippleSymbolizer>
+        </pre>
+      </p>
+      <br />
+      <p>
+        <b>3. plot arrows</b>
+        <pre class="brush: xml">
+        <resc:ArrowSymbolizer>
+          <se:Opacity>1.0</se:Opacity>
+          <resc:ArrowSize>8</resc:ArrowSize>
+          <resc:ArrowColour>#FF000000</resc:ArrowColour>
+        </resc:ArrowSymbolizer>
+        </pre>
+        The layer name must reference the variable for which the arrows are drawn e.g.
+        <pre class="brush: xml">
+        <NamedLayer>
+          <se:Name>OSTIA/analysed_sst_vector</se:Name>
+
+          ...
+
+        </pre>
+      </p>
+    </div>
+  </div>
+
+  <br />
+  <h5>Style descriptions: explaining the logic</h5>
+  <div class="row">
+    <div class="span12">
+      <p>
+        An image can contain one or more layers: raster colour maps (RasterLayer), vector arrows (VectorLayer), contours (ContourLayer) or stippling patterns (StippleLayer). 
+        An image can also contain one or more nested images. The first object read from the top of the XML file is plotted first, the second object plotted second and so on, in order.
+      </p>
+      <h6>Opacity Transforms</h6>
+      <p>
+        Each image can optionally specify its opacity; this adjustment will be applied to the whole of that image after all of the nested images and layers have been plotted.
+        Currently the opacity can be a flat adjustment by a factor between 0 and 1 or a linear adjustment that varies with the value of any data field.
+        The linear adjustment is defined by a scale range as well as the data field. The scale range is composed of a value for an entirely transparent pixel and a value for an entirely opaque pixel.
+        An opacity for missing data can also be specified.
+      </p>
+      <h6>Raster Layers</h6>
+      <p>
+        Raster colour maps are defined by a colour map, a scale range and a data field. 
+        The colour map contains a colour for missing data, colours for out of range data (top and bottom) and a palette. 
+        If either of the colours for out of range data is null then the minimum or maximum colour in the palette is used. 
+        The palette is defined by a list of colours, or the name of a predefined list and the number of colour bands up to a maximum of 254. 
+        The required number of colours is obtained by either subsampling or interpolating the list of colours given. 
+        The scale range is defined by a minimum and maximum value and whether the scale is linear or logarithmic.
+      </p>
+      <h6>Vector Layers</h6>
+      <p>
+        Vector layers are defined by a size and a colour for the arrows plus a direction field.
+        The direction field should contain angles indicating the compass direction of the vector field for each data point.
+      </p>
+      <h6>Contour Layers</h6>
+      <p>
+        Contours can be plotted by defining the number of contours to be plotted, a scale and a data field.
+        The scale can either be a minimum and a maximum value at which the first and the last contours will be plotted or an option indicating that the contours should be autoscaled to fit all of the data.
+        The colour of the contours can also be specified. The line will always be a thin solid line.
+      </p>
+      <h6>Stipple Layers</h6>
+      <p>
+        Stippling can be plotted by defining the number of bands of patterning to be plotted, a scale range and a data field.
+        The scale range can indicate the value for an opaque region, the value for a transparent region and whether the scale is logarithmic or linear.
+      </p>
+    </div>
+  </div>
+
+
+  </section>
+
+
 
 </div> <!-- /tab-content -->
 
@@ -987,7 +1276,14 @@ if (isset($_SESSION['response'])) {
     <script src="js/video-js/video.js"></script>
     <script src="js/plupload/plupload.full.min.js"></script>
     <script src="js/jquery.hashchange.min.js"></script>
+    <script src="js/syntaxhighlighter/shCore.js"></script>
+    <script src="js/syntaxhighlighter/shBrushXml.js"></script>
     <script src="js/scripts.js"></script>
+
+    <script type="text/javascript">
+      SyntaxHighlighter.defaults.toolbar = false;
+      SyntaxHighlighter.all()
+    </script>
 
 
   </body>
