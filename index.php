@@ -1074,11 +1074,12 @@ if (isset($_SESSION['response'])) {
       <p>
         Note that available datasets are listed on the web page and any of these may be substituted in the style specification: use the identifier in brackets.
         <pre class="brush: xml; highlight: [2]">
-        <NamedLayer>
-          <se:Name>OSTIA/analysed_sst</se:Name>
+        &lt;NamedLayer>
+          &lt;se:Name>OSTIA/analysed_sst&lt;/se:Name>
 
           ...
 
+        &lt;/NamedLayer>
         </pre>
       </p>
     </div>
@@ -1104,27 +1105,27 @@ if (isset($_SESSION['response'])) {
       <p>
         <b>1. change the colour banding with thresholds</b>
         <pre class="brush: xml">
-        <se:RasterSymbolizer>
-          <se:Opacity>1.0</se:Opacity>
-          <se:ColorMap>
-            <se:Categorize fallbackValue="#00000000">
-              <se:LookupValue>Rasterdata</se:LookupValue>
-              <se:Value>#FF0000FF</se:Value>
-              <se:Threshold>275.0</se:Threshold>
-              <se:Value>#FF00FFFF</se:Value>
-              <se:Threshold>280.0</se:Threshold>
-              <se:Value>#FF00FF00</se:Value>
-              <se:Threshold>285.0</se:Threshold>
-              <se:Value>#FFFFFF00</se:Value>
-              <se:Threshold>290.0</se:Threshold>
-              <se:Value>#FFFFC800</se:Value>
-              <se:Threshold>295.0</se:Threshold>
-              <se:Value>#FFFFAFAF</se:Value>
-              <se:Threshold>300.0</se:Threshold>
-              <se:Value>#FFFF0000</se:Value>
-            </se:Categorize>
-          </se:ColorMap>
-        </se:RasterSymbolizer>
+        &lt;se:RasterSymbolizer>
+          &lt;se:Opacity>1.0&lt;/se:Opacity>
+          &lt;se:ColorMap>
+            &lt;se:Categorize fallbackValue="#00000000">
+              &lt;se:LookupValue>Rasterdata&lt;/se:LookupValue>
+              &lt;se:Value>#FF0000FF&lt;/se:Value>
+              &lt;se:Threshold>275.0&lt;/se:Threshold>
+              &lt;se:Value>#FF00FFFF&lt;/se:Value>
+              &lt;se:Threshold>280.0&lt;/se:Threshold>
+              &lt;se:Value>#FF00FF00&lt;/se:Value>
+              &lt;se:Threshold>285.0&lt;/se:Threshold>
+              &lt;se:Value>#FFFFFF00&lt;/se:Value>
+              &lt;se:Threshold>290.0&lt;/se:Threshold>
+              &lt;se:Value>#FFFFC800&lt;/se:Value>
+              &lt;se:Threshold>295.0&lt;/se:Threshold>
+              &lt;se:Value>#FFFFAFAF&lt;/se:Value>
+              &lt;se:Threshold>300.0&lt;/se:Threshold>
+              &lt;se:Value>#FFFF0000&lt;/se:Value>
+            &lt;/se:Categorize>
+          &lt;/se:ColorMap>
+        &lt;/se:RasterSymbolizer>
         </pre>
         Specify your colours and the values you want to use to change from one to another, and the colour when no data is present.
         The opacity may be any value between 0 and 1 but is flatly applied.
@@ -1135,48 +1136,49 @@ if (isset($_SESSION['response'])) {
         <br /><br/>
         Contours:
         <pre class="brush: xml">
-        <resc:ContourSymbolizer>
-          <se:Opacity>1.0</se:Opacity>
-          <resc:NumberOfContours>10</resc:NumberOfContours>
-          <resc:ContourLineColour>#FF000000</resc:ContourLineColour>
-          <resc:Scale>
-            <resc:ScaleMin>0.5</resc:ScaleMin>
-            <resc:ScaleMax>2.5</resc:ScaleMax>
-            <resc:Logarithmic>false</resc:Logarithmic>
-          </resc:Scale>
-          <resc:AutoscaleEnabled>false</resc:AutoscaleEnabled>
-        </resc:ContourSymbolizer>
+        &lt;resc:ContourSymbolizer>
+          &lt;se:Opacity>1.0&lt;/se:Opacity>
+          &lt;resc:NumberOfContours>10&lt;/resc:NumberOfContours>
+          &lt;resc:ContourLineColour>#FF000000&lt;/resc:ContourLineColour>
+          &lt;resc:Scale>
+            &lt;resc:ScaleMin>0.5&lt;/resc:ScaleMin>
+            &lt;resc:ScaleMax>2.5&lt;/resc:ScaleMax>
+            &lt;resc:Logarithmic>false&lt;/resc:Logarithmic>
+          &lt;/resc:Scale>
+          &lt;resc:AutoscaleEnabled>false&lt;/resc:AutoscaleEnabled>
+        &lt;/resc:ContourSymbolizer>
         </pre>
         Patterns such as stippling:
         <pre class="brush: xml">
-        <resc:StippleSymbolizer>
-          <se:Opacity>1.0</se:Opacity>
-          <resc:PatternScale>
-            <resc:PatternBands>5</resc:PatternBands>
-            <resc:TransparentValue>0.5</resc:TransparentValue>
-            <resc:OpaqueValue>2.5</resc:OpaqueValue>
-            <resc:Logarithmic>false</resc:Logarithmic>
-          </resc:PatternScale>
-        </resc:StippleSymbolizer>
+        &lt;resc:StippleSymbolizer>
+          &lt;se:Opacity>1.0&lt;/se:Opacity>
+          &lt;resc:PatternScale>
+            &lt;resc:PatternBands>5&lt;/resc:PatternBands>
+            &lt;resc:TransparentValue>0.5&lt;/resc:TransparentValue>
+            &lt;resc:OpaqueValue>2.5&lt;/resc:OpaqueValue>
+            &lt;resc:Logarithmic>false&lt;/resc:Logarithmic>
+          &lt;/resc:PatternScale>
+        &lt;/resc:StippleSymbolizer>
         </pre>
       </p>
       <br />
       <p>
         <b>3. plot arrows</b>
         <pre class="brush: xml">
-        <resc:ArrowSymbolizer>
-          <se:Opacity>1.0</se:Opacity>
-          <resc:ArrowSize>8</resc:ArrowSize>
-          <resc:ArrowColour>#FF000000</resc:ArrowColour>
-        </resc:ArrowSymbolizer>
+        &lt;resc:ArrowSymbolizer>
+          &lt;se:Opacity>1.0&lt;/se:Opacity>
+          &lt;resc:ArrowSize>8&lt;/resc:ArrowSize>
+          &lt;resc:ArrowColour>#FF000000&lt;/resc:ArrowColour>
+        &lt;/resc:ArrowSymbolizer>
         </pre>
         The layer name must reference the variable for which the arrows are drawn e.g.
         <pre class="brush: xml">
-        <NamedLayer>
-          <se:Name>OSTIA/analysed_sst_vector</se:Name>
+        &lt;NamedLayer>
+          &lt;se:Name>OSTIA/analysed_sst_vector&lt;/se:Name>
 
           ...
 
+        &lt;/NamedLayer>
         </pre>
       </p>
     </div>
